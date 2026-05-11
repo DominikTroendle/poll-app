@@ -1,0 +1,10 @@
+@use '../../styles/base/fonts' as *;
+
+.home{
+    width: 100vw;
+    padding: 48px 16px;
+}
+
+.home__title{
+    font-family: 'Nerko One';
+}
