@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { HeroVisual } from "./hero-section/hero-visual/hero-visual";
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [HeroVisual],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
