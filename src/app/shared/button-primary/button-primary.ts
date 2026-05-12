@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, input, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button-primary',
@@ -8,4 +9,13 @@ import { Component, input } from '@angular/core';
 })
 export class ButtonPrimary {
   buttonText = input<string>('');
+  private readonly router = inject(Router);
+
+  get isHomePage(): boolean {
+    return this.router.url === '/';
+  }
+
+  get logoSrc(): string {
+    return this.isHomePage ? 'svg/plus-icon.svg' : 'svg/check-icon.svg';
+  }
 }

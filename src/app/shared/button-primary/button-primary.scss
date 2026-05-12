@@ -1,0 +1,33 @@
+@use '../../../styles/abstract/variables' as *;
+@use '../../../styles/abstract/mixins' as *;
+
+.button {
+  @include flex-center();
+  padding: 12px 16px;
+  background: $tertiary-orange;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: $secondary-orange;
+
+  .button__icon{
+    width: 20px;
+    margin-left: 10px;
+  }
+}
+
+.button__text {
+  font-family: 'Nokora Bold';
+  font-size: 18px;
+  color: $text-purple;
+}
+
+.button__icon {
+  display: block;
+  width: 0;
+  transition: width 0.3s ease, margin 0.3s ease;
+}
