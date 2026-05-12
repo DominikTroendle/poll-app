@@ -8,4 +8,6 @@ import { ButtonPrimary } from "../shared/button-primary/button-primary";
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {}
+export class Home {
+  homeButtonText = "New survey";
+}
