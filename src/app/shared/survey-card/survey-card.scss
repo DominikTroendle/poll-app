@@ -1,5 +1,6 @@
 @use '../../../styles/abstract/mixins' as *;
 @use '../../../styles/abstract/variables' as *;
+@use '../../../styles/base/fonts' as *;
 
 .survey-card{
     @include flex-space(column);
@@ -12,4 +13,18 @@
 
 .survey-card__header{
     @include flex-start(column, 8px);
+}
+
+.survey-card__category{
+    font-family: 'Mulish';
+    font-size: 14px;
+    font-weight: 600;
+    color: $primary-purple;
+}
+
+.survey-card__title{
+    font-family: 'Mulish';
+    font-size: 24px;
+    font-weight: 700;
+    color: $primary-purple;
 }
