@@ -16,6 +16,14 @@
     flex-direction: $direction;
 }
 
+@mixin flex-start($direction: row, $gap: 0) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
 @mixin respond($size) {
   $value: if(map.has-key($breakpoints, $size), map.get($breakpoints, $size), $size);
   @media screen and (min-width: $value) {

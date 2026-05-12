@@ -11,5 +11,5 @@
 }
 
 .survey-card__header{
-    
+    @include flex-start(column, 8px);
 }
