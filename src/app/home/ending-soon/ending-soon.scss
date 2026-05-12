@@ -1,22 +1,32 @@
 @use '../../../styles/abstract/mixins' as *;
 
-.ending-soon{
-    @include flex-start(column, 16px);
+:host {
+  display: block;
+  width: 100%;
 }
 
-.ending-soon__title{
-    font-family: 'Mulish';
-    font-size: 24px;
-    font-weight: 400;
-    color: white;
+.ending-soon {
+  @include flex-start(column, 16px);
+  width: 100%;
 }
 
-.ending-soon__card-wrapper{
-    @include flex-start(row, 16px);
+.ending-soon__title {
+  font-family: 'Mulish';
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
 }
 
-.ending-soon__card{
-    display: block;
-    width: 250px;
-    height: 233px;
+.ending-soon__card-wrapper {
+  @include flex-start(row, 16px);
+  justify-content: flex-start;
+  width: calc(100vw - 16px);
+  overflow-x: scroll;
+}
+
+.ending-soon__card {
+  display: block;
+  flex: 0 0 250px;
+  width: 250px;
+  height: 233px;
 }
