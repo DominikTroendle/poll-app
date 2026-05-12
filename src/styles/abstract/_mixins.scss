@@ -9,6 +9,13 @@
   gap: $gap;
 }
 
+@mixin flex-space($direction: row) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: $direction;
+}
+
 @mixin respond($size) {
   $value: if(map.has-key($breakpoints, $size), map.get($breakpoints, $size), $size);
   @media screen and (min-width: $value) {

@@ -1,6 +1,8 @@
+@use '../../../styles/abstract/mixins' as *;
 @use '../../../styles/abstract/variables' as *;
 
 .survey-card{
+    @include flex-space(column);
     width: 100%;
     height: 100%;
 }
