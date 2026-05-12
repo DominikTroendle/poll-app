@@ -47,7 +47,7 @@
 
   img {
     width: 100%;
-    animation: slideRight 10s infinite ease-in-out;
+    animation: slideRight 8s infinite ease-in-out;
   }
 
   &::after {
@@ -59,7 +59,7 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: rgb(67, 53, 87);
-    animation: slideFurtherRight 10s infinite ease-in-out;
+    animation: slideFurtherRight 8s infinite ease-in-out;
   }
 }
 
