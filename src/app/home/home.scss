@@ -11,6 +11,7 @@
 
 .hero{
     @include flex-center(column, 54px);
+    width: 100%;
 }
 
 .hero__wrapper{
@@ -34,4 +35,15 @@
     font-family: 'Mulish';
     font-size: 18px;
     color: white;
+}
+
+.surveys{
+    @include flex-center(column, 48px);
+    width: 100%;
+}
+
+.surveys__title{
+    font-family: 'Nerko One';
+    font-size: 54px;
+    color: $secondary-orange;
 }
