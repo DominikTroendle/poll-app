@@ -25,7 +25,7 @@
 }
 
 @mixin respond($size) {
-  $value: if(map.has-key($breakpoints, $size), map.get($breakpoints, $size), $size);
+  $value: if(sass(map.has-key($breakpoints, $size)): map.get($breakpoints, $size); else: $size);
   @media screen and (min-width: $value) {
     @content;
   }
