@@ -1,0 +1,11 @@
+@use '../../../styles/abstract/mixins' as *;
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+.survey-overview {
+    @include flex-start(column, 48px);
+    width: 100%;
+}
