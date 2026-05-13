@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CategoryDropdown } from "../../shared/category-dropdown/category-dropdown";
+import { SurveyList } from '../survey-list/survey-list';
 
 @Component({
   selector: 'app-survey-overview',
-  imports: [CategoryDropdown],
+  imports: [CategoryDropdown, SurveyList],
   templateUrl: './survey-overview.html',
   styleUrl: './survey-overview.scss',
 })
