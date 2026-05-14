@@ -17,6 +17,7 @@
 
     &__list-wrapper{
         @include flex-start(column, 24px);
+        width: 100%;
     }
 }
 

@@ -1,0 +1,6 @@
+@use '../../../styles/abstract/mixins' as *;
+
+:host {
+    @include flex-start(column, 15px);
+    width: 100%;
+}
