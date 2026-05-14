@@ -9,9 +9,17 @@ import { Component, input, output } from '@angular/core';
 export class CategoryDropdown {
   isOpen = input(false);
   toggleRequested = output<void>();
-  selectedCategory = "Test";
+  categories = [
+    'Team Activities',
+    'Health & Wellness',
+    'Gaming & Entertainment',
+    'Education & Learning',
+    'Lifestlye & Preferences',
+    'Technology & Innovation',
+  ];
+  selectedCategory = '';
 
-  get getImgSrc():string {
+  get getImgSrc(): string {
     return this.isOpen() ? 'svg/arrow-dropdown-open.svg' : 'svg/arrow-dropdown.svg';
   }
 
@@ -21,5 +29,10 @@ export class CategoryDropdown {
 
   isCategorySelected(): boolean {
     return this.selectedCategory != '' && !this.isOpen();
+  }
+
+  setCategory(index: number) {
+    this.selectedCategory = this.categories[index];
+    this.requestToggle();
   }
 }
