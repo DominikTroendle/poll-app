@@ -1,5 +1,5 @@
 <div class="category-dropdown">
-    <button class="category-dropdown__button" (click)="requestToggle()">
+    <button class="category-dropdown__button" [class.category-dropdown__button--selected]="isCategorySelected()" (click)="requestToggle()">
         <span>Sort by categories</span>
         <img [src]="getImgSrc">
     </button>

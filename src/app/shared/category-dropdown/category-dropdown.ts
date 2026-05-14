@@ -31,7 +31,7 @@ export class CategoryDropdown {
     return this.selectedCategory != '' && !this.isOpen();
   }
 
-  setCategory(index: number) {
+  setCategory(index: number): void {
     this.selectedCategory = this.categories[index];
     this.requestToggle();
   }

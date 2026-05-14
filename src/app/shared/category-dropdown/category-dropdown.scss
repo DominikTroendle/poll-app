@@ -28,19 +28,27 @@
       filter: none;
     }
   }
+
+  &--selected {
+    background: #9d9d9d1f;
+
+    img {
+      filter: none;
+    }
+  }
 }
 
 .category-dropdown__selected {
-    display: none;
-    align-self: flex-start;
-    padding: 4px 4px 4px 10px;
-    font-family: 'Mulish';
-    font-size: 14px;
-    color: $secondary-orange;
+  display: none;
+  align-self: flex-start;
+  padding: 4px 4px 4px 10px;
+  font-family: 'Mulish';
+  font-size: 14px;
+  color: $secondary-orange;
 
-    &--visible {
-        display: block;
-    }
+  &--visible {
+    display: block;
+  }
 }
 
 .category-dropdown__content {
@@ -64,7 +72,7 @@
     }
   }
 
-  &--visible{
+  &--visible {
     @include flex-start(column, 4px);
   }
 }
