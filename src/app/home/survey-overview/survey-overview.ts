@@ -8,4 +8,14 @@ import { SurveyList } from '../survey-list/survey-list';
   templateUrl: './survey-overview.html',
   styleUrl: './survey-overview.scss',
 })
-export class SurveyOverview {}
+export class SurveyOverview {
+  isCategoryDropdownOpen = false;
+
+  toggleCategoryDropdown():void {
+    this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
+  }
+
+  closeCategoryDropdown():void {
+    this.isCategoryDropdownOpen = false;
+  }
+}

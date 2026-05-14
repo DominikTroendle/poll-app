@@ -1,0 +1,57 @@
+@use '../../../styles/abstract/mixins' as *;
+@use '../../../styles/abstract/variables' as *;
+@use '../../../styles/base/fonts' as *;
+
+.category-dropdown {
+  @include flex-center(column, 4px);
+}
+
+.category-dropdown__button {
+  @include flex-center(row, 10px);
+  border: none;
+  background: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: 'Mulish 600';
+  font-size: 18px;
+  color: white;
+
+  img {
+    filter: brightness(0) saturate(100%) invert(100%);
+  }
+
+  &:hover {
+    background: #9d9d9d1f;
+    cursor: pointer;
+
+    img {
+      filter: none;
+    }
+  }
+}
+
+.category-dropdown__content {
+  display: none;
+  width: 100%;
+  list-style-type: none;
+  padding: 8px 4px;
+  background: white;
+  border-radius: 6px;
+  font-family: 'Mulish';
+  font-size: 14px;
+  letter-spacing: 2%;
+
+  li {
+    padding: 4px;
+    border-radius: 6px;
+
+    &:hover {
+      cursor: pointer;
+      background: $primary-lilac;
+    }
+  }
+
+  &--visible{
+    @include flex-start(column, 4px);
+  }
+}
