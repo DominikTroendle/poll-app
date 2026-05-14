@@ -5,27 +5,27 @@
 .hero {
   @include flex-center(column, 54px);
   width: 100%;
-}
 
-.hero__wrapper {
-  @include flex-center(column, 24px);
-}
+  &__wrapper {
+    @include flex-center(column, 24px);
+  }
 
-.hero__title {
-  font-family: 'Nerko One';
-  font-size: 62px;
-  line-height: 50px;
-  color: $secondary-orange;
-  font-weight: 300;
-}
+  &__title {
+    font-family: 'Nerko One';
+    font-size: 62px;
+    line-height: 50px;
+    color: $secondary-orange;
+    font-weight: 300;
+  }
 
-.hero__visual {
-  display: block;
-  width: 250px;
-}
+  &__visual {
+    display: block;
+    width: 250px;
+  }
 
-.hero__intro {
-  font-family: 'Mulish';
-  font-size: 18px;
-  color: white;
+  &__intro {
+    font-family: 'Mulish';
+    font-size: 18px;
+    color: white;
+  }
 }
