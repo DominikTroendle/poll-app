@@ -6,7 +6,7 @@ export const routes: Routes = [
         loadComponent: () => import('./home/home').then((m) => m.Home)
     },
     {
-        path: 'surveys:id',
+        path: 'survey/:id',
         loadComponent: () => import('./survey/survey').then((m) => m.Survey)
     }
 ];
