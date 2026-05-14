@@ -3,6 +3,7 @@
         <span>Sort by categories</span>
         <img [src]="getImgSrc">
     </button>
+    <p class="category-dropdown__selected" [class.category-dropdown__selected--visible]="isCategorySelected()">{{ selectedCategory }}</p>
     <ul class="category-dropdown__content" [class.category-dropdown__content--visible]="isOpen()">
         <li>TestCategory1</li>
         <li>TestCategory2</li>

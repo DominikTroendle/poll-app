@@ -30,6 +30,19 @@
   }
 }
 
+.category-dropdown__selected {
+    display: none;
+    align-self: flex-start;
+    padding: 4px 4px 4px 10px;
+    font-family: 'Mulish';
+    font-size: 14px;
+    color: $secondary-orange;
+
+    &--visible {
+        display: block;
+    }
+}
+
 .category-dropdown__content {
   display: none;
   width: 100%;

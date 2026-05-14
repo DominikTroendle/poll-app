@@ -9,6 +9,7 @@ import { Component, input, output } from '@angular/core';
 export class CategoryDropdown {
   isOpen = input(false);
   toggleRequested = output<void>();
+  selectedCategory = "Test";
 
   get getImgSrc():string {
     return this.isOpen() ? 'svg/arrow-dropdown-open.svg' : 'svg/arrow-dropdown.svg';
@@ -16,5 +17,9 @@ export class CategoryDropdown {
 
   requestToggle(): void {
     this.toggleRequested.emit();
+  }
+
+  isCategorySelected(): boolean {
+    return this.selectedCategory != '' && !this.isOpen();
   }
 }
