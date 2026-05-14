@@ -8,25 +8,27 @@
 .ending-soon {
   @include flex-start(column, 16px);
   width: 100%;
-}
 
-.ending-soon__title {
-  font-family: 'Mulish';
-  font-size: 24px;
-  font-weight: 400;
-  color: white;
-}
+  &__title {
+    font-family: 'Mulish';
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+  }
 
-.ending-soon__card-wrapper {
-  @include flex-start(row, 16px);
-  justify-content: flex-start;
-  width: calc(100vw - 16px);
-  overflow-x: scroll;
-}
+  &__card-wrapper {
+    @include flex-start(row, 16px);
+    justify-content: flex-start;
+    width: 100vw;
+    margin-left: -16px;
+    padding-left: 16px;
+    overflow-x: scroll;
+  }
 
-.ending-soon__card {
-  display: block;
-  flex: 0 0 250px;
-  width: 250px;
-  height: 233px;
+  &__card {
+    display: block;
+    flex: 0 0 250px;
+    width: 250px;
+    height: 233px;
+  }
 }
