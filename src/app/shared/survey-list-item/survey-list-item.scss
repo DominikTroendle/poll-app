@@ -2,6 +2,12 @@
 @use '../../../styles/abstract/variables' as *;
 @use '../../../styles/base/fonts' as *;
 
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .list-item {
   @include flex-space(column);
   width: 100%;
