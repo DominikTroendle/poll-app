@@ -16,6 +16,24 @@
   src: url('/fonts/mulish-v18-latin-regular.woff2') format('woff2');
 }
 
+/* mulish-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Mulish 500';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/mulish-v18-latin-500.woff2') format('woff2');
+}
+
+/* mulish-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Mulish 600';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/mulish-v18-latin-600.woff2') format('woff2');
+}
+
 /* mulish-700 - latin */
 @font-face {
   font-display: swap;
@@ -37,7 +55,7 @@
 /* nokora-700 - latin */
 @font-face {
   font-display: swap;
-  font-family: 'Nokora Bold';
+  font-family: 'Nokora 700';
   font-style: normal;
   font-weight: 700;
   src: url('/fonts/nokora-v34-latin-700.woff2') format('woff2');
