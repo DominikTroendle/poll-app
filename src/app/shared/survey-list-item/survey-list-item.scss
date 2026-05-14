@@ -1,0 +1,29 @@
+@use '../../../styles/abstract/mixins' as *;
+@use '../../../styles/abstract/variables' as *;
+@use '../../../styles/base/fonts' as *;
+
+.listt-item{
+    @include flex-space(column);
+    width: 100%;
+    height: 100%;
+    background: $secondary-lilac;
+    border-top-right-radius: 80px;
+    padding: 24px 16px;
+}
+
+.list-item__header{
+    @include flex-start(column, 8px);
+}
+
+.list-item__category{
+    font-family: 'Mulish';
+    font-size: 16px;
+    font-weight: 500;
+    color: $tertiary-orange;
+}
+
+.list-item__title{
+    font-family: 'Mulish 700';
+    font-size: 20px;
+    color: white;
+}
