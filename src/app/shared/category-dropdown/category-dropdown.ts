@@ -9,10 +9,9 @@ import { Component, input, output } from '@angular/core';
 export class CategoryDropdown {
   isOpen = input(false);
   toggleRequested = output<void>();
-  isVisible = false;
 
   get getImgSrc():string {
-    return this.isVisible ? 'svg/arrow-dropdown-open.svg' : 'svg/arrow-dropdown.svg';
+    return this.isOpen() ? 'svg/arrow-dropdown-open.svg' : 'svg/arrow-dropdown.svg';
   }
 
   requestToggle(): void {
