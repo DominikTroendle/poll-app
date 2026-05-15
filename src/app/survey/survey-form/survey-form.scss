@@ -1,15 +1,1 @@
-@use '../../../styles/abstract/mixins' as *;
-@use '../../../styles/abstract/variables' as *;
-@use '../../../styles/base/fonts' as *;
 
-.survey-form {
-  @include flex-center(column, 40px);
-
-  &__header-wrapper {
-    @include flex-center(column, 24px);
-  }
-
-  &__header {
-    @include flex-center(column, 16px);
-  }
-}
