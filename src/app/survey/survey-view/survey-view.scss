@@ -2,14 +2,40 @@
 @use '../../../styles/abstract/variables' as *;
 @use '../../../styles/base/fonts' as *;
 
-.survey-form {
+.survey-view {
   @include flex-center(column, 40px);
+  padding: 40px 16px;
+  background: #8E70991A;
+  border-top-right-radius: 100px;
 
   &__header-wrapper {
     @include flex-center(column, 24px);
   }
 
   &__header {
-    @include flex-center(column, 16px);
+    @include flex-start(column, 16px);
+  }
+
+  &__status,
+  &__meta {
+    @include flex-space();
+    width: 100%;
+  }
+
+  &__status-badge {
+    --survey-status-bg: #FFB770;
+  }
+
+  &__close-button {
+    @include flex-center();
+    border: none;
+    border-radius: 10px;
+    background: $tertiary-orange;
+    padding: 8px 12px;
+    margin-right: 16px;
+
+    img {
+      width: 13px;
+    }
   }
 }
