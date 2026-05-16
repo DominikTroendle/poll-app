@@ -24,6 +24,14 @@
     gap: $gap;
 }
 
+@mixin flex-end($direction: row, $gap: 0) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
 @mixin respond($size) {
   $value: if(sass(map.has-key($breakpoints, $size)): map.get($breakpoints, $size); else: $size);
   @media screen and (min-width: $value) {
