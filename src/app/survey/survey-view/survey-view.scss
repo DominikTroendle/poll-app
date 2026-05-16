@@ -23,7 +23,10 @@
   }
 
   &__status-badge {
+    --survey-status-padding: 3px 12px 3px 8px;
     --survey-status-bg: #FFB770;
+    --survey-status-font-family: 'Mulish 600';
+    --survey-status-font-size: 16px;
   }
 
   &__close-button {
