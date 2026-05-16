@@ -34,11 +34,31 @@
     border: none;
     border-radius: 10px;
     background: $tertiary-orange;
-    padding: 8px 12px;
+    padding: 8px 11px 7px 12px;
     margin-right: 16px;
 
     img {
       width: 13px;
+      aspect-ratio: 1/1;
     }
+  }
+
+  &__meta {
+    font-family: 'Mulish 500';
+    font-size: 14px;
+    color: $primary-purple;
+  }
+
+  &__title {
+    font-family: 'Nerko One';
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 42px;
+    color: $primary-orange;
+  }
+
+  &__description {
+    font-family: 'Mulish 500';
+    font-size: 16px;
   }
 }
