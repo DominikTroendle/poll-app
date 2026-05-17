@@ -2,8 +2,8 @@
 @use '../../styles/abstract/mixins' as *;
 @use '../../styles/abstract/variables' as *;
 
-.survey-wrapper{
-    @include flex-center(column, 80px);
-    width: 100%;
-    padding: 0 16px 48px 16px;
+.survey-wrapper {
+  @include flex-center(column, 80px);
+  width: 100%;
+  padding: 0 16px 48px 16px;
 }

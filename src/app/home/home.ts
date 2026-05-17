@@ -3,7 +3,7 @@ import { HeroVisual } from './hero-section/hero-visual/hero-visual';
 import { ButtonPrimary } from '../shared/button-primary/button-primary';
 import { EndingSoon } from './ending-soon/ending-soon';
 import { SurveyOverview } from './survey-overview/survey-overview';
-import { HeroSection } from "./hero-section/hero-section";
+import { HeroSection } from './hero-section/hero-section';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +11,4 @@ import { HeroSection } from "./hero-section/hero-section";
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
-  
-}
+export class Home {}

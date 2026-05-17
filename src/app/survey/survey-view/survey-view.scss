@@ -5,7 +5,7 @@
 .survey-view {
   @include flex-center(column, 40px);
   padding: 40px 16px;
-  background: #8E70991A;
+  background: #8e70991a;
   border-top-right-radius: 100px;
 
   &__header-wrapper {
@@ -24,7 +24,7 @@
 
   &__status-badge {
     --survey-status-padding: 3px 12px 3px 8px;
-    --survey-status-bg: #FFB770;
+    --survey-status-bg: #ffb770;
     --survey-status-font-family: 'Mulish 600';
     --survey-status-font-size: 16px;
   }

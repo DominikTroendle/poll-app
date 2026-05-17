@@ -3,33 +3,33 @@
 @use '../../../styles/base/fonts' as *;
 
 :host {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .survey-overview {
-    @include flex-start(column, 48px);
+  @include flex-start(column, 48px);
+  width: 100%;
+
+  &__status {
+    @include flex-start(row, 16px);
+  }
+
+  &__list-wrapper {
+    @include flex-start(column, 24px);
     width: 100%;
-
-    &__status{
-        @include flex-start(row, 16px);
-    }
-
-    &__list-wrapper{
-        @include flex-start(column, 24px);
-        width: 100%;
-    }
+  }
 }
 
 .survey-overview__button {
-    background: #FEE9D4;
-    border: none;
-    border-radius: 20px;
-    padding: 2px 10px;
-    font-family: 'Nokora';
-    font-size: 14px;
+  background: #fee9d4;
+  border: none;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-family: 'Nokora';
+  font-size: 14px;
 
-    &--active{
-        background: $secondary-orange;
-    }
+  &--active {
+    background: $secondary-orange;
+  }
 }

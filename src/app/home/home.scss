@@ -2,22 +2,22 @@
 @use '../../styles/abstract/mixins' as *;
 @use '../../styles/abstract/variables' as *;
 
-.home-wrapper{
-    @include flex-center(column, 80px);
-    width: 100%;
-    max-width: 100vw;
-    padding: 0 16px 48px 16px;
-    background-color: $primary-purple;
+.home-wrapper {
+  @include flex-center(column, 80px);
+  width: 100%;
+  max-width: 100vw;
+  padding: 0 16px 48px 16px;
+  background-color: $primary-purple;
 }
 
-.surveys{
-    @include flex-center(column, 48px);
-    width: 100%;
+.surveys {
+  @include flex-center(column, 48px);
+  width: 100%;
 }
 
-.surveys__title{
-    font-family: 'Nerko One';
-    font-size: 54px;
-    font-weight: 400;
-    color: $secondary-orange;
+.surveys__title {
+  font-family: 'Nerko One';
+  font-size: 54px;
+  font-weight: 400;
+  color: $secondary-orange;
 }

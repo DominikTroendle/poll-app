@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SurveyCard } from '../../shared/survey-card/survey-card';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-ending-soon',

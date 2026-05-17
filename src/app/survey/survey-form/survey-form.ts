@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SurveyInput } from "../survey-input/survey-input";
+import { SurveyInput } from '../survey-input/survey-input';
 import { SurveyQuestion } from '../survey-question/survey-question';
 
 @Component({

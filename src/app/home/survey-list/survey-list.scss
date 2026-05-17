@@ -5,10 +5,10 @@
 }
 
 .survey-list {
-    @include flex-start(column, 15px);
-    width: 100%;
-    
-    &__item {
-        height: 147px;
-    }
+  @include flex-start(column, 15px);
+  width: 100%;
+
+  &__item {
+    height: 147px;
+  }
 }

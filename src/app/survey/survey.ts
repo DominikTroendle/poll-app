@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SurveyView } from "./survey-view/survey-view";
+import { SurveyView } from './survey-view/survey-view';
 
 @Component({
   selector: 'app-survey',

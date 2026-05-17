@@ -85,7 +85,7 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: rgb(211, 153, 102);
-    offset-path: path("M 5 3 Q 36 0 30 -34");
+    offset-path: path('M 5 3 Q 36 0 30 -34');
     offset-rotate: 0deg;
     animation: curve 6s infinite ease-in-out;
     z-index: -1;

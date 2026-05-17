@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SurveyStatus } from '../../shared/survey-status/survey-status';
-import { SurveyForm } from "../survey-form/survey-form";
+import { SurveyForm } from '../survey-form/survey-form';
 
 @Component({
   selector: 'app-survey-view',

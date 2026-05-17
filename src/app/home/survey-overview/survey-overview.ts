@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CategoryDropdown } from "../../shared/category-dropdown/category-dropdown";
+import { CategoryDropdown } from '../../shared/category-dropdown/category-dropdown';
 import { SurveyList } from '../survey-list/survey-list';
 
 @Component({
@@ -11,11 +11,11 @@ import { SurveyList } from '../survey-list/survey-list';
 export class SurveyOverview {
   isCategoryDropdownOpen = false;
 
-  toggleCategoryDropdown():void {
+  toggleCategoryDropdown(): void {
     this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
   }
 
-  closeCategoryDropdown():void {
+  closeCategoryDropdown(): void {
     this.isCategoryDropdownOpen = false;
   }
 }

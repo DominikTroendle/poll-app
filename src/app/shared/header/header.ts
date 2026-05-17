@@ -11,10 +11,10 @@ export class Header {
   private readonly router = inject(Router);
 
   get isHomePage(): boolean {
-    return this.router.url === "/";
+    return this.router.url === '/';
   }
 
-  get logoSrc():string {
+  get logoSrc(): string {
     return this.isHomePage ? 'svg/logo-home.svg' : 'svg/logo.svg';
   }
 }

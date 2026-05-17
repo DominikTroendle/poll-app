@@ -1,12 +1,21 @@
 <div class="category-dropdown">
-    <button class="category-dropdown__button" [class.category-dropdown__button--selected]="isCategorySelected()" (click)="requestToggle()">
-        <span>Sort by categories</span>
-        <img [src]="getImgSrc">
-    </button>
-    <p class="category-dropdown__selected" [class.category-dropdown__selected--visible]="isCategorySelected()">{{ selectedCategory }}</p>
-    <ul class="category-dropdown__content" [class.category-dropdown__content--visible]="isOpen()">
-        @for(category of categories; track category; let index = $index) {
-        <li (click)="setCategory(index)">{{ category }}</li>
-        }
-    </ul>
+  <button
+    class="category-dropdown__button"
+    [class.category-dropdown__button--selected]="isCategorySelected()"
+    (click)="requestToggle()"
+  >
+    <span>Sort by categories</span>
+    <img [src]="getImgSrc" />
+  </button>
+  <p
+    class="category-dropdown__selected"
+    [class.category-dropdown__selected--visible]="isCategorySelected()"
+  >
+    {{ selectedCategory }}
+  </p>
+  <ul class="category-dropdown__content" [class.category-dropdown__content--visible]="isOpen()">
+    @for (category of categories; track category; let index = $index) {
+      <li (click)="setCategory(index)">{{ category }}</li>
+    }
+  </ul>
 </div>
