@@ -1,3 +1,24 @@
 @use '../../../styles/abstract/mixins' as *;
 @use '../../../styles/abstract/variables' as *;
 @use '../../../styles/base/fonts' as *;
+
+:host {
+  width: 100%;
+}
+
+.survey-result {
+  @include flex-start(column, 16px);
+
+  &__title {
+    font-family: 'Mulish 700';
+    font-size: 18px;
+    color: $primary-purple;
+    padding-left: 21px;
+    text-indent: -21px;
+  }
+
+  &__charts-wrapper {
+    @include flex-start(column, 6px);
+    width: 100%;
+  }
+}
