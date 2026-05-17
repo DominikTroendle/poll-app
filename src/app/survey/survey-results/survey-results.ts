@@ -8,14 +8,14 @@ import { Component } from '@angular/core';
 })
 export class SurveyResults {
   isOpen = true;
-  buttonText = "Close results";
+  buttonText = 'Close results';
 
-  get getImgSrc():string {
+  get getImgSrc(): string {
     return this.isOpen ? 'svg/arrow-dropdown-open.svg' : 'svg/arrow-dropdown.svg';
   }
 
-  toggleResultsVisibility():void {
+  toggleResultsVisibility(): void {
     this.isOpen = !this.isOpen;
-    this.buttonText = this.isOpen ? "Close results" : "See results" ;
+    this.buttonText = this.isOpen ? 'Close results' : 'See results';
   }
 }
