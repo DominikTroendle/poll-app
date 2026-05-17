@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './result-chart.html',
   styleUrl: './result-chart.scss',
 })
-export class ResultChart {}
+export class ResultChart {
+  percent = 14;
+}
