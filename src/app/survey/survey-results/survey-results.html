@@ -1,1 +1,14 @@
-<p>survey-results works!</p>
+<button class="survey-results__button" (click)="toggleResultsVisibility()">
+    <span>{{ buttonText }}</span>
+    <img class="survey-results__arrow" [src]="getImgSrc">
+</button>
+@if(isOpen) {
+<div class="survey-results__container">
+    <h2 class="survey-results__title">Survey results <span class="survey-results__prefix">LIVE</span></h2>
+    <!-- survey-result component -->
+    <div class="survey-results__wrapper">
+        <div class="test-result-component"></div>
+        <div class="test-result-component"></div>
+    </div>
+</div>
+}

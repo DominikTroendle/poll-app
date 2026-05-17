@@ -1,0 +1,8 @@
+@use '../../../styles/abstract/mixins' as *;
+@use '../../../styles/abstract/variables' as *;
+@use '../../../styles/base/fonts' as *;
+
+.survey-results__arrow {
+  filter: brightness(0) saturate(100%) invert(15%) sepia(21%) saturate(909%) hue-rotate(239deg)
+    brightness(88%) contrast(90%);
+}
