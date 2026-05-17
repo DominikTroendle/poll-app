@@ -3,43 +3,11 @@
 @use '../../../styles/base/fonts' as *;
 
 :host {
-    @include flex-end(column, 40px);
+  @include flex-end(column, 40px);
 }
 
 .survey-form {
   @include flex-start(column, 24px);
-
-  * {
-    width: 100%;
-  }
-
-  &__fieldset {
-    @include flex-start(column, 24px);
-    border: none;
-    color: $primary-purple;
-  }
-
-  &__fieldset-header {
-    @include flex-start(column, 3px);
-  }
-
-  &__question {
-    font-family: 'Mulish 700';
-    font-size: 18px;
-    padding-left: 21px;
-    text-indent: -21px;
-  }
-
-  &__multi-select {
-    font-family: 'Mulish';
-    font-size: 12px;
-    padding-left: 21px;
-  }
-
-  &__inputs-wrapper {
-    @include flex-start(column, 8px);
-    padding-left: 8px;
-  }
 
   &__button {
     @include flex-center(row, 10px);
@@ -52,7 +20,7 @@
     color: $primary-purple;
 
     img {
-        width: 18px;
+      width: 18px;
     }
   }
 }
