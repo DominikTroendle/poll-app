@@ -2,6 +2,10 @@
 @use '../../../styles/abstract/variables' as *;
 @use '../../../styles/base/fonts' as *;
 
+:host {
+  @include flex-center(column, 56px);
+}
+
 .survey-view {
   @include flex-center(column, 40px);
   padding: 40px 16px;
