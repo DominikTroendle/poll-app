@@ -2,7 +2,47 @@
 @use '../../../styles/abstract/variables' as *;
 @use '../../../styles/base/fonts' as *;
 
-.survey-results__arrow {
-  filter: brightness(0) saturate(100%) invert(15%) sepia(21%) saturate(909%) hue-rotate(239deg)
-    brightness(88%) contrast(90%);
+:host {
+  display: block;
+  width: 100%;
+}
+
+.survey-results {
+  @include flex-start(column, 20px);
+  width: 100%;
+  padding: 8px;
+
+  &__button {
+    @include flex-center(row, 10px);
+    border: none;
+    padding: 4px 6px;
+    font-family: 'Mulish 700';
+    font-size: 18px;
+    color: $primary-purple;
+  }
+
+  &__arrow {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(21%) saturate(909%) hue-rotate(239deg)
+      brightness(88%) contrast(90%);
+  }
+
+  &__container {
+    @include flex-start(column, 16px);
+  }
+
+  &__title {
+    font-family: 'Nerko One';
+    font-size: 32px;
+    font-weight: 400;
+    color: $primary-purple;
+  }
+
+  &__prefix {
+    color: $secondary-orange;
+  }
+  
+  &__wrapper {
+    @include flex-center(column, 24px);
+    width: 100%;
+  }
 }
