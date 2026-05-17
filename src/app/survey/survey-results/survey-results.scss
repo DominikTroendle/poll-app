@@ -40,7 +40,7 @@
   &__prefix {
     color: $secondary-orange;
   }
-  
+
   &__wrapper {
     @include flex-center(column, 24px);
     width: 100%;
