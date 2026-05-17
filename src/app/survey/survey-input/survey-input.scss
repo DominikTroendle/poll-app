@@ -2,21 +2,27 @@
 @use '../../../styles/abstract/variables' as *;
 @use '../../../styles/base/fonts' as *;
 
-label {
+.survey-input {
   @include flex-center(row, 10px);
+  justify-self: flex-start;
   position: relative;
-  font-family: 'Almarai';
-  font-size: 20px;
+  border-radius: 3px;
+  padding: 0 4px;
+
+  &:hover {
+    cursor: pointer;
+    background: #FFCFA166;
+  }
 }
 
-input[type='checkbox'] {
+.survey-input__control {
   appearance: none;
   background-image: url('../../../../public/svg/checkbox.svg');
   width: 15px;
   height: 15px;
 
   &:hover {
-    background-image: url('../../../../public/svg/checkbox-hovered.svg');
+    cursor: pointer;
   }
 
   &:checked {
@@ -24,19 +30,13 @@ input[type='checkbox'] {
   }
 }
 
-p {
+.survey-input__label {
   @include flex-center(row, 4px);
   font-family: 'Mulish';
   font-size: 16px;
   color: $primary-purple;
-
-  span {
-    font-family: 'Mulish 700';
-  }
 }
 
-p:hover {
-    input[type='checkbox'] {
-        background-image: url('../../../../public/svg/checkbox-hovered.svg');
-    }
+.survey-input__prefix {
+  font-family: 'Mulish 700';
 }
