@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { SurveyResult } from '../survey-result/survey-result';
 
 @Component({
   selector: 'app-survey-results',
-  imports: [],
+  imports: [SurveyResult],
   templateUrl: './survey-results.html',
   styleUrl: './survey-results.scss',
 })
