@@ -32,7 +32,7 @@
 }
 
 .button__icon {
-  width: 24px;
+  width: var(--button-img-height, 24px);
   margin-left: 10px;
   @include respond(lg) {
     width: 0;
