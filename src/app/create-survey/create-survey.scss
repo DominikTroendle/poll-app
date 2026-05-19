@@ -1,0 +1,9 @@
+@use '../../styles/abstract/mixins' as *;
+@use '../../styles/abstract/variables' as *;
+@use '../../styles/base/fonts' as *;
+
+.create-survey {
+  &__button {
+    --button-img-height: 16px;
+  }
+}
