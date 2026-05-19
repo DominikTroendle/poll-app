@@ -2,7 +2,7 @@
   <app-survey-question></app-survey-question>
   <app-survey-question></app-survey-question>
 </form>
-<button class="survey-form__button" type="submit">
-  <span>Complete</span>
-  <img src="svg/check-icon.svg" />
-</button>
+<app-button-primary
+  class="survey-form__button"
+  [buttonText]="completeSurveyButtonText"
+></app-button-primary>
