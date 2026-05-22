@@ -5,7 +5,7 @@
 .create-survey-field {
   @include flex-center(column, 4px);
   width: 100%;
-  color: white;
+  color: $primary-white;
 
   &__header {
     @include flex-space();
@@ -36,5 +36,6 @@
     width: 100%;
     border-radius: 5px 20px 5px 5px;
     padding: 7px 13px;
+    background: $primary-white;
   }
 }
