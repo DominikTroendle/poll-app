@@ -1,4 +1,16 @@
 <section class="create-survey">
+  <div class="create-survey__wrapper">
+    <div class="create-survey__header">
+      <div class="create-survey__status">
+        <app-survey-status></app-survey-status>
+        <button class="create-survey__close-button" routerLink="/">
+          <img src="svg/close-white.svg" />
+        </button>
+      </div>
+      <h2 class="create-survey__title">Create new survey</h2>
+    </div>
+    <form class="create-survey__form" action="">Test</form>
+  </div>
   <app-button-primary
     class="create-survey__button"
     [buttonText]="createSurveyButtonText"

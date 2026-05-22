@@ -2,7 +2,46 @@
 @use '../../styles/abstract/variables' as *;
 @use '../../styles/base/fonts' as *;
 
+:host {
+  display: block;
+  padding-bottom: 48px;
+}
+
 .create-survey {
+  @include flex-center(column, 48px);
+  background: $primary-purple;
+  padding: 40px 16px;
+  border-radius: 5px 100px 5px 5px;
+
+  &__wrapper {
+    @include flex-center(column, 32px);
+    width: 100%;
+  }
+
+  &__header {
+    @include flex-start(column, 16px);
+    width: 100%;
+  }
+
+  &__status {
+    @include flex-space();
+    width: 100%;
+  }
+
+  &__close-button {
+    @include flex-center();
+    border: none;
+    border-radius: 10px;
+    background: #ffb7704d;
+    padding: 8px 11px 7px 12px;
+    margin-right: 16px;
+
+    img {
+      width: 13px;
+      aspect-ratio: 1/1;
+    }
+  }
+
   &__button {
     --button-img-height: 16px;
   }
