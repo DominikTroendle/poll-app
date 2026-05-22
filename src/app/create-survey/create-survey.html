@@ -10,7 +10,24 @@
       <h2 class="create-survey__title">Create new survey</h2>
     </div>
     <form class="create-survey__form" action="">
-      <app-create-survey-field class="create-survey__field"></app-create-survey-field>
+      <app-create-survey-field
+        class="create-survey__field"
+        [fieldTitle]="'Survey name'"
+        [fieldType]="'text'"
+      ></app-create-survey-field>
+      <app-category-dropdown></app-category-dropdown>
+      <app-create-survey-field
+        class="create-survey__field"
+        [fieldTitle]="'Set end date'"
+        [fieldOption]="'(optional)'"
+        [fieldType]="'text'"
+      ></app-create-survey-field>
+      <app-create-survey-field
+        class="create-survey__field"
+        [fieldTitle]="'Describing text'"
+        [fieldOption]="'(optional)'"
+        [fieldType]="'textarea'"
+      ></app-create-survey-field>
     </form>
   </div>
   <app-button-primary

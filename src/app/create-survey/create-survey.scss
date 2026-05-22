@@ -51,7 +51,7 @@
   }
 
   &__form {
-    @include flex-center(column);
+    @include flex-center(column, 12px);
     width: 100%;
     background: #8e709929;
     border-radius: 5px 80px 5px 5px;

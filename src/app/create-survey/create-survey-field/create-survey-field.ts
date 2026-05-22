@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-create-survey-field',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './create-survey-field.html',
   styleUrl: './create-survey-field.scss',
 })
-export class CreateSurveyField {}
+export class CreateSurveyField {
+  fieldTitle = input<string>('');
+  fieldOption = input<string>('');
+  fieldType = input<'text' | 'textarea'>('text');
+}

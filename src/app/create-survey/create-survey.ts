@@ -3,10 +3,11 @@ import { ButtonPrimary } from '../shared/button-primary/button-primary';
 import { SurveyStatus } from '../shared/survey-status/survey-status';
 import { RouterLink } from '@angular/router';
 import { CreateSurveyField } from './create-survey-field/create-survey-field';
+import { CategoryDropdown } from '../shared/category-dropdown/category-dropdown';
 
 @Component({
   selector: 'app-create-survey',
-  imports: [ButtonPrimary, SurveyStatus, RouterLink, CreateSurveyField],
+  imports: [ButtonPrimary, SurveyStatus, RouterLink, CreateSurveyField, CategoryDropdown],
   templateUrl: './create-survey.html',
   styleUrl: './create-survey.scss',
 })
