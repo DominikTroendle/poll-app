@@ -9,13 +9,18 @@
       </div>
       <h2 class="create-survey__title">Create new survey</h2>
     </div>
-    <form class="create-survey__form" action="">
+    <form class="create-survey__form" action="" (click)="closeCategoryDropdown()">
       <app-create-survey-field
         class="create-survey__field"
         [fieldTitle]="'Survey name'"
         [fieldType]="'text'"
       ></app-create-survey-field>
-      <app-category-dropdown></app-category-dropdown>
+      <app-category-dropdown
+        class="create-survey__dropdown"
+        [isOpen]="isCategoryDropdownOpen"
+        (toggleRequested)="toggleCategoryDropdown()"
+        (click)="$event.stopPropagation()"
+      ></app-category-dropdown>
       <app-create-survey-field
         class="create-survey__field"
         [fieldTitle]="'Set end date'"

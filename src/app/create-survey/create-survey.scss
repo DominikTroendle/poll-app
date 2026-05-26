@@ -56,11 +56,14 @@
     background: #8e709929;
     border-radius: 5px 80px 5px 5px;
     padding: 40px 10px;
-    color: white;
   }
 
   &__field {
     width: 100%;
+  }
+
+  &__dropdown {
+    align-self: flex-start;
   }
 
   &__button {

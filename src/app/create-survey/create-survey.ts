@@ -21,4 +21,13 @@ import { CreateSurveyQuestion } from './create-survey-question/create-survey-que
 })
 export class CreateSurvey {
   createSurveyButtonText = 'Publish';
+  isCategoryDropdownOpen = false;
+
+  toggleCategoryDropdown(): void {
+    this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
+  }
+
+  closeCategoryDropdown(): void {
+    this.isCategoryDropdownOpen = false;
+  }
 }
