@@ -21,6 +21,7 @@ import { CreateSurveyQuestion } from './create-survey-question/create-survey-que
 })
 export class CreateSurvey {
   createSurveyButtonText = 'Publish';
+  dropdownChooseText = 'Choose category';
   isCategoryDropdownOpen = false;
 
   toggleCategoryDropdown(): void {

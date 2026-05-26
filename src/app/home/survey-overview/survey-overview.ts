@@ -10,6 +10,7 @@ import { SurveyList } from '../survey-list/survey-list';
 })
 export class SurveyOverview {
   isCategoryDropdownOpen = false;
+  dropdownSortText = 'Sort by categories';
 
   toggleCategoryDropdown(): void {
     this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;

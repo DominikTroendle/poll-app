@@ -5,7 +5,7 @@
     [class.category-dropdown__button--selected]="isCategorySelected()"
     (click)="requestToggle()"
   >
-    <span>Sort by categories</span>
+    <span>{{ dropdownText() }}</span>
     <img [src]="getImgSrc" />
   </button>
   <p

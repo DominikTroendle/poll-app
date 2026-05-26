@@ -8,6 +8,7 @@ import { Component, input, output } from '@angular/core';
 })
 export class CategoryDropdown {
   isOpen = input(false);
+  dropdownText = input<string>('');
   toggleRequested = output<void>();
   categories = [
     'Team Activities',

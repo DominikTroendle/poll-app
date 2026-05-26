@@ -20,6 +20,7 @@
         [isOpen]="isCategoryDropdownOpen"
         (toggleRequested)="toggleCategoryDropdown()"
         (click)="$event.stopPropagation()"
+        [dropdownText]="dropdownChooseText"
       ></app-category-dropdown>
       <app-create-survey-field
         class="create-survey__field"

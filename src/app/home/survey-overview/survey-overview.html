@@ -8,6 +8,7 @@
       [isOpen]="isCategoryDropdownOpen"
       (toggleRequested)="toggleCategoryDropdown()"
       (click)="$event.stopPropagation()"
+      [dropdownText]="dropdownSortText"
     ></app-category-dropdown>
     <app-survey-list></app-survey-list>
   </div>
