@@ -1,0 +1,113 @@
+@use '../../../styles/abstract/mixins' as *;
+@use '../../../styles/abstract/variables' as *;
+@use '../../../styles/base/fonts' as *;
+
+.create-survey-question {
+  @include flex-start(column, 24px);
+  border: none;
+  width: 100%;
+
+  &__question {
+    @include flex-center(column, 8px);
+    width: 100%;
+  }
+
+  &__header {
+    @include flex-space();
+    width: 100%;
+    padding-right: 16px;
+  }
+
+  &__title {
+    font-family: 'Mulish 700';
+    font-size: 18px;
+    color: $primary-white;
+  }
+
+  &__action {
+    @include flex-center();
+    background: none;
+    border: none;
+    width: 26px;
+    aspect-ratio: 1/1;
+  }
+
+  &__input {
+    border: none;
+    width: 100%;
+    border-radius: 5px 20px 5px 5px;
+    padding: 7px 13px;
+    background: $primary-white;
+  }
+
+  &__answers {
+    @include flex-center(column, 8px);
+    width: 100%;
+  }
+
+  &__answers-header {
+    @include flex-space();
+    align-items: center;
+    width: 100%;
+    color: $primary-white;
+  }
+
+  &__answers-title {
+    font-family: 'Mulish 700';
+    font-size: 18px;
+  }
+
+  &__field {
+    width: 100%;
+  }
+
+  &__button-add {
+    @include flex-center(row, 4px);
+    align-self: flex-start;
+    background: none;
+    border: none;
+    border-bottom: 1px solid $primary-white;
+    padding-bottom: 2px;
+    margin: 20px 12px;
+    font-family: 'Nokora 700';
+    font-size: 16px;
+    color: $primary-white;
+  }
+
+  &__icon-add {
+    width: 22px;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(11%) saturate(6903%) hue-rotate(189deg)
+      brightness(108%) contrast(102%);
+  }
+}
+
+.create-survey-question__checkbox {
+  @include flex-center(row, 4px);
+
+  input[type='checkbox'] {
+    appearance: none;
+  }
+
+  input[type='checkbox']:checked + label {
+    background-image: url(../../../../public/svg/checkbox-checked.svg);
+  }
+
+  label {
+    display: inline-block;
+    background-image: url(../../../../public/svg/checkbox-white.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+
+    &:hover {
+      background-image: url(../../../../public/svg/checkbox-hovered.svg);
+    }
+  }
+
+  span {
+    font-family: 'Mulish';
+    font-size: 12px;
+    color: white;
+  }
+}

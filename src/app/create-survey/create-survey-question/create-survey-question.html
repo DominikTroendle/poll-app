@@ -1,25 +1,33 @@
 <fieldset class="create-survey-question">
-  <div class="create-survey-question__header">
-    <legend class="create-survey-question__title">1. Question</legend>
-    <button class="create-survey-question__action">
-      <img src="svg/delete.svg" />
+  <div class="create-survey-question__question">
+    <div class="create-survey-question__header">
+      <legend class="create-survey-question__title">1. Question</legend>
+      <button class="create-survey-question__action">
+        <img src="svg/delete.svg" />
+      </button>
+    </div>
+    <input class="create-survey-question__input" type="text" />
+  </div>
+  <div class="create-survey-question__answers">
+    <div class="create-survey-question__answers-header">
+      <span class="create-survey-question__answers-title">Answers</span>
+      <div class="create-survey-question__checkbox">
+        <input type="checkbox" id="multi-select" />
+        <label for="multi-select"></label>
+        <span>Allow multiple answers</span>
+      </div>
+    </div>
+    <app-create-survey-field
+      class="create-survey-question__field"
+      [fieldTitle]="'A.'"
+    ></app-create-survey-field>
+    <app-create-survey-field
+      class="create-survey-question__field"
+      [fieldTitle]="'B.'"
+    ></app-create-survey-field>
+    <button class="create-survey-question__button-add">
+      Add answer
+      <img class="create-survey-question__icon-add" src="svg/plus-icon.svg" />
     </button>
   </div>
-  <input class="create-survey-question__input" type="text" />
-  <div class="create-survey-question__answers-header">
-    <span>Answers</span>
-    <label for="">
-      <input type="checkbox" />
-      Allow multiple answers
-    </label>
-  </div>
-  <app-create-survey-field
-    class="create-survey-question__field"
-    [fieldTitle]="'A.'"
-  ></app-create-survey-field>
-  <app-create-survey-field
-    class="create-survey-question__field"
-    [fieldTitle]="'B.'"
-  ></app-create-survey-field>
-  <button>Add answer</button>
 </fieldset>
