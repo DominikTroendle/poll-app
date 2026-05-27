@@ -73,6 +73,7 @@
 
   &__button-add-question {
     @include flex-center(row, 10px);
+    margin-top: 80px;
     padding: 8px 12px;
     border: unset;
     background: #ffb7704d;
