@@ -22,7 +22,10 @@
     width: 100vw;
     margin-left: -16px;
     padding-left: 16px;
-    overflow-x: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #bababa transparent;
   }
 
   &__card {
