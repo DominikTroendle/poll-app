@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CreateSurveyField } from '../create-survey-field/create-survey-field';
 
 @Component({
@@ -7,4 +7,6 @@ import { CreateSurveyField } from '../create-survey-field/create-survey-field';
   templateUrl: './create-survey-question.html',
   styleUrl: './create-survey-question.scss',
 })
-export class CreateSurveyQuestion {}
+export class CreateSurveyQuestion {
+  questionNumber = input<number>(1);
+}
