@@ -9,4 +9,11 @@ import { CreateSurveyField } from '../create-survey-field/create-survey-field';
 })
 export class CreateSurveyQuestion {
   questionNumber = input<number>(1);
+  answers = [{ id: 'A.' }, { id: 'B.' }];
+
+  addAnswer(): void {
+    const lastAnswerId = this.answers.at(-1)!.id;
+    const nextCharCode = String.fromCharCode(lastAnswerId.charCodeAt(0) + 1);
+    this.answers = [...this.answers, { id: `${nextCharCode}.` }];
+  }
 }
