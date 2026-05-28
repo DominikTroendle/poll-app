@@ -34,8 +34,13 @@
         [fieldOptional]="true"
         [fieldType]="'textarea'"
       ></app-create-survey-field>
-      <app-create-survey-question class="create-survey__question"></app-create-survey-question>
-      <button class="create-survey__button-add-question" type="button">
+      @for (question of questions; track question.id) {
+        <app-create-survey-question
+          class="create-survey__question"
+          [questionNumber]="question.id"
+        ></app-create-survey-question>
+      }
+      <button class="create-survey__button-add-question" type="button" (click)="addQuestion()">
         Add next question
         <img class="create-survey__icon-add-question" src="svg/plus-icon.svg" />
       </button>

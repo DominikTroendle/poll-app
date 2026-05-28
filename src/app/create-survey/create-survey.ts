@@ -23,6 +23,7 @@ export class CreateSurvey {
   createSurveyButtonText = 'Publish';
   dropdownChooseText = 'Choose category';
   isCategoryDropdownOpen = false;
+  questions = [{ id: 1 }];
 
   toggleCategoryDropdown(): void {
     this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
@@ -30,5 +31,10 @@ export class CreateSurvey {
 
   closeCategoryDropdown(): void {
     this.isCategoryDropdownOpen = false;
+  }
+
+  addQuestion(): void {
+    const nextId = this.questions.length + 1;
+    this.questions = [...this.questions, { id: nextId }];
   }
 }
