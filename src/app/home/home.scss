@@ -1,6 +1,7 @@
 @use '../../styles/base/fonts' as *;
 @use '../../styles/abstract/mixins' as *;
 @use '../../styles/abstract/variables' as *;
+@use '../../styles/abstract/breakpoints' as *;
 
 .home-wrapper {
   @include flex-center(column, 80px);
@@ -8,6 +9,10 @@
   max-width: 100vw;
   padding: 0 16px 48px 16px;
   background-color: $primary-purple;
+
+  @include respond(lg) {
+    padding: 0 100px 36px 100px;
+  }
 }
 
 .surveys {
