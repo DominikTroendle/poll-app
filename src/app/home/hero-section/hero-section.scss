@@ -21,7 +21,12 @@
   &__visual {
     grid-area: visual;
     display: block;
-    width: 250px;
+    height: 250px;
+
+    @include respond(lg) {
+      height: 420px;
+      --question-dot-path: path('M 8.4 5.04 Q 60.48 0 50.4 -57.12');
+    }
   }
 
   &__intro {
