@@ -9,6 +9,11 @@
   gap: 24px;
   width: 100%;
 
+  @include respond(2xl) {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+    grid-template-areas: 'title visual' 'intro visual' 'button visual';
+  }
+
   &__title {
     grid-area: title;
     font-family: 'Nerko One';
@@ -16,6 +21,11 @@
     line-height: 50px;
     color: $secondary-orange;
     font-weight: 400;
+
+    @include respond(2xl) {
+      font-size: 100px;
+      line-height: 89px;
+    }
   }
 
   &__visual {
@@ -23,7 +33,7 @@
     display: block;
     height: 250px;
 
-    @include respond(lg) {
+    @include respond(2xl) {
       height: 420px;
       --question-dot-path: path('M 8.4 5.04 Q 60.48 0 50.4 -57.12');
     }
@@ -34,10 +44,15 @@
     font-family: 'Mulish 600';
     font-size: 18px;
     color: white;
+
+    @include respond(2xl) {
+      font-size: 24px;
+    }
   }
 
   &__button {
     grid-area: button;
     margin-top: 30px;
+    justify-self: left;
   }
 }
