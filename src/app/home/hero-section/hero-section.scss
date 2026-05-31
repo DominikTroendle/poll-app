@@ -9,9 +9,15 @@
   gap: 24px;
   width: 100%;
 
+  @include respond(lg) {
+    grid-template-areas: 'title visual' 'intro visual' 'button visual';
+    column-gap: 48px;
+  }
+
   @include respond(2xl) {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
     grid-template-areas: 'title visual' 'intro visual' 'button visual';
+    column-gap: 64px;
   }
 
   &__title {
@@ -21,6 +27,11 @@
     line-height: 50px;
     color: $secondary-orange;
     font-weight: 400;
+
+    @include respond(lg) {
+      font-size: clamp(62px, calc(100 / 1440 * 100vw), 100px);
+      line-height: clamp(50px, calc(89 / 1440 * 100vw), 89px);
+    }
 
     @include respond(2xl) {
       font-size: 100px;
@@ -33,7 +44,13 @@
     display: block;
     height: 250px;
 
-    @include respond(2xl) {
+    @include respond(lg) {
+      height: 350px;
+      --question-dot-path: path('M 7 4.2 Q 50.4 0 42 -47.6');
+      align-self: center;
+    }
+
+    @include respond(xl) {
       height: 420px;
       --question-dot-path: path('M 8.4 5.04 Q 60.48 0 50.4 -57.12');
     }
@@ -45,6 +62,10 @@
     font-size: 18px;
     color: white;
 
+    @include respond(lg) {
+      font-size: clamp(18px, calc(24 / 1440 * 100vw), 24px);
+    }
+
     @include respond(2xl) {
       font-size: 24px;
     }
@@ -53,6 +74,9 @@
   &__button {
     grid-area: button;
     margin-top: 30px;
-    justify-self: left;
+
+    @include respond(lg) {
+      justify-self: left;
+    }
   }
 }
