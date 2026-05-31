@@ -22,7 +22,7 @@
 
 .surveys__title {
   font-family: 'Nerko One';
-  font-size: 54px;
+  font-size: clamp(50px, calc(54 / 340 * 100vw), 54px);
   font-weight: 400;
   color: $secondary-orange;
 }
