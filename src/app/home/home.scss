@@ -10,6 +10,10 @@
   padding: 0 16px 48px 16px;
   background-color: $primary-purple;
 
+  @include respond(xs) {
+    padding: 0 32px 48px 32px;
+  }
+
   @include respond(lg) {
     padding: 0 100px 36px 100px;
   }

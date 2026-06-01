@@ -2,7 +2,11 @@
 @use '../../../styles/abstract/mixins' as *;
 
 .header {
-  padding: 54px 16px;
+  padding: 48px 16px;
+
+  @include respond(xs) {
+    padding: 48px 32px;
+  }
 
   @include respond(lg) {
     padding: 36px 100px 86px 100px;
