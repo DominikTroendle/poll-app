@@ -9,7 +9,7 @@
   gap: 24px;
   width: 100%;
 
-  @include respond(lg) {
+  @include respond(md) {
     grid-template-areas: 'title visual' 'intro visual' 'button visual';
     column-gap: 48px;
   }
@@ -44,10 +44,13 @@
     display: block;
     height: 250px;
 
+    @include respond(md) {
+      align-self: center;
+    }
+
     @include respond(lg) {
       height: 350px;
       --question-dot-path: path('M 7 4.2 Q 50.4 0 42 -47.6');
-      align-self: center;
     }
 
     @include respond(xl) {
@@ -75,7 +78,7 @@
     grid-area: button;
     margin-top: 30px;
 
-    @include respond(lg) {
+    @include respond(md) {
       justify-self: left;
     }
   }
