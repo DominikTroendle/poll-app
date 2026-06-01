@@ -3,6 +3,10 @@
 :host {
   display: block;
   width: 100vw;
+
+  @include respond(845px) {
+    width: 100%;
+  }
 }
 
 .ending-soon {
@@ -20,8 +24,8 @@
       padding: 0 32px;
     }
 
-    @include respond(lg) {
-      padding: 0 100px;
+    @include respond(845px) {
+      padding: 0;
     }
   }
 
@@ -39,8 +43,8 @@
       padding-left: 32px;
     }
 
-    @include respond(lg) {
-      padding-left: 100px;
+    @include respond(845px) {
+      padding: 0;
     }
   }
 
@@ -49,5 +53,11 @@
     flex: 0 0 250px;
     width: 250px;
     height: 233px;
+
+    @include respond(xl) {
+      flex: none;
+      width: 321px;
+      height: 310px;
+    }
   }
 }
