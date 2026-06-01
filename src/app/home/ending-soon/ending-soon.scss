@@ -19,6 +19,10 @@
     @include respond(xs) {
       padding: 0 32px;
     }
+
+    @include respond(lg) {
+      padding: 0 100px;
+    }
   }
 
   &__card-wrapper {
@@ -33,6 +37,10 @@
 
     @include respond(xs) {
       padding-left: 32px;
+    }
+
+    @include respond(lg) {
+      padding-left: 100px;
     }
   }
 
