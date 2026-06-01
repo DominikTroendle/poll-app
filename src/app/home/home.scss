@@ -29,4 +29,8 @@
   font-size: clamp(50px, calc(54 / 340 * 100vw), 54px);
   font-weight: 400;
   color: $secondary-orange;
+
+  @include respond(lg) {
+    font-size: clamp(45px, calc(72 / 1440 * 100vw), 72px);
+  }
 }
