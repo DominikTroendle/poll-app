@@ -5,6 +5,10 @@
 :host {
   display: block;
   width: 100%;
+
+  @include respond(xl) {
+    max-width: 1042px;
+  }
 }
 
 .survey-overview {

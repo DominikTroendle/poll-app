@@ -1,4 +1,5 @@
 @use '../../../styles/abstract/mixins' as *;
+@use '../../../styles/abstract/breakpoints' as *;
 
 :host {
   width: 100%;
@@ -8,7 +9,22 @@
   @include flex-start(column, 15px);
   width: 100%;
 
+  @include respond(md) {
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @include respond(xl) {
+    max-width: 1042px;
+  }
+
   &__item {
     height: 147px;
+
+    @include respond(md) {
+      width: calc((100% - 16px) / 2);
+      height: 127px;
+    }
   }
 }
