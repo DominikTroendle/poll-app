@@ -4,8 +4,9 @@
   display: block;
   width: 100vw;
 
-  @include respond(845px) {
+  @include respond(xl) {
     width: 100%;
+    max-width: 1042px;
   }
 }
 
@@ -15,16 +16,20 @@
 
   &__title {
     font-family: 'Mulish';
-    font-size: 24px;
+    font-size: clamp(24px, calc(32 / 1440 * 100vw), 32px);
     font-weight: 400;
     color: white;
-    padding: 0 16px;
+    padding-left: 16px;
 
     @include respond(xs) {
-      padding: 0 32px;
+      padding-left: 32px;
     }
 
-    @include respond(845px) {
+    @include respond(lg) {
+      padding-left: 100px;
+    }
+
+    @include respond(xl) {
       padding: 0;
     }
   }
@@ -43,8 +48,15 @@
       padding-left: 32px;
     }
 
-    @include respond(845px) {
+    @include respond(lg) {
+      padding-left: 100px;
+    }
+
+    @include respond(xl) {
+      @include flex-start(row, 32px);
+      max-width: 1042px;
       padding: 0;
+      align-self: center;
     }
   }
 
