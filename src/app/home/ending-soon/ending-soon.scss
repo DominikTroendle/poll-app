@@ -41,8 +41,6 @@
     padding-left: 16px;
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: #bababa transparent;
 
     @include respond(xs) {
       padding-left: 32px;
@@ -72,4 +70,17 @@
       height: 310px;
     }
   }
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bababa;
+  border-radius: 10px;
 }
