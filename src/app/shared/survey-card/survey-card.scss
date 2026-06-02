@@ -10,6 +10,15 @@
   border-top-right-radius: 80px;
   padding: 24px 16px;
 
+  &:hover {
+    cursor: pointer;
+    background: $primary-lilac;
+  }
+
+  @include respond(xl) {
+    padding: 40px 25px;
+  }
+
   &__header {
     @include flex-start(column, 8px);
   }
@@ -24,5 +33,9 @@
     font-family: 'Mulish 700';
     font-size: 24px;
     color: $primary-purple;
+
+    @include respond(xl) {
+      font-size: 26px;
+    }
   }
 }
