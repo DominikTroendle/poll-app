@@ -1,5 +1,6 @@
 @use '../../../styles/abstract/mixins' as *;
 @use '../../../styles/abstract/breakpoints' as *;
+@use '../../../styles/abstract/variables' as *;
 
 :host {
   width: 100%;
@@ -17,6 +18,9 @@
 
   @include respond(xl) {
     max-width: 1042px;
+    max-height: 411px;
+    overflow-y: auto;
+    padding-right: 8px;
   }
 
   &__item {
@@ -26,5 +30,18 @@
       width: calc((100% - 16px) / 2);
       height: 127px;
     }
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $secondary-orange;
+    border-radius: 10px;
   }
 }
