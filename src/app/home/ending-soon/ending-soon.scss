@@ -14,6 +14,14 @@
   @include flex-start(column, 16px);
   width: 100%;
 
+  @include respond(lg) {
+    gap: 24px;
+  }
+
+  @include respond(xl) {
+    gap: 32px;
+  }
+
   &__title {
     font-family: 'Mulish';
     font-size: clamp(24px, calc(32 / 1440 * 100vw), 32px);
