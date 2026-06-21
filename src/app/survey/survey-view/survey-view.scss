@@ -4,6 +4,7 @@
 
 :host {
   @include flex-center(column, 56px);
+  width: 100%;
 }
 
 .survey-view {
@@ -11,6 +12,12 @@
   padding: 40px 16px;
   background: #8e70991a;
   border-top-right-radius: 100px;
+  width: 100%;
+
+  &__header-wrapper,
+  &__header {
+    width: 100%;
+  }
 
   &__header-wrapper {
     @include flex-center(column, 24px);
@@ -51,6 +58,11 @@
     font-family: 'Mulish 500';
     font-size: 14px;
     color: $primary-purple;
+    gap: 20px;
+
+    span:last-child {
+      text-align: end;
+    }
   }
 
   &__title {
