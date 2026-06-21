@@ -1,15 +1,17 @@
 <section class="survey-overview" (click)="closeCategoryDropdown()">
-  <div class="survey-overview__status">
-    <button class="survey-overview__button survey-overview__button--active">Active surveys</button>
-    <button class="survey-overview__button">Past surveys</button>
-  </div>
-  <div class="survey-overview__list-wrapper">
+  <div class="survey-overview__header">
+    <div class="survey-overview__status">
+      <button class="survey-overview__button survey-overview__button--active">
+        Active surveys
+      </button>
+      <button class="survey-overview__button">Past surveys</button>
+    </div>
     <app-category-dropdown
       [isOpen]="isCategoryDropdownOpen"
       (toggleRequested)="toggleCategoryDropdown()"
       (click)="$event.stopPropagation()"
       [dropdownText]="dropdownSortText"
     ></app-category-dropdown>
-    <app-survey-list></app-survey-list>
   </div>
+  <app-survey-list></app-survey-list>
 </section>

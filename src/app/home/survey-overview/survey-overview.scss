@@ -12,16 +12,20 @@
 }
 
 .survey-overview {
-  @include flex-start(column, 48px);
+  @include flex-start(column, 24px);
   width: 100%;
+
+  &__header {
+    @include flex-start(column, 48px);
+    width: 100%;
+
+    @include respond(md) {
+      @include flex-space(row);
+    }
+  }
 
   &__status {
     @include flex-start(row, 16px);
-  }
-
-  &__list-wrapper {
-    @include flex-start(column, 24px);
-    width: 100%;
   }
 }
 
@@ -31,7 +35,7 @@
   border-radius: 20px;
   padding: 2px 10px;
   font-family: 'Nokora';
-  font-size: 14px;
+  font-size: clamp(14px, calc(16 / 768 * 100vw), 16px);
 
   &--active {
     background: $secondary-orange;
