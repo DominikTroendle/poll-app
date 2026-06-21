@@ -3,7 +3,7 @@
 @use '../../../styles/base/fonts' as *;
 
 .survey-input {
-  @include flex-center(row, 10px);
+  @include flex-start(row, 16px);
   justify-self: flex-start;
   position: relative;
   border-radius: 3px;
@@ -18,8 +18,9 @@
 .survey-input__control {
   appearance: none;
   background-image: url('../../../../public/svg/checkbox.svg');
-  width: 15px;
+  min-width: 15px;
   height: 15px;
+  margin-top: 4px;
 
   &:hover {
     cursor: pointer;
@@ -31,7 +32,7 @@
 }
 
 .survey-input__label {
-  @include flex-center(row, 4px);
+  @include flex-start(row, 4px);
   font-family: 'Mulish';
   font-size: 16px;
   color: $primary-purple;
