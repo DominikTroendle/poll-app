@@ -26,6 +26,6 @@
 
   &__inputs-wrapper {
     @include flex-start(column, 8px);
-    padding-left: 8px;
+    padding: 0px 8px;
   }
 }
