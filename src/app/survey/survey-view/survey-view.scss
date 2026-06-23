@@ -8,7 +8,7 @@
 }
 
 .survey-view {
-  @include flex-center(column, 40px);
+  @include flex-start(column, 40px);
   padding: 40px 16px;
   background: #8e70991a;
   border-top-right-radius: 100px;
