@@ -1,4 +1,6 @@
 <button class="button">
   <span class="button__text">{{ buttonText() }}</span>
-  <img class="button__icon" [src]="logoSrc" />
+  @if (hasIcon()) {
+    <img class="button__icon" [src]="logoSrc" />
+  }
 </button>

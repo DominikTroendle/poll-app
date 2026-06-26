@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ButtonPrimary {
   buttonText = input<string>('');
+  hasIcon = input<boolean>(true);
   private readonly router = inject(Router);
 
   get isHomePage(): boolean {
