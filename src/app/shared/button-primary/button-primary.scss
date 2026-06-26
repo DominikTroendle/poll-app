@@ -3,7 +3,7 @@
 
 .button {
   @include flex-center();
-  padding: 12px 16px;
+  padding: var(--button-padding, 12px 16px);
   background: $secondary-orange;
   border: none;
   border-radius: 10px;

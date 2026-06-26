@@ -9,5 +9,5 @@ import { ButtonPrimary } from '../../shared/button-primary/button-primary';
   styleUrl: './survey-form.scss',
 })
 export class SurveyForm {
-  completeSurveyButtonText = 'Complete';
+  completeSurveyButtonText = 'Complete survey';
 }
