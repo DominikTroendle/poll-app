@@ -5,6 +5,12 @@
 :host {
   @include flex-center(column, 56px);
   width: 100%;
+
+  @include respond(lg) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 42px;
+  }
 }
 
 .survey-view {
@@ -13,6 +19,14 @@
   background: #8e70991a;
   border-top-right-radius: 100px;
   width: 100%;
+
+  @include respond(sm) {
+    padding: 40px 32px;
+  }
+
+  @include respond(lg) {
+    padding: 40px;
+  }
 
   &__header-wrapper,
   &__header {
@@ -76,5 +90,20 @@
   &__description {
     font-family: 'Mulish 500';
     font-size: 16px;
+  }
+
+  &__form,
+  &__results {
+    width: 100%;
+  }
+
+  &__results {
+    @include respond(lg) {
+      max-width: 350px;
+    }
+
+    @include respond(2xl) {
+      max-width: 710px;
+    }
   }
 }

@@ -3,13 +3,27 @@
 @use '../../../styles/base/fonts' as *;
 
 :host {
-  @include flex-end(column, 40px);
+  @include flex-start(column, 40px);
+  width: 100%;
+  container-type: inline-size;
 }
 
 .survey-form {
-  @include flex-start(column, 24px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  @container (min-width: 624px) {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+
+  &__question {
+    width: 100%;
+  }
 
   &__button {
     --button-img-height: 16px;
+    align-self: flex-end;
   }
 }

@@ -30,6 +30,7 @@
   &__container {
     @include flex-start(column, 16px);
     width: 100%;
+    container-type: inline-size;
   }
 
   &__title {
@@ -44,7 +45,13 @@
   }
 
   &__wrapper {
-    @include flex-center(column, 24px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
     width: 100%;
+
+    @container (min-width: 500px) {
+      grid-template-columns: repeat(2, minmax(245px, 1fr));
+    }
   }
 }
