@@ -20,6 +20,10 @@
     font-family: 'Mulish 700';
     font-size: 18px;
     color: $primary-purple;
+
+    @include respond(lg) {
+      display: none;
+    }
   }
 
   &__arrow {
@@ -28,9 +32,17 @@
   }
 
   &__container {
-    @include flex-start(column, 16px);
+    display: none;
     width: 100%;
     container-type: inline-size;
+
+    @include respond(lg) {
+      @include flex-start(column, 16px);
+    }
+
+    &--open {
+      @include flex-start(column, 16px);
+    }
   }
 
   &__title {
