@@ -15,7 +15,11 @@ export class ButtonPrimary {
     return this.router.url === '/';
   }
 
+  get isSurveyPage(): boolean {
+    return this.router.url.startsWith('/survey/');
+  }
+
   get logoSrc(): string {
-    return this.isHomePage ? 'svg/plus-icon.svg' : 'svg/check-icon.svg';
+    return this.isHomePage || this.isSurveyPage ? 'svg/plus-icon.svg' : 'svg/check-icon.svg';
   }
 }

@@ -1,3 +1,10 @@
 <header class="header" [style.background-color]="isHomePage ? '#35273A' : null">
   <img [src]="logoSrc" alt="poll-logo" />
+  @if (isSurveyPage) {
+    <app-button-primary
+      class="header__button"
+      [buttonText]="headerButtonText"
+      routerLink="create-survey"
+    ></app-button-primary>
+  }
 </header>

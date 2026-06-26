@@ -2,6 +2,7 @@
 @use '../../../styles/abstract/mixins' as *;
 
 .header {
+  @include flex-space();
   padding: 48px 16px;
 
   @include respond(xs) {
@@ -10,5 +11,13 @@
 
   @include respond(lg) {
     padding: 36px 100px 86px 100px;
+  }
+
+  &__button {
+    display: none;
+
+    @include respond(lg) {
+      display: block;
+    }
   }
 }
