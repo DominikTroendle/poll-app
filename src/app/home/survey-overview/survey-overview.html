@@ -1,10 +1,20 @@
 <section class="survey-overview" (click)="closeCategoryDropdown()">
   <div class="survey-overview__header">
     <div class="survey-overview__status">
-      <button class="survey-overview__button survey-overview__button--active">
+      <button
+        class="survey-overview__button"
+        [class.survey-overview__button--active]="activeSurveysSelected"
+        (click)="toggleSurveySelection()"
+      >
         Active surveys
       </button>
-      <button class="survey-overview__button">Past surveys</button>
+      <button
+        class="survey-overview__button"
+        [class.survey-overview__button--active]="!activeSurveysSelected"
+        (click)="toggleSurveySelection()"
+      >
+        Past surveys
+      </button>
     </div>
     <app-category-dropdown
       [isOpen]="isCategoryDropdownOpen"

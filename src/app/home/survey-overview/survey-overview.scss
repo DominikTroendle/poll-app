@@ -26,6 +26,10 @@
 
   &__status {
     @include flex-start(row, 16px);
+
+    @include respond(lg) {
+      gap: 24px;
+    }
   }
 }
 
@@ -37,7 +41,13 @@
   font-family: 'Nokora';
   font-size: clamp(14px, calc(16 / 768 * 100vw), 16px);
 
+  &:hover {
+    cursor: pointer;
+    background: $secondary-orange;
+  }
+
   &--active {
     background: $secondary-orange;
+    pointer-events: none;
   }
 }

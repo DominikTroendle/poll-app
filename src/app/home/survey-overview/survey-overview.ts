@@ -9,8 +9,13 @@ import { SurveyList } from '../survey-list/survey-list';
   styleUrl: './survey-overview.scss',
 })
 export class SurveyOverview {
+  activeSurveysSelected = true;
   isCategoryDropdownOpen = false;
   dropdownSortText = 'Sort by categories';
+
+  toggleSurveySelection(): void {
+    this.activeSurveysSelected = !this.activeSurveysSelected;
+  }
 
   toggleCategoryDropdown(): void {
     this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
