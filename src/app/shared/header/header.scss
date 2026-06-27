@@ -5,6 +5,12 @@
   @include flex-space();
   padding: 48px 16px;
 
+  &--hover {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   @include respond(xs) {
     padding: 48px 32px;
   }

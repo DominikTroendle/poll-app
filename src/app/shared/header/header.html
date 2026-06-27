@@ -1,4 +1,9 @@
-<header class="header" [style.background-color]="isHomePage ? '#35273A' : null">
+<header
+  class="header"
+  [style.background-color]="isHomePage ? '#35273A' : null"
+  [class.header--hover]="!isHomePage"
+  routerLink="/"
+>
   <img [src]="logoSrc" alt="poll-logo" />
   @if (isSurveyPage) {
     <app-button-primary
