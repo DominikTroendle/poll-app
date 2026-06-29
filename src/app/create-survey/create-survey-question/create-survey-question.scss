@@ -24,14 +24,6 @@
     color: $primary-white;
   }
 
-  &__action {
-    @include flex-center();
-    background: none;
-    border: none;
-    width: 26px;
-    aspect-ratio: 1/1;
-  }
-
   &__input {
     border: none;
     width: 100%;
@@ -82,6 +74,25 @@
     width: 22px;
     filter: brightness(0) saturate(100%) invert(100%) sepia(11%) saturate(6903%) hue-rotate(189deg)
       brightness(108%) contrast(102%);
+  }
+}
+
+.create-survey-question__action {
+  @include flex-center();
+  background: none;
+  border: none;
+  border-radius: 3px;
+  width: 26px;
+  aspect-ratio: 1/1;
+
+  &:hover {
+    cursor: pointer;
+    background: $tertiary-orange;
+
+    img {
+      filter: brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(4290%) hue-rotate(239deg)
+        brightness(96%) contrast(88%);
+    }
   }
 }
 
