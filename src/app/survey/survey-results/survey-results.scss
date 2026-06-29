@@ -16,6 +16,7 @@
     @include flex-center(row, 10px);
     background: none;
     border: none;
+    border-radius: 5px;
     padding: 4px 6px;
     font-family: 'Mulish 700';
     font-size: 18px;
@@ -23,6 +24,11 @@
 
     @include respond(lg) {
       display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: #8e70991a;
     }
   }
 
