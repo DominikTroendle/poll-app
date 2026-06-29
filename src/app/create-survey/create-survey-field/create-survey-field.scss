@@ -22,21 +22,44 @@
     font-family: 'Mulish';
     font-size: 18px;
   }
+}
 
-  &__action {
-    @include flex-center();
-    background: none;
-    border: none;
-    width: 26px;
-    aspect-ratio: 1/1;
+.create-survey-field__action {
+  @include flex-center();
+  background: none;
+  border: none;
+  border-radius: 3px;
+  width: 26px;
+  aspect-ratio: 1/1;
+
+  &:hover {
+    cursor: pointer;
+    background: $tertiary-orange;
+
+    img {
+      filter: brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(4290%) hue-rotate(239deg)
+        brightness(96%) contrast(88%);
+    }
+  }
+}
+
+.create-survey-field__input {
+  border: none;
+  width: 100%;
+  border-radius: 5px 20px 5px 5px;
+  padding: 7px 13px;
+  background: $primary-white;
+  resize: none;
+  outline: none;
+  font-family: 'Mulish';
+  font-size: 16px;
+  color: $primary-purple;
+
+  &:hover {
+    cursor: pointer;
   }
 
-  &__input {
-    border: none;
-    width: 100%;
-    border-radius: 5px 20px 5px 5px;
-    padding: 7px 13px;
-    background: $primary-white;
-    resize: none;
+  &:focus {
+    background: #fee9d4;
   }
 }
