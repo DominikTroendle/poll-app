@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { Header } from './shared/header/header';
 
 @Component({
@@ -10,4 +10,9 @@ import { Header } from './shared/header/header';
 })
 export class App {
   protected readonly title = signal('poll-app');
+  private readonly router = inject(Router);
+
+  get isCreateSurveyPage(): boolean {
+    return this.router.url.startsWith('/create-survey');
+  }
 }
