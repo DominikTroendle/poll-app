@@ -1,0 +1,7 @@
+@use '../styles/abstract/mixins' as *;
+
+.header--hidden-desktop {
+  @include respond(lg) {
+    display: none;
+  }
+}

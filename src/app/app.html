@@ -1,4 +1,2 @@
-@if (!isCreateSurveyPage) {
-  <app-header></app-header>
-}
+<app-header [class.header--hidden-desktop]="isCreateSurveyPage"></app-header>
 <router-outlet />
