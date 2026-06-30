@@ -4,7 +4,15 @@
 
 :host {
   display: block;
-  padding-bottom: 48px;
+  padding: 0 0 48px 0;
+
+  @include respond(md) {
+    padding: 0 32px 48px 32px;
+  }
+
+  @include respond(lg) {
+    padding: 0 100px 48px 100px;
+  }
 }
 
 .create-survey {
@@ -61,16 +69,43 @@
     background: #8e709929;
     border-radius: 5px 80px 5px 5px;
     padding: 40px 10px;
+    container-type: inline-size;
   }
 
   &__field {
     width: 100%;
   }
 
+  &__field--name {
+    @include respond(lg) {
+      grid-area: name;
+    }
+  }
+
+  &__date-category-row {
+    @include flex-start(column, 8px);
+    width: 100%;
+
+    @include respond(1124px) {
+      grid-area: date-category;
+      flex-direction: row;
+    }
+  }
+
+  &__field--description {
+    @include respond(1124px) {
+      grid-area: description;
+    }
+  }
+
   &__dropdown {
     align-self: flex-start;
-    --dropdown-padding: 4px 10px 4px 0;
     margin-bottom: 18px;
+
+    @include respond(1124px) {
+      order: 2;
+      min-width: max-content;
+    }
   }
 
   &__questions-wrapper {
@@ -107,5 +142,18 @@
 
   &__button {
     --button-img-height: 16px;
+  }
+}
+
+.create-survey__details {
+  @include flex-start(column, 8px);
+  width: 100%;
+
+  @include respond(1124px) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'name description' 'date-category description';
+    column-gap: 32px;
+    row-gap: 8px;
   }
 }
