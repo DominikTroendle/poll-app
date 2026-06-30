@@ -1,13 +1,11 @@
 <div class="create-survey-field">
-  <div class="create-survey-field__header">
-    <label class="create-survey-field__label" for="survey-name"
-      >{{ fieldTitle() }}
-      <span class="create-survey-field__highlight">{{ getFieldOptionalText }}</span></label
-    >
-    <button class="create-survey-field__action" type="button">
-      <img src="svg/delete.svg" />
-    </button>
-  </div>
+  <label class="create-survey-field__label" for="survey-name"
+    >{{ fieldTitle() }}
+    <span class="create-survey-field__highlight">{{ getFieldOptionalText }}</span></label
+  >
+  <button class="create-survey-field__action" type="button">
+    <img src="svg/delete.svg" />
+  </button>
   @if (fieldType() === 'text') {
     <input
       class="create-survey-field__input"

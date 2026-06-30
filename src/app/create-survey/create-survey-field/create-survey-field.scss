@@ -3,19 +3,24 @@
 @use '../../../styles/base/fonts' as *;
 
 .create-survey-field {
-  @include flex-center(column, 4px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: 'label action' 'input input';
+  gap: 4px 8px;
   width: 100%;
   color: $primary-white;
 
-  &__header {
-    @include flex-space();
-    width: 100%;
-    padding-right: 16px;
+  @include respond(lg) {
+    grid-template-areas:
+      'label label'
+      'input action';
+    align-items: start;
   }
 
   &__label {
     font-family: 'Mulish 700';
     font-size: 18px;
+    grid-area: label;
   }
 
   &__highlight {
@@ -31,6 +36,7 @@
   border-radius: 3px;
   width: 26px;
   aspect-ratio: 1/1;
+  grid-area: action;
 
   &:hover {
     cursor: pointer;
@@ -54,6 +60,7 @@
   font-family: 'Mulish';
   font-size: 16px;
   color: $primary-purple;
+  grid-area: input;
 
   &:hover {
     cursor: pointer;
