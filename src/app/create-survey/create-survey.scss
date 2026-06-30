@@ -86,14 +86,14 @@
     @include flex-start(column, 8px);
     width: 100%;
 
-    @include respond(1124px) {
+    @include respond(lg) {
       grid-area: date-category;
       flex-direction: row;
     }
   }
 
   &__field--description {
-    @include respond(1124px) {
+    @include respond(lg) {
       grid-area: description;
     }
   }
@@ -102,7 +102,7 @@
     align-self: flex-start;
     margin-bottom: 18px;
 
-    @include respond(1124px) {
+    @include respond(lg) {
       order: 2;
       min-width: max-content;
     }
@@ -149,7 +149,7 @@
   @include flex-start(column, 8px);
   width: 100%;
 
-  @include respond(1124px) {
+  @include respond(lg) {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas: 'name description' 'date-category description';
