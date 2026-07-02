@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostBinding, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonPrimary } from '../button-primary/button-primary';
 
@@ -12,6 +12,7 @@ export class Header {
   headerButtonText = 'Create survey';
   private readonly router = inject(Router);
 
+  @HostBinding('class.header-host--home')
   get isHomePage(): boolean {
     return this.router.url === '/';
   }

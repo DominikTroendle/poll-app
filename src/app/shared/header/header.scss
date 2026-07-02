@@ -1,9 +1,21 @@
 @use '../../../styles/abstract/breakpoints' as *;
 @use '../../../styles/abstract/mixins' as *;
+@use '../../../styles/abstract/variables' as *;
+
+:host {
+  @include flex-center();
+  width: 100vw;
+}
+
+:host(.header-host--home) {
+  background-color: $primary-purple;
+}
 
 .header {
   @include flex-space();
   padding: 48px 16px;
+  width: 100%;
+  max-width: 1920px;
 
   &--hover {
     &:hover {
