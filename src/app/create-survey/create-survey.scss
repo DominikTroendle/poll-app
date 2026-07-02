@@ -13,6 +13,10 @@
   @include respond(lg) {
     padding: 48px 100px;
   }
+
+  @include respond(4xl) {
+    @include flex-center();
+  }
 }
 
 .create-survey {
@@ -20,6 +24,8 @@
   background: $primary-purple;
   padding: 40px 16px;
   border-radius: 5px 100px 5px 5px;
+  width: 100%;
+  max-width: 1920px;
 
   @include respond(md) {
     padding: 40px 32px;
@@ -89,6 +95,14 @@
     border-radius: 5px 80px 5px 5px;
     padding: 40px 10px;
     container-type: inline-size;
+
+    @include respond(xl) {
+      padding: 40px 32px;
+    }
+
+    @include respond(3xl) {
+      padding: 40px;
+    }
   }
 
   &__details {
@@ -101,6 +115,10 @@
       grid-template-areas: 'name description' 'date-category description';
       column-gap: 32px;
       row-gap: 8px;
+    }
+
+    @include respond(3xl) {
+      column-gap: 84px;
     }
   }
 
@@ -151,6 +169,10 @@
       column-gap: 32px;
       row-gap: 64px;
       margin-top: 56px;
+    }
+
+    @include respond(3xl) {
+      column-gap: 84px;
     }
   }
 

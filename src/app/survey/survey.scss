@@ -2,9 +2,14 @@
 @use '../../styles/abstract/mixins' as *;
 @use '../../styles/abstract/variables' as *;
 
+:host {
+  @include flex-center();
+}
+
 .survey-wrapper {
   @include flex-center(column, 80px);
   width: 100%;
+  max-width: 1920px;
   padding: 0 16px 48px 16px;
 
   @include respond(xs) {
