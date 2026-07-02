@@ -37,6 +37,11 @@
   width: 26px;
   aspect-ratio: 1/1;
   grid-area: action;
+  margin-right: 16px;
+
+  @include respond(lg) {
+    margin: 0;
+  }
 
   &:hover {
     cursor: pointer;

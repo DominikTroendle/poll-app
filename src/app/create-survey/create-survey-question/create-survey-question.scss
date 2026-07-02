@@ -16,6 +16,10 @@
     @include flex-space();
     width: 100%;
     padding-right: 16px;
+
+    @include respond(lg) {
+      padding: 0;
+    }
   }
 
   &__title {
