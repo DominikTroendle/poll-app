@@ -20,6 +20,29 @@ import { CreateSurveyQuestion } from './create-survey-question/create-survey-que
   styleUrl: './create-survey.scss',
 })
 export class CreateSurvey {
+  surveyNameField = {
+    id: 'survey-name',
+    name: 'survey-name',
+    title: 'Survey name',
+    type: 'text',
+  } as const;
+
+  endDateField = {
+    id: 'end-date',
+    name: 'end-date',
+    title: 'Set end date',
+    optional: true,
+    type: 'text',
+  } as const;
+
+  descriptionField = {
+    id: 'description',
+    name: 'description',
+    title: 'Describing text',
+    optional: true,
+    type: 'textarea',
+  } as const;
+
   createSurveyButtonText = 'Publish';
   dropdownChooseText = 'Choose category';
   isCategoryDropdownOpen = false;

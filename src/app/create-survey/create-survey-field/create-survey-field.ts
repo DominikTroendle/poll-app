@@ -1,5 +1,16 @@
 import { Component, input } from '@angular/core';
 
+export type CreateSurveyFieldType = 'text' | 'textarea';
+export type CreateSurveyFieldLayout = 'default' | 'answer';
+export interface CreateSurveyFieldConfig {
+  id: string;
+  name: string;
+  title: string;
+  optional?: boolean;
+  type?: CreateSurveyFieldType;
+  layout?: CreateSurveyFieldLayout;
+}
+
 @Component({
   selector: 'app-create-survey-field',
   imports: [],
@@ -7,12 +18,17 @@ import { Component, input } from '@angular/core';
   styleUrl: './create-survey-field.scss',
 })
 export class CreateSurveyField {
-  fieldTitle = input<string>('');
-  fieldOptional = input<boolean>(false);
-  fieldType = input<'text' | 'textarea'>('text');
-  fieldLayout = input<'default' | 'answer'>('default');
+  field = input.required<CreateSurveyFieldConfig>();
 
-  get getFieldOptionalText(): string {
-    return this.fieldOptional() ? '(optional)' : '';
+  get optionalText(): string {
+    return this.field().optional ? '(optional)' : '';
+  }
+
+  get type(): string {
+    return this.field().type ?? 'text';
+  }
+
+  get layout(): string {
+    return this.field().layout ?? 'default';
   }
 }
