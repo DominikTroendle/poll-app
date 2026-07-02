@@ -1,4 +1,8 @@
-<div class="create-survey-field" [class.create-survey-field--answer]="layout === 'answer'">
+<div
+  class="create-survey-field"
+  [class.create-survey-field--answer]="layout === 'answer'"
+  [class.create-survey-field--centered]="field().name != 'description'"
+>
   <label class="create-survey-field__label" [for]="field().name"
     >{{ field().title }}
     <span class="create-survey-field__highlight">{{ optionalText }}</span></label

@@ -14,13 +14,18 @@
     grid-template-areas:
       'label label'
       'input action';
-    align-items: start;
   }
 
   &--answer {
     @include respond(lg) {
       grid-template-columns: auto minmax(0, 1fr) auto;
       grid-template-areas: 'label input action';
+      align-items: center;
+    }
+  }
+
+  &--centered {
+    @include respond(lg) {
       align-items: center;
     }
   }
