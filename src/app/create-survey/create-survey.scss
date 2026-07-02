@@ -45,7 +45,7 @@
   }
 
   &__close-button {
-    @include flex-center();
+    @include flex-center(row, 10px);
     border: none;
     border-radius: 10px;
     background: #ffb7704d;
@@ -60,6 +60,17 @@
     img {
       width: 13px;
       aspect-ratio: 1/1;
+    }
+
+    span {
+      display: none;
+      font-family: 'Nokora 700';
+      font-size: 16px;
+      color: $primary-white;
+
+      @include respond(lg) {
+        display: inline-block;
+      }
     }
   }
 
