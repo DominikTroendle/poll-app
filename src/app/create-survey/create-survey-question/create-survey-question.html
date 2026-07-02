@@ -17,11 +17,10 @@
         <span>Allow multiple answers</span>
       </div>
     </div>
-    @for (answer of answers; track answer.id) {
+    @for (answer of answers; track answer) {
       <app-create-survey-field
         class="create-survey-question__field"
-        [fieldTitle]="answer.id"
-        [fieldLayout]="'answer'"
+        [field]="getAnswerField(answer)"
       ></app-create-survey-field>
     }
     <button class="create-survey-question__button-add" type="button" (click)="addAnswer()">
