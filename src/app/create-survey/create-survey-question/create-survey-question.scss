@@ -46,6 +46,10 @@
     align-items: center;
     width: 100%;
     color: $primary-white;
+
+    @include respond(lg) {
+      margin-bottom: 8px;
+    }
   }
 
   &__answers-title {
