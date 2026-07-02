@@ -34,6 +34,19 @@
     border-radius: 5px 20px 5px 5px;
     padding: 7px 13px;
     background: $primary-white;
+    outline: none;
+    font-family: 'Mulish';
+    font-size: 16px;
+    color: $primary-purple;
+    grid-area: input;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      background: #fee9d4;
+    }
   }
 
   &__answers {
