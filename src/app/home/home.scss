@@ -3,6 +3,14 @@
 @use '../../styles/abstract/variables' as *;
 @use '../../styles/abstract/breakpoints' as *;
 
+:host {
+  @include respond(4xl) {
+    @include flex-center(column);
+    width: 100vw;
+    background-color: $primary-purple;
+  }
+}
+
 .home-wrapper {
   @include flex-center(column, 80px);
   width: 100%;
@@ -16,6 +24,10 @@
 
   @include respond(lg) {
     padding: 0 100px 36px 100px;
+  }
+
+  @include respond(4xl) {
+    max-width: 1920px;
   }
 }
 
