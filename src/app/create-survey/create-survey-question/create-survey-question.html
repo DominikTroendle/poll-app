@@ -21,6 +21,7 @@
       <app-create-survey-field
         class="create-survey-question__field"
         [fieldTitle]="answer.id"
+        [fieldLayout]="'answer'"
       ></app-create-survey-field>
     }
     <button class="create-survey-question__button-add" type="button" (click)="addAnswer()">

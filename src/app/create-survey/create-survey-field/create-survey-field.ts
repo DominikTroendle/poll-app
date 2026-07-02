@@ -1,4 +1,3 @@
-import { ReturnStatement } from '@angular/compiler';
 import { Component, input } from '@angular/core';
 
 @Component({
@@ -11,6 +10,7 @@ export class CreateSurveyField {
   fieldTitle = input<string>('');
   fieldOptional = input<boolean>(false);
   fieldType = input<'text' | 'textarea'>('text');
+  fieldLayout = input<'default' | 'answer'>('default');
 
   get getFieldOptionalText(): string {
     return this.fieldOptional() ? '(optional)' : '';

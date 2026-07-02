@@ -17,6 +17,14 @@
     align-items: start;
   }
 
+  &--answer {
+    @include respond(lg) {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      grid-template-areas: 'label input action';
+      align-items: center;
+    }
+  }
+
   &__label {
     font-family: 'Mulish 700';
     font-size: 18px;
