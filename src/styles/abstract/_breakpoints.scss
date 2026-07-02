@@ -9,5 +9,9 @@ $breakpoints: (
   // landscape tablets/small laptops
   xl: 1280px,
   // standard laptops
-  2xl: 1440px, // design breakpoint
+  2xl: 1440px,
+  // design breakpoint
+  3xl: 1600px,
+  // large screens
+  4xl: 1921px, // fhd+
 );
