@@ -1,7 +1,7 @@
 <div class="survey-card">
   <div class="survey-card__header">
-    <p class="survey-card__category">Test Category</p>
-    <h4 class="survey-card__title">Test & Testing Survey</h4>
+    <p class="survey-card__category">{{ surveyMetaData().category }}</p>
+    <h4 class="survey-card__title">{{ surveyMetaData().title }}</h4>
   </div>
   <app-survey-status class="survey-card__status"></app-survey-status>
 </div>
