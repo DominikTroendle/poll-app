@@ -12,5 +12,16 @@ import { Supabase } from '../../shared/services/supabase';
 export class EndingSoon {
   supabase = inject(Supabase);
 
-  endingSoonSurveys = computed(() => this.supabase.surveys().slice(0, 3));
+  endingSoonSurveys = computed(() => {
+    const today = new Date();
+    const todayString = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, '0'),
+      String(today.getDate()).padStart(2, '0'),
+    ].join('-');
+    return this.supabase
+      .surveys()
+      .filter((survey) => survey.ends_at >= todayString)
+      .slice(0, 3);
+  });
 }
