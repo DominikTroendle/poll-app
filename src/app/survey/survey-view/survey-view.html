@@ -13,14 +13,11 @@
         </div>
         <div class="survey-view__meta">
           <span>Ends on {{ formatDate(survey.ends_at) }}</span>
-          <span>Category: TestCategory3</span>
+          <span>Category: {{ survey.category }}</span>
         </div>
-        <h2 class="survey-view__title">Test Title for supercool Event Survey</h2>
+        <h2 class="survey-view__title">{{ survey.title }}</h2>
       </div>
-      <p class="survey-view__description">
-        We want to create team activities that everyone will enjoy &#45; share your preferences and
-        ideas in our survey to help us plan better experiences together.
-      </p>
+      <p class="survey-view__description">{{ survey.description }}</p>
     </div>
     <app-survey-form class="survey-view__form"></app-survey-form>
   }
