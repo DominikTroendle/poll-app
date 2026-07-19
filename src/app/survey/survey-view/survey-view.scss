@@ -34,7 +34,7 @@
   }
 
   &__header-wrapper {
-    @include flex-center(column, 24px);
+    @include flex-start(column, 24px);
   }
 
   &__header {
