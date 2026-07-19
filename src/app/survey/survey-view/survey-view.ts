@@ -22,4 +22,14 @@ export class SurveyView {
     const survey = await this.supabase.getSurveyWithQuestions(this.surveyId);
     this.currentSurvey.set(survey);
   }
+
+  formatDate(date: string): string {
+    const [year, month, day] = date.split('-').map(Number);
+    const localDate = new Date(year, month, day);
+    return new Intl.DateTimeFormat('de-DE', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }).format(localDate);
+  }
 }

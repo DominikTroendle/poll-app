@@ -1,23 +1,28 @@
 <section class="survey-view">
-  <div class="survey-view__header-wrapper">
-    <div class="survey-view__header">
-      <div class="survey-view__status">
-        <app-survey-status class="survey-view__status-badge"></app-survey-status>
-        <button class="survey-view__close-button" routerLink="/">
-          <img src="svg/close.svg" />
-        </button>
+  @if (currentSurvey(); as survey) {
+    <div class="survey-view__header-wrapper">
+      <div class="survey-view__header">
+        <div class="survey-view__status">
+          <app-survey-status
+            class="survey-view__status-badge"
+            [surveyEndDate]="survey.ends_at"
+          ></app-survey-status>
+          <button class="survey-view__close-button" routerLink="/">
+            <img src="svg/close.svg" />
+          </button>
+        </div>
+        <div class="survey-view__meta">
+          <span>Ends on {{ formatDate(survey.ends_at) }}</span>
+          <span>Category: TestCategory3</span>
+        </div>
+        <h2 class="survey-view__title">Test Title for supercool Event Survey</h2>
       </div>
-      <div class="survey-view__meta">
-        <span>Ends on 09.89.2876</span>
-        <span>Category: TestCategory3</span>
-      </div>
-      <h2 class="survey-view__title">Test Title for supercool Event Survey</h2>
+      <p class="survey-view__description">
+        We want to create team activities that everyone will enjoy &#45; share your preferences and
+        ideas in our survey to help us plan better experiences together.
+      </p>
     </div>
-    <p class="survey-view__description">
-      We want to create team activities that everyone will enjoy &#45; share your preferences and
-      ideas in our survey to help us plan better experiences together.
-    </p>
-  </div>
-  <app-survey-form class="survey-view__form"></app-survey-form>
+    <app-survey-form class="survey-view__form"></app-survey-form>
+  }
 </section>
 <app-survey-results class="survey-view__results"></app-survey-results>
