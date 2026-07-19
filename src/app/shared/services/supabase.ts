@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { createClient } from '@supabase/supabase-js';
-import { SurveyMetaData } from '../interfaces/interfaces';
+import { SurveyMetaData, SurveyWithQuestions } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class Supabase {
 
   surveys = signal<SurveyMetaData[]>([]);
 
-  async getSurveys() {
+  async getSurveys(): Promise<void> {
     const { data: surveys, error } = await this.supabase
       .from('surveys')
       .select('*')
@@ -22,5 +22,27 @@ export class Supabase {
       return;
     }
     this.surveys.set(surveys ?? []);
+  }
+
+  async getSurveyWithQuestions(surveyID: number): Promise<SurveyWithQuestions | null> {
+    const { data: surveyData, error } = await this.supabase
+      .from('surveys')
+      .select(
+        `*,
+      questions (
+        *,
+        answer_options (
+        *
+        )
+      )
+    `,
+      )
+      .eq('id', surveyID)
+      .single();
+    if (error) {
+      console.error('Supabase error:', error);
+      return null;
+    }
+    return surveyData as SurveyWithQuestions;
   }
 }
