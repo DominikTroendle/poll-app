@@ -25,7 +25,7 @@ export class SurveyView {
 
   formatDate(date: string): string {
     const [year, month, day] = date.split('-').map(Number);
-    const localDate = new Date(year, month, day);
+    const localDate = new Date(year, month - 1, day);
     return new Intl.DateTimeFormat('de-DE', {
       day: '2-digit',
       month: '2-digit',
