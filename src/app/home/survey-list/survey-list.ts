@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { SurveyListItem } from '../../shared/survey-list-item/survey-list-item';
 import { Supabase } from '../../shared/services/supabase';
 import { SurveyMetaData } from '../../shared/interfaces/interfaces';
@@ -11,6 +11,7 @@ import { SurveyMetaData } from '../../shared/interfaces/interfaces';
 })
 export class SurveyList {
   supabase = inject(Supabase);
+  displayActiveSurveys = input<boolean>(true);
   activeSurveys = computed(() => this.filterSurveys('active'));
   pastSurveys = computed(() => this.filterSurveys('past'));
 
