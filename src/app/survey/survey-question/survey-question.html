@@ -6,8 +6,8 @@
     }
   </div>
   <div class="survey-question__inputs-wrapper">
-    @for (answer of question().answer_options; track answer.id) {
-      <app-survey-input [answer]="answer"></app-survey-input>
+    @for (answer of question().answer_options; track answer.id; let index = $index) {
+      <app-survey-input [answer]="answer" [answerId]="$index"></app-survey-input>
     }
   </div>
 </fieldset>

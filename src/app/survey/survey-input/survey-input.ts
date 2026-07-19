@@ -8,5 +8,10 @@ import { Answer } from '../../shared/interfaces/interfaces';
   styleUrl: './survey-input.scss',
 })
 export class SurveyInput {
-  answer = input<Answer>();
+  answer = input.required<Answer>();
+  answerId = input.required<number>();
+
+  getAnswerLetter(): string {
+    return String.fromCharCode(65 + this.answerId());
+  }
 }
