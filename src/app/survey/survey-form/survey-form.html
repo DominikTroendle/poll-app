@@ -1,6 +1,10 @@
 <form class="survey-form" action="">
-  @for (question of questions(); track question.id) {
-    <app-survey-question class="survey-form__question"></app-survey-question>
+  @for (question of questions(); track question.id; let index = $index) {
+    <app-survey-question
+      class="survey-form__question"
+      [question]="question"
+      [questionId]="$index + 1"
+    ></app-survey-question>
   }
 </form>
 <app-button-primary

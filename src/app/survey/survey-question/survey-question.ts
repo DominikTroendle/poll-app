@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { SurveyInput } from '../survey-input/survey-input';
+import { Question } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-survey-question',
@@ -7,4 +8,7 @@ import { SurveyInput } from '../survey-input/survey-input';
   templateUrl: './survey-question.html',
   styleUrl: './survey-question.scss',
 })
-export class SurveyQuestion {}
+export class SurveyQuestion {
+  question = input.required<Question>();
+  questionId = input.required<number>();
+}

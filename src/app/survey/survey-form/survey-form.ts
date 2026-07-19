@@ -11,5 +11,5 @@ import { Question } from '../../shared/interfaces/interfaces';
 })
 export class SurveyForm {
   completeSurveyButtonText = 'Complete survey';
-  questions = input<Question[]>([]);
+  questions = input.required<Question[]>();
 }

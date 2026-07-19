@@ -1,14 +1,13 @@
 <fieldset class="survey-question">
   <div class="survey-question__header">
-    <legend class="survey-question__title">
-      1. Which date would work test for you (including partner)?
-    </legend>
-    <p class="survey-question__multi-select">More than one answer is testable</p>
+    <legend class="survey-question__title">{{ questionId() }}. {{ question().question }}</legend>
+    @if (question().allow_multiple_answers) {
+      <p class="survey-question__multi-select">More than one answer is possible</p>
+    }
   </div>
   <div class="survey-question__inputs-wrapper">
-    <app-survey-input></app-survey-input>
-    <app-survey-input></app-survey-input>
-    <app-survey-input></app-survey-input>
-    <app-survey-input></app-survey-input>
+    @for (answer of question().answer_options; track answer.id) {
+      <app-survey-input [answer]="answer"></app-survey-input>
+    }
   </div>
 </fieldset>
