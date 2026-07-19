@@ -1,11 +1,5 @@
 <div class="survey-list">
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
-  <app-survey-list-item class="survey-list__item"></app-survey-list-item>
+  @for (survey of activeSurveys(); track survey) {
+    <app-survey-list-item class="survey-list__item"></app-survey-list-item>
+  }
 </div>
