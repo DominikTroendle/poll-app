@@ -1,11 +1,17 @@
 <div class="survey-list">
   @if (displayActiveSurveys()) {
     @for (survey of activeSurveys(); track survey.id) {
-      <app-survey-list-item class="survey-list__item"></app-survey-list-item>
+      <app-survey-list-item
+        class="survey-list__item"
+        [surveyMetaData]="survey"
+      ></app-survey-list-item>
     }
   } @else {
     @for (survey of pastSurveys(); track survey.id) {
-      <app-survey-list-item class="survey-list__item"></app-survey-list-item>
+      <app-survey-list-item
+        class="survey-list__item"
+        [surveyMetaData]="survey"
+      ></app-survey-list-item>
     }
   }
 </div>

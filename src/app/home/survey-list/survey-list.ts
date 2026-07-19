@@ -25,7 +25,7 @@ export class SurveyList {
     return this.supabase
       .surveys()
       .filter((survey) =>
-        status === 'active' ? survey.ends_at >= todayString : survey.ends_at <= todayString,
+        status === 'active' ? survey.ends_at >= todayString : survey.ends_at < todayString,
       );
   }
 }
