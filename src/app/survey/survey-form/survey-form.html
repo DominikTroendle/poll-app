@@ -1,8 +1,7 @@
 <form class="survey-form" action="">
-  <app-survey-question class="survey-form__question"></app-survey-question>
-  <app-survey-question class="survey-form__question"></app-survey-question>
-  <app-survey-question class="survey-form__question"></app-survey-question>
-  <app-survey-question class="survey-form__question"></app-survey-question>
+  @for (question of questions(); track question.id) {
+    <app-survey-question class="survey-form__question"></app-survey-question>
+  }
 </form>
 <app-button-primary
   class="survey-form__button"

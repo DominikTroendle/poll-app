@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { SurveyQuestion } from '../survey-question/survey-question';
 import { ButtonPrimary } from '../../shared/button-primary/button-primary';
+import { Question } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-survey-form',
@@ -10,4 +11,5 @@ import { ButtonPrimary } from '../../shared/button-primary/button-primary';
 })
 export class SurveyForm {
   completeSurveyButtonText = 'Complete survey';
+  questions = input<Question[]>([]);
 }
