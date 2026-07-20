@@ -1,5 +1,7 @@
 import { Component, input } from '@angular/core';
 
+type SurveyStatusMode = 'remaining-days' | 'published';
+
 @Component({
   selector: 'app-survey-status',
   imports: [],
@@ -8,6 +10,7 @@ import { Component, input } from '@angular/core';
 })
 export class SurveyStatus {
   surveyEndDate = input<string>('');
+  displayMode = input<SurveyStatusMode>('remaining-days');
 
   getRemainingDays(): number {
     const [year, month, day] = this.surveyEndDate().split('-').map(Number);

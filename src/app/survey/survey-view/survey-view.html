@@ -6,6 +6,7 @@
           <app-survey-status
             class="survey-view__status-badge"
             [surveyEndDate]="survey.ends_at"
+            [displayMode]="'published'"
           ></app-survey-status>
           <button class="survey-view__close-button" routerLink="/">
             <img src="svg/close.svg" />

@@ -1,11 +1,16 @@
 <div class="survey-status">
-  @if (getRemainingDays() < 0) {
-    <span class="survey-status__text">Ended {{ getRemainingDays() * -1 }} Days ago</span>
-  } @else if (getRemainingDays() === 0) {
-    <span class="survey-status__text">Ends today</span>
-  } @else if (getRemainingDays() === 1) {
-    <span class="survey-status__text">Ends in {{ getRemainingDays() }} Day</span>
+  @if (displayMode() === 'published') {
+    <span class="survey-status__text">Published</span>
   } @else {
-    <span class="survey-status__text">Ends in {{ getRemainingDays() }} Days</span>
+    @let remainingDays = getRemainingDays();
+    @if (remainingDays < 0) {
+      <span class="survey-status__text">Ended {{ remainingDays * -1 }} Days ago</span>
+    } @else if (remainingDays === 0) {
+      <span class="survey-status__text">Ends today</span>
+    } @else if (remainingDays === 1) {
+      <span class="survey-status__text">Ends in {{ remainingDays }} Day</span>
+    } @else {
+      <span class="survey-status__text">Ends in {{ remainingDays }} Days</span>
+    }
   }
 </div>
