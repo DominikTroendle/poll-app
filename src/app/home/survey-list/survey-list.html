@@ -4,6 +4,7 @@
       <app-survey-list-item
         class="survey-list__item"
         [surveyMetaData]="survey"
+        [routerLink]="['survey', survey.id]"
       ></app-survey-list-item>
     }
   } @else {
@@ -11,6 +12,8 @@
       <app-survey-list-item
         class="survey-list__item"
         [surveyMetaData]="survey"
+        [routerLink]="['survey', survey.id]"
+        [isPast]="true"
       ></app-survey-list-item>
     }
   }

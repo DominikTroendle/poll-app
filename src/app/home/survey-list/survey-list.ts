@@ -2,10 +2,11 @@ import { Component, computed, inject, input } from '@angular/core';
 import { SurveyListItem } from '../../shared/survey-list-item/survey-list-item';
 import { Supabase } from '../../shared/services/supabase';
 import { SurveyMetaData } from '../../shared/interfaces/interfaces';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-survey-list',
-  imports: [SurveyListItem],
+  imports: [SurveyListItem, RouterLink],
   templateUrl: './survey-list.html',
   styleUrl: './survey-list.scss',
 })
