@@ -1,5 +1,13 @@
 import { Component, input, output } from '@angular/core';
 
+type Category =
+  | 'Team Activities'
+  | 'Health & Wellness'
+  | 'Gaming & Entertainment'
+  | 'Education & Learning'
+  | 'Lifestlye & Preferences'
+  | 'Technology & Innovation';
+
 @Component({
   selector: 'app-category-dropdown',
   imports: [],
@@ -10,7 +18,9 @@ export class CategoryDropdown {
   isOpen = input(false);
   dropdownText = input<string>('');
   toggleRequested = output<void>();
-  categories = [
+  categorySelected = output<Category>();
+
+  categories: Category[] = [
     'Team Activities',
     'Health & Wellness',
     'Gaming & Entertainment',
@@ -32,8 +42,9 @@ export class CategoryDropdown {
     return this.selectedCategory != '' && !this.isOpen();
   }
 
-  setCategory(index: number): void {
-    this.selectedCategory = this.categories[index];
+  setCategory(category: Category): void {
+    this.selectedCategory = category;
+    this.categorySelected.emit(category);
     this.requestToggle();
   }
 }
