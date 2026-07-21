@@ -10,5 +10,4 @@ import { SurveyMetaData } from '../interfaces/interfaces';
 })
 export class SurveyListItem {
   surveyMetaData = input.required<SurveyMetaData>();
-  isPast = input<boolean>(false);
 }
