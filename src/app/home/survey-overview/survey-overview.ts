@@ -15,8 +15,8 @@ export class SurveyOverview {
   selectedCategory: Category | null = null;
   dropdownSortText = 'Sort by categories';
 
-  toggleSurveySelection(): void {
-    this.activeSurveysSelected = !this.activeSurveysSelected;
+  selectSurveyStatus(showActiveSurveys: boolean): void {
+    this.activeSurveysSelected = showActiveSurveys;
   }
 
   toggleCategoryDropdown(): void {

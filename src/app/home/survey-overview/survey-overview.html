@@ -4,14 +4,14 @@
       <button
         class="survey-overview__button"
         [class.survey-overview__button--active]="activeSurveysSelected"
-        (click)="toggleSurveySelection()"
+        (click)="selectSurveyStatus(true)"
       >
         Active surveys
       </button>
       <button
         class="survey-overview__button"
         [class.survey-overview__button--active]="!activeSurveysSelected"
-        (click)="toggleSurveySelection()"
+        (click)="selectSurveyStatus(false)"
       >
         Past surveys
       </button>
