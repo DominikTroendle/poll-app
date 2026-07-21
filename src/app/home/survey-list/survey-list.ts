@@ -29,7 +29,7 @@ export class SurveyList {
       const matchesStatus =
         status === 'active' ? survey.ends_at >= todayString : survey.ends_at < todayString;
       const matchesCategory =
-        !this.selectedCategory() || survey.category === this.selectedCategory();
+        !this.selectedCategory() || survey.category.trim() === this.selectedCategory()?.trim();
       return matchesStatus && matchesCategory;
     });
   }
