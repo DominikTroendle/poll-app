@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CategoryDropdown } from '../../shared/category-dropdown/category-dropdown';
 import { SurveyList } from '../survey-list/survey-list';
+import { Category } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-survey-overview',
@@ -11,6 +12,7 @@ import { SurveyList } from '../survey-list/survey-list';
 export class SurveyOverview {
   activeSurveysSelected = true;
   isCategoryDropdownOpen = false;
+  selectedCategory: Category | null = null;
   dropdownSortText = 'Sort by categories';
 
   toggleSurveySelection(): void {
@@ -23,5 +25,9 @@ export class SurveyOverview {
 
   closeCategoryDropdown(): void {
     this.isCategoryDropdownOpen = false;
+  }
+
+  selectCategory(category: Category): void {
+    this.selectedCategory = category;
   }
 }

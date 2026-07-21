@@ -21,7 +21,11 @@
       (toggleRequested)="toggleCategoryDropdown()"
       (click)="$event.stopPropagation()"
       [dropdownText]="dropdownSortText"
+      (categorySelected)="selectCategory($event)"
     ></app-category-dropdown>
   </div>
-  <app-survey-list [displayActiveSurveys]="activeSurveysSelected"></app-survey-list>
+  <app-survey-list
+    [displayActiveSurveys]="activeSurveysSelected"
+    [selectedCategory]="selectedCategory"
+  ></app-survey-list>
 </section>

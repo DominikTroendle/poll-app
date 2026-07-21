@@ -1,12 +1,5 @@
 import { Component, input, output } from '@angular/core';
-
-type Category =
-  | 'Team Activities'
-  | 'Health & Wellness'
-  | 'Gaming & Entertainment'
-  | 'Education & Learning'
-  | 'Lifestlye & Preferences'
-  | 'Technology & Innovation';
+import { Category } from '../interfaces/interfaces';
 
 @Component({
   selector: 'app-category-dropdown',
@@ -25,7 +18,7 @@ export class CategoryDropdown {
     'Health & Wellness',
     'Gaming & Entertainment',
     'Education & Learning',
-    'Lifestlye & Preferences',
+    'Lifestyle & Preferences',
     'Technology & Innovation',
   ];
   selectedCategory = '';
