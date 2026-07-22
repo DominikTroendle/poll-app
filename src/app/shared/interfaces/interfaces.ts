@@ -31,3 +31,9 @@ export interface Question {
 export interface SurveyWithQuestions extends SurveyMetaData {
   questions: Question[];
 }
+
+export interface AnswerOptionResult {
+  id: number;
+  question_id: number;
+  selection_count: number;
+}
