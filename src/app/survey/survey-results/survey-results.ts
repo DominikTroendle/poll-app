@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { SurveyResult } from '../survey-result/survey-result';
 
 @Component({
@@ -8,6 +8,7 @@ import { SurveyResult } from '../survey-result/survey-result';
   styleUrl: './survey-results.scss',
 })
 export class SurveyResults {
+  expired = input<boolean>();
   isOpen = true;
   buttonText = 'Close results';
 

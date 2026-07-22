@@ -5,7 +5,10 @@
   </button>
   <div class="survey-results__container" [class.survey-results__container--open]="isOpen">
     <h2 class="survey-results__title">
-      Survey results <span class="survey-results__prefix">LIVE</span>
+      Survey results
+      @if (!expired()) {
+        <span class="survey-results__prefix">LIVE</span>
+      }
     </h2>
     <div class="survey-results__wrapper">
       <app-survey-result></app-survey-result>
