@@ -32,9 +32,7 @@ export class Supabase {
         `*,
       questions (
         *,
-        answer_options (
-        *
-        )
+        answer_options (id, question_id, answer)
       )
     `,
       )
