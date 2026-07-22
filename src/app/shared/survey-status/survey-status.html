@@ -2,7 +2,7 @@
   @if (displayMode() === 'published') {
     <span class="survey-status__text">Published</span>
   } @else {
-    @let remainingDays = getRemainingDays();
+    @let remainingDays = daysRemaining();
     @if (remainingDays < 0) {
       <span class="survey-status__text">Ended {{ remainingDays * -1 }} Days ago</span>
     } @else if (remainingDays === 0) {
