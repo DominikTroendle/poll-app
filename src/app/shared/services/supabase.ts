@@ -11,7 +11,6 @@ export class Supabase {
   supabase = createClient(this.supabaseUrl, this.supabaseKey);
 
   surveys = signal<SurveyMetaData[]>([]);
-  committedResults = signal<AnswerOptionResult[]>([]);
 
   async getSurveys(): Promise<void> {
     const { data: surveys, error } = await this.supabase
@@ -45,8 +44,7 @@ export class Supabase {
     return surveyData;
   }
 
-  async getCommittedResults(surveyID: number): Promise<void> {
-    this.committedResults.set([]);
+  async getCommittedResults(surveyID: number): Promise<AnswerOptionResult[] | null> {
     const { data: liveResults, error } = await this.supabase
       .from('surveys')
       .select('questions (answer_options (id, question_id, selection_count))')
@@ -54,9 +52,9 @@ export class Supabase {
       .single();
     if (error) {
       console.error('Supabase error: ', error);
-      return;
+      return null;
     }
     const result = liveResults.questions.flatMap((question) => question.answer_options);
-    this.committedResults.set(result);
+    return result;
   }
 }
