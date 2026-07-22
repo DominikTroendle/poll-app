@@ -1,6 +1,8 @@
 <div class="survey-status">
   @if (displayMode() === 'published') {
     <span class="survey-status__text">Published</span>
+  } @else if (displayMode() === 'expired') {
+    <span class="survey-status__text">Expired</span>
   } @else {
     @let remainingDays = daysRemaining();
     @if (remainingDays < 0) {

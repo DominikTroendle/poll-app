@@ -1,7 +1,7 @@
 import { Component, computed, input } from '@angular/core';
 import { getRemainingDays } from '../utils/survey-date';
 
-type SurveyStatusMode = 'remaining-days' | 'published';
+type SurveyStatusMode = 'remaining-days' | 'published' | 'expired';
 
 @Component({
   selector: 'app-survey-status',
