@@ -1,10 +1,11 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { SurveyStatus } from '../../shared/survey-status/survey-status';
 import { SurveyForm } from '../survey-form/survey-form';
 import { SurveyResults } from '../survey-results/survey-results';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Supabase } from '../../shared/services/supabase';
 import { SurveyWithQuestions } from '../../shared/interfaces/interfaces';
+import { getRemainingDays } from '../../shared/utils/survey-date';
 
 @Component({
   selector: 'app-survey-view',
@@ -17,6 +18,12 @@ export class SurveyView {
   private readonly route = inject(ActivatedRoute);
   readonly surveyId = Number(this.route.snapshot.paramMap.get('id'));
   currentSurvey = signal<SurveyWithQuestions | null>(null);
+
+  surveyExpired = computed(() => {
+    const survey = this.currentSurvey();
+    if (!survey) return;
+    return getRemainingDays(survey.ends_at) < 0;
+  });
 
   async ngOnInit(): Promise<void> {
     const survey = await this.supabase.getSurveyWithQuestions(this.surveyId);
