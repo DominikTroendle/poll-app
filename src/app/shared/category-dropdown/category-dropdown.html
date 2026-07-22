@@ -16,7 +16,13 @@
   </p>
   <ul class="category-dropdown__content" [class.category-dropdown__content--visible]="isOpen()">
     @for (category of categories; track category) {
-      <li (click)="setCategory(category)">{{ category }}</li>
+      <li
+        class="category-dropdown__category"
+        [class.category-dropdown__category--selected]="selectedCategory === category"
+        (click)="setCategory(category)"
+      >
+        {{ category }}
+      </li>
     }
   </ul>
 </div>

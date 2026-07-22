@@ -62,17 +62,21 @@
   font-size: 14px;
   letter-spacing: 2%;
 
-  li {
-    padding: 4px;
-    border-radius: 6px;
-
-    &:hover {
-      cursor: pointer;
-      background: $primary-lilac;
-    }
-  }
-
   &--visible {
     @include flex-start(column, 4px);
+  }
+}
+
+.category-dropdown__category {
+  padding: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background: $primary-lilac;
+  }
+
+  &--selected {
+    background: $primary-lilac;
   }
 }
