@@ -10,6 +10,7 @@ import { Answer } from '../../shared/interfaces/interfaces';
 export class SurveyInput {
   answer = input.required<Answer>();
   answerId = input.required<number>();
+  multiSelect = input.required<boolean>();
 
   getAnswerLetter(): string {
     return String.fromCharCode(65 + this.answerId());

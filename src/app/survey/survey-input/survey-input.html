@@ -1,10 +1,10 @@
-<label class="survey-input" [for]="answer().id">
+<label class="survey-input" [for]="'answer-' + answer().id">
   <input
     class="survey-input__control"
-    type="checkbox"
-    name=""
-    [id]="answer().id"
-    [value]="answer().answer"
+    [type]="multiSelect() ? 'checkbox' : 'radio'"
+    [name]="'question-' + answer().question_id"
+    [id]="'answer-' + answer().id"
+    [value]="answer().id"
   />
   <p class="survey-input__label">
     <span class="survey-input__prefix">{{ getAnswerLetter() }}.</span>{{ answer().answer }}

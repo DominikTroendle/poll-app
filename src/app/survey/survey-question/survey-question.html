@@ -7,7 +7,11 @@
   </div>
   <div class="survey-question__inputs-wrapper">
     @for (answer of question().answer_options; track answer.id; let index = $index) {
-      <app-survey-input [answer]="answer" [answerId]="$index"></app-survey-input>
+      <app-survey-input
+        [answer]="answer"
+        [answerId]="$index"
+        [multiSelect]="question().allow_multiple_answers ? true : false"
+      ></app-survey-input>
     }
   </div>
 </fieldset>
