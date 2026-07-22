@@ -27,7 +27,7 @@ export class SurveyOverview {
     this.isCategoryDropdownOpen = false;
   }
 
-  selectCategory(category: Category): void {
+  selectCategory(category: Category | null): void {
     this.selectedCategory = category;
   }
 }

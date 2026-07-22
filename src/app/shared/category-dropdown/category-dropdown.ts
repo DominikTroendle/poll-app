@@ -11,7 +11,7 @@ export class CategoryDropdown {
   isOpen = input(false);
   dropdownText = input<string>('');
   toggleRequested = output<void>();
-  categorySelected = output<Category>();
+  categorySelected = output<Category | null>();
 
   categories: Category[] = [
     'Team Activities',
@@ -21,7 +21,7 @@ export class CategoryDropdown {
     'Lifestyle & Preferences',
     'Technology & Innovation',
   ];
-  selectedCategory = '';
+  selectedCategory: Category | null = null;
 
   get getImgSrc(): string {
     return this.isOpen() ? 'svg/arrow-dropdown-open.svg' : 'svg/arrow-dropdown.svg';
@@ -32,12 +32,12 @@ export class CategoryDropdown {
   }
 
   isCategorySelected(): boolean {
-    return this.selectedCategory != '' && !this.isOpen();
+    return this.selectedCategory != null && !this.isOpen();
   }
 
   setCategory(category: Category): void {
-    this.selectedCategory = category;
-    this.categorySelected.emit(category);
+    this.selectedCategory = category === this.selectedCategory ? null : category;
+    this.categorySelected.emit(this.selectedCategory);
     this.requestToggle();
   }
 }
