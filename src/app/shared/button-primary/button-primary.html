@@ -1,4 +1,4 @@
-<button class="button">
+<button class="button" [disabled]="disabled()">
   <span class="button__text">{{ buttonText() }}</span>
   @if (hasIcon()) {
     <img class="button__icon" [src]="logoSrc" />

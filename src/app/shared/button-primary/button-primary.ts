@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ButtonPrimary {
   buttonText = input<string>('');
   hasIcon = input<boolean>(true);
+  disabled = input<boolean>();
   private readonly router = inject(Router);
 
   get isHomePage(): boolean {
