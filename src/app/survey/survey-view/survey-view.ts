@@ -21,7 +21,7 @@ export class SurveyView {
 
   surveyExpired = computed(() => {
     const survey = this.currentSurvey();
-    if (!survey) return;
+    if (!survey) return false;
     return getRemainingDays(survey.ends_at) < 0;
   });
 

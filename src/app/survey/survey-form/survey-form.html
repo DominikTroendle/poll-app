@@ -4,6 +4,7 @@
       class="survey-form__question"
       [question]="question"
       [questionId]="$index + 1"
+      [disabled]="disabled()"
     ></app-survey-question>
   }
 </form>

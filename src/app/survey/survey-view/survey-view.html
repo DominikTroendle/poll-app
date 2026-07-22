@@ -20,7 +20,11 @@
       </div>
       <p class="survey-view__description">{{ survey.description }}</p>
     </div>
-    <app-survey-form class="survey-view__form" [questions]="survey.questions"></app-survey-form>
+    <app-survey-form
+      class="survey-view__form"
+      [questions]="survey.questions"
+      [disabled]="surveyExpired()"
+    ></app-survey-form>
   }
 </section>
 <app-survey-results class="survey-view__results"></app-survey-results>

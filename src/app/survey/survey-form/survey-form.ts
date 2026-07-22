@@ -12,4 +12,5 @@ import { Question } from '../../shared/interfaces/interfaces';
 export class SurveyForm {
   completeSurveyButtonText = 'Complete survey';
   questions = input.required<Question[]>();
+  disabled = input.required<boolean>();
 }

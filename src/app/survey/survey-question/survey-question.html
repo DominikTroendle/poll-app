@@ -1,4 +1,4 @@
-<fieldset class="survey-question">
+<fieldset class="survey-question" [disabled]="disabled()">
   <div class="survey-question__header">
     <legend class="survey-question__title">{{ questionId() }}. {{ question().question }}</legend>
     @if (question().allow_multiple_answers) {

@@ -11,4 +11,5 @@ import { Question } from '../../shared/interfaces/interfaces';
 export class SurveyQuestion {
   question = input.required<Question>();
   questionId = input.required<number>();
+  disabled = input.required<boolean>();
 }
