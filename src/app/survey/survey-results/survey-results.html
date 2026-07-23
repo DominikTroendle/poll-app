@@ -15,6 +15,7 @@
         <app-survey-result
           [questionResults]="getQuestionResults(question.id)"
           [question]="question"
+          [questionId]="$index + 1"
         ></app-survey-result>
       }
     </div>

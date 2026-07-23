@@ -10,5 +10,6 @@ import { ResultChart } from '../result-chart/result-chart';
 })
 export class SurveyResult {
   question = input.required<Question>();
+  questionId = input<number>();
   questionResults = input.required<AnswerOptionResult[]>();
 }
