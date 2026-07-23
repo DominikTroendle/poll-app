@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { SurveyResult } from '../survey-result/survey-result';
+import { AnswerOptionResult, Question } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-survey-results',
@@ -9,6 +10,8 @@ import { SurveyResult } from '../survey-result/survey-result';
 })
 export class SurveyResults {
   expired = input<boolean>();
+  questions = input.required<Question[]>();
+  results = input.required<AnswerOptionResult[]>();
   isOpen = true;
   buttonText = 'Close results';
 
@@ -19,5 +22,9 @@ export class SurveyResults {
   toggleResultsVisibility(): void {
     this.isOpen = !this.isOpen;
     this.buttonText = this.isOpen ? 'Close results' : 'See results';
+  }
+
+  getQuestionResults(questionId: number): AnswerOptionResult[] {
+    return this.results().filter((result) => result.question_id === questionId);
   }
 }

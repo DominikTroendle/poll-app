@@ -11,10 +11,12 @@
       }
     </h2>
     <div class="survey-results__wrapper">
-      <app-survey-result></app-survey-result>
-      <app-survey-result></app-survey-result>
-      <app-survey-result></app-survey-result>
-      <app-survey-result></app-survey-result>
+      @for (question of questions(); track question.id) {
+        <app-survey-result
+          [questionResults]="getQuestionResults(question.id)"
+          [question]="question"
+        ></app-survey-result>
+      }
     </div>
   </div>
 </section>
