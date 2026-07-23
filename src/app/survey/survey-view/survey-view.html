@@ -1,5 +1,5 @@
-<section class="survey-view">
-  @if (currentSurvey(); as survey) {
+@if (currentSurvey(); as survey) {
+  <section class="survey-view">
     <div class="survey-view__header-wrapper">
       <div class="survey-view__header">
         <div class="survey-view__status">
@@ -25,6 +25,11 @@
       [questions]="survey.questions"
       [disabled]="surveyExpired()"
     ></app-survey-form>
-  }
-</section>
-<app-survey-results class="survey-view__results" [expired]="surveyExpired()"></app-survey-results>
+  </section>
+  <app-survey-results
+    class="survey-view__results"
+    [expired]="surveyExpired()"
+    [results]="committedResults()"
+    [questions]="survey.questions"
+  ></app-survey-results>
+}

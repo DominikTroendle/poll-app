@@ -18,7 +18,7 @@ export class SurveyView {
   private readonly route = inject(ActivatedRoute);
   readonly surveyId = Number(this.route.snapshot.paramMap.get('id'));
   currentSurvey = signal<SurveyWithQuestions | null>(null);
-  committedResults = signal<AnswerOptionResult[] | null>([]);
+  committedResults = signal<AnswerOptionResult[]>([]);
 
   surveyExpired = computed(() => {
     const survey = this.currentSurvey();
@@ -30,7 +30,7 @@ export class SurveyView {
     const survey = await this.supabase.getSurveyWithQuestions(this.surveyId);
     const results = await this.supabase.getCommittedResults(this.surveyId);
     this.currentSurvey.set(survey);
-    this.committedResults.set(results);
+    this.committedResults.set(results ?? []);
   }
 
   formatDate(date: string): string {
