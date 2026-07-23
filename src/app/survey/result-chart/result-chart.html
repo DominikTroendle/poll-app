@@ -1,7 +1,7 @@
 <div class="result-chart">
   <span class="result-chart__prefix">A</span>
   <div class="result-chart__bar">
-    <div class="result-chart__bar-fill" [style.width.%]="percent"></div>
+    <div class="result-chart__bar-fill" [style.width.%]="calculatePercent()"></div>
   </div>
-  <span class="result-chart__percent">{{ percent }}&#37;</span>
+  <span class="result-chart__percent">{{ calculatePercent() }}&#37;</span>
 </div>
