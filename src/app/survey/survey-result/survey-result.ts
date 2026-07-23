@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { AnswerOptionResult, Question } from '../../shared/interfaces/interfaces';
 import { ResultChart } from '../result-chart/result-chart';
 
 @Component({
@@ -7,4 +8,7 @@ import { ResultChart } from '../result-chart/result-chart';
   templateUrl: './survey-result.html',
   styleUrl: './survey-result.scss',
 })
-export class SurveyResult {}
+export class SurveyResult {
+  question = input.required<Question>();
+  questionResults = input.required<AnswerOptionResult[]>();
+}
