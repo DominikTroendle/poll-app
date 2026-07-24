@@ -32,8 +32,10 @@ export interface SurveyWithQuestions extends SurveyMetaData {
   questions: Question[];
 }
 
-export interface AnswerOptionResult {
-  id: number;
-  question_id: number;
-  selection_count: number;
+export interface CommittedResults {
+  response_answers: CommittedResponseAnswer[];
+}
+
+export interface CommittedResponseAnswer {
+  answer_option_id: number;
 }
