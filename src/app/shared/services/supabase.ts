@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { createClient } from '@supabase/supabase-js';
-import { SurveyMetaData, SurveyWithQuestions, AnswerOptionResult } from '../interfaces/interfaces';
+import { CommittedResults, SurveyMetaData, SurveyWithQuestions } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +31,7 @@ export class Supabase {
         `*,
       questions (
         *,
-        answer_options (id, question_id, answer)
+        answer_options (*)
       )
     `,
       )
@@ -44,17 +44,15 @@ export class Supabase {
     return surveyData;
   }
 
-  async getCommittedResults(surveyID: number): Promise<AnswerOptionResult[] | null> {
-    const { data: liveResults, error } = await this.supabase
-      .from('surveys')
-      .select('questions (answer_options (id, question_id, selection_count))')
-      .eq('id', surveyID)
-      .single();
+  async getCommittedResults(surveyID: number): Promise<CommittedResults[]> {
+    const { data: committedResults, error } = await this.supabase
+      .from('survey_responses')
+      .select('response_answers (answer_option_id)')
+      .eq('survey_id', surveyID);
     if (error) {
       console.error('Supabase error: ', error);
-      return null;
+      return [];
     }
-    const result = liveResults.questions.flatMap((question) => question.answer_options);
-    return result;
+    return committedResults ?? [];
   }
 }
