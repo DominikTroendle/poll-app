@@ -1,5 +1,4 @@
 import { Component, input } from '@angular/core';
-import { AnswerOptionResult } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-result-chart',
@@ -8,11 +7,11 @@ import { AnswerOptionResult } from '../../shared/interfaces/interfaces';
   styleUrl: './result-chart.scss',
 })
 export class ResultChart {
-  result = input.required<AnswerOptionResult>();
-  participants = 7;
+  selectionCount = input.required<number>();
+  participants = input.required<number>();
 
   calculatePercent(): number {
-    const percent = (this.result().selection_count / this.participants) * 100;
+    const percent = (this.selectionCount() / this.participants()) * 100;
     return Math.round(percent);
   }
 }

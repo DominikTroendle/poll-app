@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { AnswerOptionResult, Question } from '../../shared/interfaces/interfaces';
+import { CommittedResponseAnswer, Question } from '../../shared/interfaces/interfaces';
 import { ResultChart } from '../result-chart/result-chart';
 
 @Component({
@@ -11,5 +11,13 @@ import { ResultChart } from '../result-chart/result-chart';
 export class SurveyResult {
   question = input.required<Question>();
   questionId = input<number>();
-  questionResults = input.required<AnswerOptionResult[]>();
+  questionResults = input.required<CommittedResponseAnswer[]>();
+  participants = input.required<number>();
+
+  getSelectionCount(answerOptionId: number): number {
+    const count = this.questionResults().filter(
+      (result) => result.answer_option_id === answerOptionId,
+    ).length;
+    return count;
+  }
 }

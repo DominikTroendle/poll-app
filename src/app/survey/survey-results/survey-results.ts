@@ -1,6 +1,10 @@
 import { Component, input } from '@angular/core';
 import { SurveyResult } from '../survey-result/survey-result';
-import { AnswerOptionResult, Question } from '../../shared/interfaces/interfaces';
+import {
+  CommittedResponseAnswer,
+  CommittedResults,
+  Question,
+} from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-survey-results',
@@ -11,7 +15,7 @@ import { AnswerOptionResult, Question } from '../../shared/interfaces/interfaces
 export class SurveyResults {
   expired = input<boolean>();
   questions = input.required<Question[]>();
-  results = input.required<AnswerOptionResult[]>();
+  results = input.required<CommittedResults[]>();
   isOpen = true;
   buttonText = 'Close results';
 
@@ -24,7 +28,12 @@ export class SurveyResults {
     this.buttonText = this.isOpen ? 'Close results' : 'See results';
   }
 
-  getQuestionResults(questionId: number): AnswerOptionResult[] {
-    return this.results().filter((result) => result.question_id === questionId);
+  getQuestionResults(questionId: number): CommittedResponseAnswer[] {
+    const question = this.questions().find((question) => question.id === questionId);
+    if (!question) return [];
+    const answerOptionIds = new Set(question.answer_options.map((option) => option.id));
+    return this.results()
+      .flatMap((response) => response.response_answers)
+      .filter((answer) => answerOptionIds.has(answer.answer_option_id));
   }
 }

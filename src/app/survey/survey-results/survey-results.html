@@ -16,6 +16,7 @@
           [questionResults]="getQuestionResults(question.id)"
           [question]="question"
           [questionId]="$index + 1"
+          [participants]="results().length"
         ></app-survey-result>
       }
     </div>

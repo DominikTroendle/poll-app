@@ -1,8 +1,11 @@
 <div class="survey-result">
   <h3 class="survey-result__title">{{ questionId() }}. {{ question().question }}</h3>
   <div class="survey-result__charts-wrapper">
-    @for (result of questionResults(); track result.id) {
-      <app-result-chart [result]="result"></app-result-chart>
+    @for (answerOption of question().answer_options; track answerOption.id) {
+      <app-result-chart
+        [selectionCount]="getSelectionCount(answerOption.id)"
+        [participants]="participants()"
+      ></app-result-chart>
     }
   </div>
 </div>
