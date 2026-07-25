@@ -15,9 +15,17 @@ export class SurveyQuestion {
 
   selectedAnswerIDs: number[] = [];
 
-  storeSelectedAnswer(selection: SelectedAnswer): void {
-    this.question().allow_multiple_answers
-      ? (this.selectedAnswerIDs = [...this.selectedAnswerIDs, selection.answerOptionId])
-      : (this.selectedAnswerIDs = [selection.answerOptionId]);
+  onSelectionChange(event: SelectedAnswer): void {
+    if (event.selected) {
+      this.question().allow_multiple_answers
+        ? (this.selectedAnswerIDs = [...this.selectedAnswerIDs, event.answerOptionId])
+        : (this.selectedAnswerIDs = [event.answerOptionId]);
+    } else {
+      this.question().allow_multiple_answers
+        ? (this.selectedAnswerIDs = this.selectedAnswerIDs.filter(
+            (id) => id !== event.answerOptionId,
+          ))
+        : (this.selectedAnswerIDs = []);
+    }
   }
 }
