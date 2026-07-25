@@ -11,6 +11,7 @@
         [answer]="answer"
         [answerId]="$index"
         [multiSelect]="question().allow_multiple_answers ? true : false"
+        (selectionChange)="storeSelectedAnswer($event)"
       ></app-survey-input>
     }
   </div>
