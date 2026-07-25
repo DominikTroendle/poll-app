@@ -39,3 +39,8 @@ export interface CommittedResults {
 export interface CommittedResponseAnswer {
   answer_option_id: number;
 }
+
+export interface SelectedAnswer {
+  answerOptionId: number;
+  selected: boolean;
+}

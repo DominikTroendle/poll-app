@@ -5,6 +5,7 @@
     [name]="'question-' + answer().question_id"
     [id]="'answer-' + answer().id"
     [value]="answer().id"
+    (change)="selectAnswer($event)"
   />
   <p class="survey-input__label">
     <span class="survey-input__prefix">{{ getAnswerLetter() }}.</span>{{ answer().answer }}
