@@ -1,3 +1,5 @@
+import { NumberSymbol } from '@angular/common';
+
 export type Category =
   | 'Team Activities'
   | 'Health & Wellness'
@@ -43,4 +45,9 @@ export interface CommittedResponseAnswer {
 export interface SelectedAnswer {
   answerOptionId: number;
   selected: boolean;
+}
+
+export interface AnsweredQuestion {
+  questionId: number;
+  selectedAnswerIDs: number[];
 }

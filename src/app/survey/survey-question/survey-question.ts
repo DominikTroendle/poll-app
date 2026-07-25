@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { SurveyInput } from '../survey-input/survey-input';
-import { Question, SelectedAnswer } from '../../shared/interfaces/interfaces';
+import { AnsweredQuestion, Question, SelectedAnswer } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-survey-question',
@@ -12,6 +12,7 @@ export class SurveyQuestion {
   question = input.required<Question>();
   questionId = input.required<number>();
   disabled = input.required<boolean>();
+  answeredQuestion = output<AnsweredQuestion>();
 
   selectedAnswerIDs: number[] = [];
 
@@ -27,5 +28,9 @@ export class SurveyQuestion {
           ))
         : (this.selectedAnswerIDs = []);
     }
+    this.answeredQuestion.emit({
+      questionId: this.questionId(),
+      selectedAnswerIDs: this.selectedAnswerIDs,
+    });
   }
 }
