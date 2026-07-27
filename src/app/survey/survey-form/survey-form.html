@@ -5,6 +5,7 @@
       [question]="question"
       [questionId]="$index + 1"
       [disabled]="disabled()"
+      (answeredQuestion)="onAnswerChange($event)"
     ></app-survey-question>
   }
 </form>

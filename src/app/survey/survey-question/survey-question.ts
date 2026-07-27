@@ -29,7 +29,7 @@ export class SurveyQuestion {
         : (this.selectedAnswerIDs = []);
     }
     this.answeredQuestion.emit({
-      questionId: this.questionId(),
+      questionId: this.question().id,
       selectedAnswerIDs: this.selectedAnswerIDs,
     });
   }
