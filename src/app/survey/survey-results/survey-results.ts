@@ -38,4 +38,14 @@ export class SurveyResults {
       .flatMap((response) => response.response_answers)
       .filter((answer) => answerOptionIds.has(answer.answer_option_id));
   }
+
+  getParticipantCount(questionId: number): number {
+    console.log(this.draftResults());
+    const committedParticipants = this.committedResults().length;
+    if (this.draftResults().some((answer) => answer.questionId === questionId)) {
+      return committedParticipants + 1;
+    } else {
+      return committedParticipants;
+    }
+  }
 }

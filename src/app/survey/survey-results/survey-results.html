@@ -16,7 +16,7 @@
           [questionResults]="getQuestionResults(question.id)"
           [question]="question"
           [questionId]="$index + 1"
-          [participants]="committedResults().length"
+          [participants]="getParticipantCount(question.id)"
         ></app-survey-result>
       }
     </div>
