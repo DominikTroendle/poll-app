@@ -40,7 +40,6 @@ export class SurveyResults {
   }
 
   getParticipantCount(questionId: number): number {
-    console.log(this.draftResults());
     const committedParticipants = this.committedResults().length;
     if (this.draftResults().some((answer) => answer.questionId === questionId)) {
       return committedParticipants + 1;
