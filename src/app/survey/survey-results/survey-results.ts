@@ -33,10 +33,24 @@ export class SurveyResults {
   getQuestionResults(questionId: number): CommittedResponseAnswer[] {
     const question = this.questions().find((question) => question.id === questionId);
     if (!question) return [];
+    const committedResults = this.getCommittedResults(question);
+    const draftResults = this.getDraftResults(questionId);
+    return [...committedResults, ...draftResults];
+  }
+
+  getCommittedResults(question: Question): CommittedResponseAnswer[] {
     const answerOptionIds = new Set(question.answer_options.map((option) => option.id));
     return this.committedResults()
       .flatMap((response) => response.response_answers)
       .filter((answer) => answerOptionIds.has(answer.answer_option_id));
+  }
+
+  getDraftResults(questionId: number): CommittedResponseAnswer[] {
+    const draftQuestion = this.draftResults().find((answer) => answer.questionId === questionId);
+    if (!draftQuestion) return [];
+    return draftQuestion.selectedAnswerIDs.map((answerOptionId) => ({
+      answer_option_id: answerOptionId,
+    }));
   }
 
   getParticipantCount(questionId: number): number {
