@@ -4,7 +4,11 @@ import { SurveyForm } from '../survey-form/survey-form';
 import { SurveyResults } from '../survey-results/survey-results';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Supabase } from '../../shared/services/supabase';
-import { CommittedResults, SurveyWithQuestions } from '../../shared/interfaces/interfaces';
+import {
+  AnsweredQuestion,
+  CommittedResults,
+  SurveyWithQuestions,
+} from '../../shared/interfaces/interfaces';
 import { getRemainingDays } from '../../shared/utils/survey-date';
 
 @Component({
@@ -17,8 +21,10 @@ export class SurveyView {
   private readonly supabase = inject(Supabase);
   private readonly route = inject(ActivatedRoute);
   readonly surveyId = Number(this.route.snapshot.paramMap.get('id'));
+
   currentSurvey = signal<SurveyWithQuestions | null>(null);
   committedResults = signal<CommittedResults[]>([]);
+  draftResults = signal<AnsweredQuestion[]>([]);
 
   surveyExpired = computed(() => {
     const survey = this.currentSurvey();
@@ -41,5 +47,9 @@ export class SurveyView {
       month: '2-digit',
       year: 'numeric',
     }).format(localDate);
+  }
+
+  onAnsweredQuestionsChange(answers: AnsweredQuestion[]): void {
+    this.draftResults.set(answers);
   }
 }

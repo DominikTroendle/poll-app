@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { SurveyQuestion } from '../survey-question/survey-question';
 import { ButtonPrimary } from '../../shared/button-primary/button-primary';
 import { Answer, AnsweredQuestion, Question } from '../../shared/interfaces/interfaces';
@@ -13,6 +13,7 @@ export class SurveyForm {
   completeSurveyButtonText = 'Complete survey';
   questions = input.required<Question[]>();
   disabled = input.required<boolean>();
+  answeredQuestionsChange = output<AnsweredQuestion[]>();
 
   answeredQuestions: AnsweredQuestion[] = [];
 
@@ -21,6 +22,7 @@ export class SurveyForm {
       this.answeredQuestions = this.answeredQuestions.filter(
         (question) => question.questionId !== event.questionId,
       );
+      this.answeredQuestionsChange.emit(this.answeredQuestions);
       return;
     }
     const isExisting = this.answeredQuestions.findIndex(
@@ -33,5 +35,6 @@ export class SurveyForm {
         index === isExisting ? event : question,
       );
     }
+    this.answeredQuestionsChange.emit(this.answeredQuestions);
   }
 }

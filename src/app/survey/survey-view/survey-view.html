@@ -24,12 +24,14 @@
       class="survey-view__form"
       [questions]="survey.questions"
       [disabled]="surveyExpired()"
+      (answeredQuestionsChange)="onAnsweredQuestionsChange($event)"
     ></app-survey-form>
   </section>
   <app-survey-results
     class="survey-view__results"
     [expired]="surveyExpired()"
-    [results]="committedResults()"
+    [committedResults]="committedResults()"
+    [draftResults]="draftResults()"
     [questions]="survey.questions"
   ></app-survey-results>
 }

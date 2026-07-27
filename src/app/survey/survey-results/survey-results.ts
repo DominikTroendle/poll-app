@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { SurveyResult } from '../survey-result/survey-result';
 import {
+  AnsweredQuestion,
   CommittedResponseAnswer,
   CommittedResults,
   Question,
@@ -15,7 +16,8 @@ import {
 export class SurveyResults {
   expired = input<boolean>();
   questions = input.required<Question[]>();
-  results = input.required<CommittedResults[]>();
+  committedResults = input.required<CommittedResults[]>();
+  draftResults = input.required<AnsweredQuestion[]>();
   isOpen = true;
   buttonText = 'Close results';
 
@@ -32,7 +34,7 @@ export class SurveyResults {
     const question = this.questions().find((question) => question.id === questionId);
     if (!question) return [];
     const answerOptionIds = new Set(question.answer_options.map((option) => option.id));
-    return this.results()
+    return this.committedResults()
       .flatMap((response) => response.response_answers)
       .filter((answer) => answerOptionIds.has(answer.answer_option_id));
   }
