@@ -10,6 +10,7 @@
 
 .survey-form {
   @include flex-end(column, 24px);
+  width: 100%;
 
   &__container {
     display: grid;
@@ -19,6 +20,7 @@
 
     @container (min-width: 624px) {
       grid-template-columns: repeat(2, minmax(300px, 1fr));
+      column-gap: clamp(24px, calc(100cqi - 600px), 58px);
     }
   }
 
