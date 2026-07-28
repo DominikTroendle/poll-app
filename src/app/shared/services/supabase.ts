@@ -62,10 +62,31 @@ export class Supabase {
   }
 
   async setSurveyResult(surveyId: number, submittedResults: AnsweredQuestion[]) {
-    const { error } = await this.supabase.from('survey_responses').insert({ survey_id: surveyId });
-    if (error) {
-      console.error(error);
+    const { data: response, error: responseError } = await this.supabase
+      .from('survey_responses')
+      .insert({ survey_id: surveyId })
+      .select('id')
+      .single();
+    if (responseError) {
+      console.error(responseError);
       return;
     }
+    const responseAnswers = this.getResponseAnswers(submittedResults, response.id);
+    const { error: answersError } = await this.supabase
+      .from('response_answers')
+      .insert(responseAnswers);
+    if (answersError) {
+      console.error(answersError);
+      return;
+    }
+  }
+
+  getResponseAnswers(submittedResults: AnsweredQuestion[], responseId: number) {
+    const answerOptionIds = submittedResults.flatMap((answer) => answer.selectedAnswerIDs);
+    const responseAnswers = answerOptionIds.map((answerOptionId) => ({
+      response_id: responseId,
+      answer_option_id: answerOptionId,
+    }));
+    return responseAnswers;
   }
 }
