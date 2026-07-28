@@ -1,5 +1,8 @@
 @if (currentSurvey(); as survey) {
   <section class="survey-view">
+    <div class="survey-view__overlay" [class.survey-view__overlay--visible]="">
+      <div class="survey-view__submitted">Survey<br />successfully submitted!</div>
+    </div>
     <div class="survey-view__header-wrapper">
       <div class="survey-view__header">
         <div class="survey-view__status">
