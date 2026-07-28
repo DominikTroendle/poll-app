@@ -2,7 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { SurveyStatus } from '../../shared/survey-status/survey-status';
 import { SurveyForm } from '../survey-form/survey-form';
 import { SurveyResults } from '../survey-results/survey-results';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Supabase } from '../../shared/services/supabase';
 import {
   AnsweredQuestion,
@@ -20,6 +20,7 @@ import { getRemainingDays } from '../../shared/utils/survey-date';
 export class SurveyView {
   private readonly supabase = inject(Supabase);
   private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   readonly surveyId = Number(this.route.snapshot.paramMap.get('id'));
 
   currentSurvey = signal<SurveyWithQuestions | null>(null);
@@ -55,5 +56,6 @@ export class SurveyView {
 
   async submitSurvey(submittedResults: AnsweredQuestion[]) {
     await this.supabase.setSurveyResult(this.surveyId, submittedResults);
+    await this.router.navigate(['/']);
   }
 }
