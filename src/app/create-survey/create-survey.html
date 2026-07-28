@@ -11,46 +11,48 @@
       <h2 class="create-survey__title">Create new survey</h2>
     </div>
     <form class="create-survey__form" action="" (click)="closeCategoryDropdown()">
-      <div class="create-survey__details">
-        <app-create-survey-field
-          class="create-survey__field create-survey__field--name"
-          [field]="surveyNameField"
-        ></app-create-survey-field>
-        <div class="create-survey__date-category-row">
-          <app-category-dropdown
-            class="create-survey__dropdown"
-            [isOpen]="isCategoryDropdownOpen"
-            (toggleRequested)="toggleCategoryDropdown()"
-            (click)="$event.stopPropagation()"
-            [dropdownText]="dropdownChooseText"
-          ></app-category-dropdown>
+      <div class="create-survey__field-wrapper">
+        <div class="create-survey__details">
           <app-create-survey-field
-            class="create-survey__field create-survey__field--date"
-            [field]="endDateField"
+            class="create-survey__field create-survey__field--name"
+            [field]="surveyNameField"
+          ></app-create-survey-field>
+          <div class="create-survey__date-category-row">
+            <app-category-dropdown
+              class="create-survey__dropdown"
+              [isOpen]="isCategoryDropdownOpen"
+              (toggleRequested)="toggleCategoryDropdown()"
+              (click)="$event.stopPropagation()"
+              [dropdownText]="dropdownChooseText"
+            ></app-category-dropdown>
+            <app-create-survey-field
+              class="create-survey__field create-survey__field--date"
+              [field]="endDateField"
+            ></app-create-survey-field>
+          </div>
+          <app-create-survey-field
+            class="create-survey__field create-survey__field--description"
+            [field]="descriptionField"
           ></app-create-survey-field>
         </div>
-        <app-create-survey-field
-          class="create-survey__field create-survey__field--description"
-          [field]="descriptionField"
-        ></app-create-survey-field>
+        <div class="create-survey__questions-wrapper">
+          @for (question of questions; track question.id) {
+            <app-create-survey-question
+              class="create-survey__question"
+              [questionNumber]="question.id"
+            ></app-create-survey-question>
+          }
+        </div>
+        <button class="create-survey__button-add-question" type="button" (click)="addQuestion()">
+          Add next question
+          <img class="create-survey__icon-add-question" src="svg/plus-icon.svg" />
+        </button>
       </div>
-      <div class="create-survey__questions-wrapper">
-        @for (question of questions; track question.id) {
-          <app-create-survey-question
-            class="create-survey__question"
-            [questionNumber]="question.id"
-          ></app-create-survey-question>
-        }
-      </div>
-      <button class="create-survey__button-add-question" type="button" (click)="addQuestion()">
-        Add next question
-        <img class="create-survey__icon-add-question" src="svg/plus-icon.svg" />
-      </button>
+      <app-button-primary
+        class="create-survey__button"
+        [buttonText]="createSurveyButtonText"
+        [buttonType]="'submit'"
+      ></app-button-primary>
     </form>
   </div>
-  <app-button-primary
-    class="create-survey__button"
-    [buttonText]="createSurveyButtonText"
-    [buttonType]="'submit'"
-  ></app-button-primary>
 </section>
