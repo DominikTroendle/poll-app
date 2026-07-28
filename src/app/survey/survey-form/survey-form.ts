@@ -40,7 +40,8 @@ export class SurveyForm {
     this.answeredQuestionsChange.emit(this.answeredQuestions);
   }
 
-  submitSurvey() {
+  submitSurvey(event: SubmitEvent) {
+    event.preventDefault();
     this.isSubmitted = true;
     if (!this.isValid) {
       return;

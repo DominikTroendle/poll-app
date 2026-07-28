@@ -9,13 +9,17 @@
 }
 
 .survey-form {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 24px;
-  width: 100%;
+  @include flex-end(column, 24px);
 
-  @container (min-width: 624px) {
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    width: 100%;
+
+    @container (min-width: 624px) {
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
   }
 
   &__question {
@@ -33,7 +37,7 @@
     align-self: flex-end;
     font-family: 'Mulish 500';
     color: red;
-    margin-top: -30px;
+    margin-top: -18px;
 
     &--visible {
       display: flex;

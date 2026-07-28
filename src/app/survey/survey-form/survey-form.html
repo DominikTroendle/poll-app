@@ -1,21 +1,23 @@
-<form class="survey-form" action="">
-  @for (question of questions(); track question.id; let index = $index) {
-    <app-survey-question
-      class="survey-form__question"
-      [question]="question"
-      [questionId]="$index + 1"
-      [disabled]="disabled()"
-      (answeredQuestion)="onAnswerChange($event)"
-    ></app-survey-question>
-  }
+<form class="survey-form" (submit)="submitSurvey($event)">
+  <div class="survey-form__container">
+    @for (question of questions(); track question.id; let index = $index) {
+      <app-survey-question
+        class="survey-form__question"
+        [question]="question"
+        [questionId]="$index + 1"
+        [disabled]="disabled()"
+        (answeredQuestion)="onAnswerChange($event)"
+      ></app-survey-question>
+    }
+  </div>
+  <app-button-primary
+    class="survey-form__button"
+    [buttonText]="completeSurveyButtonText"
+    [hasIcon]="false"
+    [disabled]="disabled()"
+    [buttonType]="'submit'"
+  ></app-button-primary>
+  <p class="survey-form__error" [class.survey-form__error--visible]="isSubmitted && !isValid">
+    Please answer all questions!
+  </p>
 </form>
-<app-button-primary
-  class="survey-form__button"
-  [buttonText]="completeSurveyButtonText"
-  [hasIcon]="false"
-  [disabled]="disabled()"
-  (click)="submitSurvey()"
-></app-button-primary>
-<p class="survey-form__error" [class.survey-form__error--visible]="isSubmitted && !isValid">
-  Please answer all questions!
-</p>
