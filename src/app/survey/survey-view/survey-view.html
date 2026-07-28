@@ -25,6 +25,7 @@
       [questions]="survey.questions"
       [disabled]="surveyExpired()"
       (answeredQuestionsChange)="onAnsweredQuestionsChange($event)"
+      (surveySubmitted)="submitSurvey($event)"
     ></app-survey-form>
   </section>
   <app-survey-results

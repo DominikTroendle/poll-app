@@ -61,7 +61,11 @@ export class Supabase {
     return committedResults ?? [];
   }
 
-  async setSurveyResult(submittedResults: AnsweredQuestion[]) {
-    console.log(submittedResults);
+  async setSurveyResult(surveyId: number, submittedResults: AnsweredQuestion[]) {
+    const { error } = await this.supabase.from('survey_responses').insert({ survey_id: surveyId });
+    if (error) {
+      console.error(error);
+      return;
+    }
   }
 }

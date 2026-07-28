@@ -52,4 +52,8 @@ export class SurveyView {
   onAnsweredQuestionsChange(answers: AnsweredQuestion[]): void {
     this.draftResults.set(answers);
   }
+
+  async submitSurvey(submittedResults: AnsweredQuestion[]) {
+    await this.supabase.setSurveyResult(this.surveyId, submittedResults);
+  }
 }
