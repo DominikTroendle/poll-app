@@ -1,6 +1,11 @@
 import { Injectable, signal } from '@angular/core';
 import { createClient } from '@supabase/supabase-js';
-import { CommittedResults, SurveyMetaData, SurveyWithQuestions } from '../interfaces/interfaces';
+import {
+  AnsweredQuestion,
+  CommittedResults,
+  SurveyMetaData,
+  SurveyWithQuestions,
+} from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -54,5 +59,9 @@ export class Supabase {
       return [];
     }
     return committedResults ?? [];
+  }
+
+  async setSurveyResult(submittedResults: AnsweredQuestion[]) {
+    console.log(submittedResults);
   }
 }
