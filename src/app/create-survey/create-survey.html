@@ -2,7 +2,7 @@
   <div class="create-survey__wrapper">
     <div class="create-survey__header">
       <div class="create-survey__status">
-        <app-survey-status></app-survey-status>
+        <app-survey-status [displayMode]="'draft'"></app-survey-status>
         <button class="create-survey__close-button" routerLink="/">
           <span>Cancel</span>
           <img src="svg/close-white.svg" />
