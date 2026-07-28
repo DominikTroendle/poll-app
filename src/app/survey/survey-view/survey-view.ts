@@ -54,7 +54,7 @@ export class SurveyView {
     this.draftResults.set(answers);
   }
 
-  async submitSurvey(submittedResults: AnsweredQuestion[]) {
+  async submitSurvey(submittedResults: AnsweredQuestion[]): Promise<void> {
     await this.supabase.setSurveyResult(this.surveyId, submittedResults);
     await this.router.navigate(['/']);
   }
