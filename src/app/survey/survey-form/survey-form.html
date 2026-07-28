@@ -14,4 +14,8 @@
   [buttonText]="completeSurveyButtonText"
   [hasIcon]="false"
   [disabled]="disabled()"
+  (click)="submitSurvey()"
 ></app-button-primary>
+<p class="survey-form__error" [class.survey-form__error--visible]="isSubmitted && !isValid">
+  Please answer all questions!
+</p>

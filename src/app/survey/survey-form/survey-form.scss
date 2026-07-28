@@ -27,4 +27,16 @@
     --button-padding: 8px 12px;
     align-self: flex-end;
   }
+
+  &__error {
+    display: none;
+    align-self: flex-end;
+    font-family: 'Mulish 500';
+    color: red;
+    margin-top: -30px;
+
+    &--visible {
+      display: flex;
+    }
+  }
 }

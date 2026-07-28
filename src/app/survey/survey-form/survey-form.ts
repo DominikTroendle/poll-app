@@ -14,8 +14,10 @@ export class SurveyForm {
   questions = input.required<Question[]>();
   disabled = input.required<boolean>();
   answeredQuestionsChange = output<AnsweredQuestion[]>();
+  surveySubmitted = output<AnsweredQuestion[]>();
 
   answeredQuestions: AnsweredQuestion[] = [];
+  isSubmitted = false;
 
   onAnswerChange(event: AnsweredQuestion): void {
     if (event.selectedAnswerIDs.length === 0) {
@@ -36,5 +38,17 @@ export class SurveyForm {
       );
     }
     this.answeredQuestionsChange.emit(this.answeredQuestions);
+  }
+
+  submitSurvey() {
+    this.isSubmitted = true;
+    if (!this.isValid) {
+      return;
+    }
+    this.surveySubmitted.emit(this.answeredQuestions);
+  }
+
+  get isValid(): boolean {
+    return this.answeredQuestions.length === this.questions().length;
   }
 }
