@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import {
   AnsweredQuestion,
   CommittedResults,
+  NewQuestion,
   NewSurvey,
   ResponseAnswer,
   SurveyMetaData,
@@ -96,10 +97,14 @@ export class Supabase {
   }
 
   async setNewSurvey(submittedSurvey: NewSurvey): Promise<void> {
-    const survey = this.insertSurvey(submittedSurvey);
+    const surveyId = await this.insertSurvey(submittedSurvey);
+    if (surveyId === null) return;
+    for (const question of submittedSurvey.questions) {
+      const insertedQuestion = await this.insertQuestion(surveyId, question);
+    }
   }
 
-  async insertSurvey(survey: NewSurvey): Promise<void> {
+  async insertSurvey(survey: NewSurvey): Promise<number | null> {
     const surveyMetaData = {
       title: survey.title,
       description: survey.description,
@@ -109,12 +114,14 @@ export class Supabase {
     const { data, error } = await this.supabase
       .from('surveys')
       .insert(surveyMetaData)
-      .select('*')
+      .select('id')
       .single();
     if (error) {
       console.error(error);
-      return;
+      return null;
     }
-    return data;
+    return data.id;
   }
+
+  async insertQuestion(surveyId: number, question: NewQuestion): Promise<void> {}
 }
