@@ -8,11 +8,16 @@
         <img src="svg/delete.svg" />
       </button>
     </div>
+    @let questionTitleError =
+      surveyQuestionControl().controls.title.hasError('required') &&
+      (surveyQuestionControl().controls.title.touched ||
+        surveyQuestionControl().controls.title.dirty);
     <input
       class="create-survey-question__input"
       type="text"
       id="question-title"
       [formControl]="surveyQuestionControl().controls.title"
+      [placeholder]="questionTitleError ? 'This field is required' : ''"
     />
   </div>
   <div class="create-survey-question__answers">
