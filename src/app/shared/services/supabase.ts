@@ -145,7 +145,7 @@ export class Supabase {
 
   async insertAnswers(questionId: number, submittedAnswers: string[]): Promise<void> {
     const answers = submittedAnswers.map((answer) => ({ question_id: questionId, answer: answer }));
-    const { data, error } = await this.supabase.from('answer_options').insert(answers);
+    const { error } = await this.supabase.from('answer_options').insert(answers);
     if (error) {
       console.error(error);
       return;
