@@ -53,7 +53,7 @@ export class CreateSurvey {
   newSurvey = new FormGroup<SurveyForm>({
     title: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.minLength(2)],
+      validators: [Validators.required],
     }),
     category: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     endDate: new FormControl('', { nonNullable: true }),
@@ -77,7 +77,7 @@ export class CreateSurvey {
     return new FormGroup<SurveyFormQuestion>({
       title: new FormControl('', {
         nonNullable: true,
-        validators: [Validators.required, Validators.minLength(2)],
+        validators: [Validators.required],
       }),
       multiSelect: new FormControl(false, { nonNullable: true }),
       answers: new FormArray([
