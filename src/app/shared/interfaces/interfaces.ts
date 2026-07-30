@@ -1,4 +1,5 @@
 import { NumberSymbol } from '@angular/common';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 export type Category =
   | 'Team Activities'
@@ -50,4 +51,18 @@ export interface SelectedAnswer {
 export interface AnsweredQuestion {
   questionId: number;
   selectedAnswerIDs: number[];
+}
+
+export interface SurveyForm {
+  title: FormControl<string>;
+  category: FormControl<string>;
+  endDate: FormControl<string>;
+  description: FormControl<string>;
+  questions: FormArray<FormGroup<SurveyFormQuestion>>;
+}
+
+export interface SurveyFormQuestion {
+  title: FormControl<string>;
+  multiSelect: FormControl<boolean>;
+  answers: FormArray<FormControl<string>>;
 }

@@ -5,6 +5,8 @@ import { RouterLink } from '@angular/router';
 import { CreateSurveyField } from './create-survey-field/create-survey-field';
 import { CategoryDropdown } from '../shared/category-dropdown/category-dropdown';
 import { CreateSurveyQuestion } from './create-survey-question/create-survey-question';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { SurveyForm, SurveyFormQuestion } from '../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-create-survey',
@@ -15,6 +17,7 @@ import { CreateSurveyQuestion } from './create-survey-question/create-survey-que
     CreateSurveyField,
     CategoryDropdown,
     CreateSurveyQuestion,
+    ReactiveFormsModule,
   ],
   templateUrl: './create-survey.html',
   styleUrl: './create-survey.scss',
@@ -46,7 +49,14 @@ export class CreateSurvey {
   createSurveyButtonText = 'Publish';
   dropdownChooseText = 'Choose category';
   isCategoryDropdownOpen = false;
-  questions = [{ id: 1 }];
+
+  newSurvey = new FormGroup<SurveyForm>({
+    title: new FormControl('', { nonNullable: true }),
+    category: new FormControl('', { nonNullable: true }),
+    endDate: new FormControl('', { nonNullable: true }),
+    description: new FormControl('', { nonNullable: true }),
+    questions: new FormArray([this.createQuestionForm()]),
+  });
 
   toggleCategoryDropdown(): void {
     this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
@@ -57,7 +67,22 @@ export class CreateSurvey {
   }
 
   addQuestion(): void {
-    const nextId = this.questions.length + 1;
-    this.questions = [...this.questions, { id: nextId }];
+    this.newSurvey.controls.questions.push(this.createQuestionForm());
+  }
+
+  createQuestionForm(): FormGroup<SurveyFormQuestion> {
+    return new FormGroup<SurveyFormQuestion>({
+      title: new FormControl('', { nonNullable: true }),
+      multiSelect: new FormControl(false, { nonNullable: true }),
+      answers: new FormArray([
+        new FormControl('', { nonNullable: true }),
+        new FormControl('', { nonNullable: true }),
+      ]),
+    });
+  }
+
+  onSubmit(): void {
+    const survey = this.newSurvey.getRawValue();
+    console.log(survey);
   }
 }

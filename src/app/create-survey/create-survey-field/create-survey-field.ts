@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 export type CreateSurveyFieldType = 'text' | 'textarea';
 export type CreateSurveyFieldLayout = 'default' | 'answer';
@@ -13,12 +14,13 @@ export interface CreateSurveyFieldConfig {
 
 @Component({
   selector: 'app-create-survey-field',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './create-survey-field.html',
   styleUrl: './create-survey-field.scss',
 })
 export class CreateSurveyField {
   field = input.required<CreateSurveyFieldConfig>();
+  control = input.required<FormControl>();
 
   get optionalText(): string {
     return this.field().optional ? '(optional)' : '';

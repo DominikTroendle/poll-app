@@ -3,10 +3,12 @@ import {
   CreateSurveyField,
   CreateSurveyFieldConfig,
 } from '../create-survey-field/create-survey-field';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { SurveyFormQuestion } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-create-survey-question',
-  imports: [CreateSurveyField],
+  imports: [CreateSurveyField, ReactiveFormsModule],
   templateUrl: './create-survey-question.html',
   styleUrl: './create-survey-question.scss',
 })
@@ -16,9 +18,10 @@ export class CreateSurveyQuestion {
     { id: 'a', label: 'A.' },
     { id: 'b', label: 'B.' },
   ];
+  surveyQuestionControl = input.required<FormGroup<SurveyFormQuestion>>();
 
   getAnswerField(answer: { id: string; label: string }): CreateSurveyFieldConfig {
-    const questionNumber = this.questionNumber;
+    const questionNumber = this.questionNumber();
     return {
       id: `question-${questionNumber}-answer-${answer.id}`,
       name: `question-${questionNumber}-answer-${answer.id}`,
@@ -35,5 +38,6 @@ export class CreateSurveyQuestion {
       ...this.answers,
       { id: `${nextCharCode.toLowerCase}`, label: `${nextCharCode}.` },
     ];
+    this.surveyQuestionControl().controls.answers.push(new FormControl('', { nonNullable: true }));
   }
 }

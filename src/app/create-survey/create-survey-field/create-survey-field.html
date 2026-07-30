@@ -16,6 +16,7 @@
       [id]="field().id"
       [name]="field().name"
       [style.height]="'37px'"
+      [formControl]="control()"
     />
   } @else {
     <textarea
@@ -23,6 +24,7 @@
       [id]="field().id"
       [name]="field().name"
       [style.height]="'108px'"
+      [formControl]="control()"
     ></textarea>
   }
 </div>

@@ -10,12 +10,19 @@
       </div>
       <h2 class="create-survey__title">Create new survey</h2>
     </div>
-    <form class="create-survey__form" action="" (click)="closeCategoryDropdown()">
+    <form
+      class="create-survey__form"
+      action=""
+      (click)="closeCategoryDropdown()"
+      [formGroup]="newSurvey"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="create-survey__field-wrapper">
         <div class="create-survey__details">
           <app-create-survey-field
             class="create-survey__field create-survey__field--name"
             [field]="surveyNameField"
+            [control]="newSurvey.controls.title"
           ></app-create-survey-field>
           <div class="create-survey__date-category-row">
             <app-category-dropdown
@@ -28,18 +35,21 @@
             <app-create-survey-field
               class="create-survey__field create-survey__field--date"
               [field]="endDateField"
+              [control]="newSurvey.controls.endDate"
             ></app-create-survey-field>
           </div>
           <app-create-survey-field
             class="create-survey__field create-survey__field--description"
             [field]="descriptionField"
+            [control]="newSurvey.controls.description"
           ></app-create-survey-field>
         </div>
         <div class="create-survey__questions-wrapper">
-          @for (question of questions; track question.id) {
+          @for (questionControl of newSurvey.controls.questions.controls; track questionControl) {
             <app-create-survey-question
               class="create-survey__question"
-              [questionNumber]="question.id"
+              [questionNumber]="$index + 1"
+              [surveyQuestionControl]="questionControl"
             ></app-create-survey-question>
           }
         </div>

@@ -1,26 +1,38 @@
 <fieldset class="create-survey-question">
   <div class="create-survey-question__question">
     <div class="create-survey-question__header">
-      <legend class="create-survey-question__title">{{ questionNumber() }}. Question</legend>
+      <label class="create-survey-question__title" for="question-title"
+        >{{ questionNumber() }}. Question</label
+      >
       <button class="create-survey-question__action">
         <img src="svg/delete.svg" />
       </button>
     </div>
-    <input class="create-survey-question__input" type="text" />
+    <input
+      class="create-survey-question__input"
+      type="text"
+      id="question-title"
+      [formControl]="surveyQuestionControl().controls.title"
+    />
   </div>
   <div class="create-survey-question__answers">
     <div class="create-survey-question__answers-header">
       <span class="create-survey-question__answers-title">Answers</span>
       <div class="create-survey-question__checkbox">
-        <input type="checkbox" id="multi-select" />
+        <input
+          type="checkbox"
+          id="multi-select"
+          [formControl]="surveyQuestionControl().controls.multiSelect"
+        />
         <label for="multi-select"></label>
         <span>Allow multiple answers</span>
       </div>
     </div>
-    @for (answer of answers; track answer) {
+    @for (answer of answers; track answer.id; let answerControlIndex = $index) {
       <app-create-survey-field
         class="create-survey-question__field"
         [field]="getAnswerField(answer)"
+        [control]="surveyQuestionControl().controls.answers.controls[answerControlIndex]"
       ></app-create-survey-field>
     }
     <button class="create-survey-question__button-add" type="button" (click)="addAnswer()">
