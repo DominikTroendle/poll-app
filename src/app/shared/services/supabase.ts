@@ -96,8 +96,25 @@ export class Supabase {
   }
 
   async setNewSurvey(submittedSurvey: NewSurvey): Promise<void> {
-    const survey = this.insertSurvey();
+    const survey = this.insertSurvey(submittedSurvey);
   }
 
-  async insertSurvey(): Promise<void> {}
+  async insertSurvey(survey: NewSurvey): Promise<void> {
+    const surveyMetaData = {
+      title: survey.title,
+      description: survey.description,
+      category: survey.category,
+      ends_at: survey.endDate,
+    };
+    const { data, error } = await this.supabase
+      .from('surveys')
+      .insert(surveyMetaData)
+      .select('*')
+      .single();
+    if (error) {
+      console.error(error);
+      return;
+    }
+    return data;
+  }
 }
