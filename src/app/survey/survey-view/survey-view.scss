@@ -42,9 +42,12 @@
     backdrop-filter: blur(4px);
     border-radius: 4px 100px 4px 4px;
     box-shadow: 0 0 5px rgb(131, 131, 131);
+    opacity: 0;
+    transition: opacity 1s;
 
     &--visible {
       display: flex;
+      opacity: 1;
     }
   }
 

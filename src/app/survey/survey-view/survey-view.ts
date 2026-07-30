@@ -23,6 +23,8 @@ export class SurveyView {
   private readonly router = inject(Router);
   readonly surveyId = Number(this.route.snapshot.paramMap.get('id'));
 
+  isSubmitted = false;
+
   currentSurvey = signal<SurveyWithQuestions | null>(null);
   committedResults = signal<CommittedResults[]>([]);
   draftResults = signal<AnsweredQuestion[]>([]);
@@ -55,7 +57,10 @@ export class SurveyView {
   }
 
   async submitSurvey(submittedResults: AnsweredQuestion[]): Promise<void> {
+    this.isSubmitted = true;
     await this.supabase.setSurveyResult(this.surveyId, submittedResults);
-    await this.router.navigate(['/']);
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 2000);
   }
 }
