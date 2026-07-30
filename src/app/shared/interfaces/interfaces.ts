@@ -77,3 +77,8 @@ export interface SurveyFormQuestion {
   multiSelect: FormControl<boolean>;
   answers: FormArray<FormControl<string>>;
 }
+
+export interface ResponseAnswer {
+  response_id: number;
+  answer_option_id: number;
+}

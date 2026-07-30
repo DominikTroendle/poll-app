@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import {
   AnsweredQuestion,
   CommittedResults,
+  ResponseAnswer,
   SurveyMetaData,
   SurveyWithQuestions,
 } from '../interfaces/interfaces';
@@ -61,7 +62,7 @@ export class Supabase {
     return committedResults ?? [];
   }
 
-  async setSurveyResult(surveyId: number, submittedResults: AnsweredQuestion[]) {
+  async setSurveyResult(surveyId: number, submittedResults: AnsweredQuestion[]): Promise<void> {
     const { data: response, error: responseError } = await this.supabase
       .from('survey_responses')
       .insert({ survey_id: surveyId })
@@ -71,7 +72,7 @@ export class Supabase {
       console.error(responseError);
       return;
     }
-    const responseAnswers = this.getResponseAnswers(submittedResults, response.id);
+    const responseAnswers = this.createResponseAnswerRows(submittedResults, response.id);
     const { error: answersError } = await this.supabase
       .from('response_answers')
       .insert(responseAnswers);
@@ -81,7 +82,10 @@ export class Supabase {
     }
   }
 
-  getResponseAnswers(submittedResults: AnsweredQuestion[], responseId: number) {
+  createResponseAnswerRows(
+    submittedResults: AnsweredQuestion[],
+    responseId: number,
+  ): ResponseAnswer[] {
     const answerOptionIds = submittedResults.flatMap((answer) => answer.selectedAnswerIDs);
     const responseAnswers = answerOptionIds.map((answerOptionId) => ({
       response_id: responseId,
