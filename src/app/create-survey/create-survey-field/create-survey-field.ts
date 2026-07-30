@@ -1,16 +1,6 @@
 import { Component, input } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-
-export type CreateSurveyFieldType = 'text' | 'textarea';
-export type CreateSurveyFieldLayout = 'default' | 'answer';
-export interface CreateSurveyFieldConfig {
-  id: string;
-  name: string;
-  title: string;
-  optional?: boolean;
-  type?: CreateSurveyFieldType;
-  layout?: CreateSurveyFieldLayout;
-}
+import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CreateSurveyFieldConfig } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-create-survey-field',

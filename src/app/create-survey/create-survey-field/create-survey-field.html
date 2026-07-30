@@ -11,12 +11,14 @@
     <img src="svg/delete.svg" />
   </button>
   @if (type === 'text') {
+    @let controlError = control().hasError('required') && (control().touched || control().dirty);
     <input
       class="create-survey-field__input"
       [id]="field().id"
       [name]="field().name"
       [style.height]="'37px'"
       [formControl]="control()"
+      [placeholder]="controlError ? 'This field is required' : ''"
     />
   } @else {
     <textarea

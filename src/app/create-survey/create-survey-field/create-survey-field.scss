@@ -80,6 +80,11 @@
   color: $primary-purple;
   grid-area: input;
 
+  &::placeholder {
+    font-family: 'Mulish 500';
+    color: rgb(253, 89, 89);
+  }
+
   &:hover {
     cursor: pointer;
   }

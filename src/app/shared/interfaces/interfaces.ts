@@ -1,5 +1,16 @@
-import { NumberSymbol } from '@angular/common';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+
+export type CreateSurveyFieldType = 'text' | 'textarea';
+export type CreateSurveyFieldLayout = 'default' | 'answer';
+
+export interface CreateSurveyFieldConfig {
+  id: string;
+  name: string;
+  title: string;
+  optional?: boolean;
+  type?: CreateSurveyFieldType;
+  layout?: CreateSurveyFieldLayout;
+}
 
 export type Category =
   | 'Team Activities'

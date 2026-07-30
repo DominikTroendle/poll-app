@@ -1,8 +1,6 @@
 import { Component, input } from '@angular/core';
-import {
-  CreateSurveyField,
-  CreateSurveyFieldConfig,
-} from '../create-survey-field/create-survey-field';
+import { CreateSurveyFieldConfig } from '../../shared/interfaces/interfaces';
+import { CreateSurveyField } from '../create-survey-field/create-survey-field';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SurveyFormQuestion } from '../../shared/interfaces/interfaces';
 
