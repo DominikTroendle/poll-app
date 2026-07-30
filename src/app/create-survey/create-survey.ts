@@ -94,8 +94,8 @@ export class CreateSurvey {
   selectCategory(category: Category | null): void {
     const categoryControl = this.newSurvey.controls.category;
     categoryControl.setValue(category ?? '');
-    categoryControl.markAllAsDirty();
-    categoryControl.markAllAsTouched();
+    categoryControl.markAsDirty();
+    categoryControl.markAsTouched();
   }
 
   onSubmit(): void {
