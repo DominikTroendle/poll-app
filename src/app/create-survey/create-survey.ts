@@ -98,6 +98,10 @@ export class CreateSurvey {
   }
 
   onSubmit(): void {
+    if (this.newSurvey.invalid) {
+      this.newSurvey.markAllAsTouched();
+      return;
+    }
     const survey = this.newSurvey.getRawValue();
     console.log(survey);
   }
