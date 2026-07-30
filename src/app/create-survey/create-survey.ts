@@ -68,6 +68,7 @@ export class CreateSurvey {
   }
 
   closeCategoryDropdown(): void {
+    if (!this.isCategoryDropdownOpen) return;
     this.isCategoryDropdownOpen = false;
     this.newSurvey.controls.category.markAsTouched();
   }
