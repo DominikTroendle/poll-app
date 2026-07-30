@@ -1,5 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import { Category } from '../interfaces/interfaces';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-category-dropdown',
@@ -10,6 +11,7 @@ import { Category } from '../interfaces/interfaces';
 export class CategoryDropdown {
   isOpen = input(false);
   dropdownText = input<string>('');
+  control = input<FormControl>();
   toggleRequested = output<void>();
   categorySelected = output<Category | null>();
 
@@ -39,5 +41,13 @@ export class CategoryDropdown {
     this.selectedCategory = category === this.selectedCategory ? null : category;
     this.categorySelected.emit(this.selectedCategory);
     this.requestToggle();
+  }
+
+  showRequiredError(): boolean {
+    const categoryControl = this.control();
+    if (!categoryControl) return false;
+    return (
+      categoryControl.hasError('required') && (categoryControl.touched || categoryControl.dirty)
+    );
   }
 }

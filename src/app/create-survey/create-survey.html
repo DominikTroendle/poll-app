@@ -32,6 +32,7 @@
               (click)="$event.stopPropagation()"
               [dropdownText]="dropdownChooseText"
               (categorySelected)="selectCategory($event)"
+              [control]="newSurvey.controls.category"
             ></app-category-dropdown>
             <app-create-survey-field
               class="create-survey__field create-survey__field--date"

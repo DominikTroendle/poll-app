@@ -10,9 +10,13 @@
   </button>
   <p
     class="category-dropdown__selected"
-    [class.category-dropdown__selected--visible]="isCategorySelected()"
+    [class.category-dropdown__selected--visible]="isCategorySelected() || showRequiredError()"
   >
-    {{ selectedCategory }}
+    @if (showRequiredError()) {
+      <span class="category-dropdown__required">Category required</span>
+    } @else {
+      {{ selectedCategory }}
+    }
   </p>
   <ul class="category-dropdown__content" [class.category-dropdown__content--visible]="isOpen()">
     @for (category of categories; track category) {
