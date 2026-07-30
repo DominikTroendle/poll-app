@@ -49,6 +49,7 @@ export class CreateSurvey {
   createSurveyButtonText = 'Publish';
   dropdownChooseText = 'Choose category';
   isCategoryDropdownOpen = false;
+  isPublished = false;
 
   newSurvey = new FormGroup<SurveyForm>({
     title: new FormControl('', {
@@ -103,6 +104,7 @@ export class CreateSurvey {
       this.newSurvey.markAllAsTouched();
       return;
     }
+    this.isPublished = true;
     const survey = this.newSurvey.getRawValue();
     console.log(survey);
   }
