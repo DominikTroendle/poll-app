@@ -34,7 +34,7 @@ export class CreateSurveyQuestion {
     const nextCharCode = String.fromCharCode(lastAnswerId.charCodeAt(0) + 1);
     this.answers = [
       ...this.answers,
-      { id: `${nextCharCode.toLowerCase}`, label: `${nextCharCode}.` },
+      { id: `${nextCharCode.toLowerCase()}`, label: `${nextCharCode}.` },
     ];
     this.surveyQuestionControl().controls.answers.push(new FormControl('', { nonNullable: true }));
   }
