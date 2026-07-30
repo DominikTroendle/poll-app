@@ -45,7 +45,7 @@ export class CategoryDropdown {
 
   showRequiredError(): boolean {
     const categoryControl = this.control();
-    if (!categoryControl) return false;
+    if (!categoryControl || this.isOpen()) return false;
     return (
       categoryControl.hasError('required') && (categoryControl.touched || categoryControl.dirty)
     );

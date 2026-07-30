@@ -62,11 +62,14 @@ export class CreateSurvey {
   });
 
   toggleCategoryDropdown(): void {
+    const wasOpen = this.isCategoryDropdownOpen;
     this.isCategoryDropdownOpen = !this.isCategoryDropdownOpen;
+    if (wasOpen) this.newSurvey.controls.category.markAsTouched();
   }
 
   closeCategoryDropdown(): void {
     this.isCategoryDropdownOpen = false;
+    this.newSurvey.controls.category.markAsTouched();
   }
 
   addQuestion(): void {
