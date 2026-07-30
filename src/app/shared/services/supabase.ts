@@ -123,5 +123,21 @@ export class Supabase {
     return data.id;
   }
 
-  async insertQuestion(surveyId: number, question: NewQuestion): Promise<void> {}
+  async insertQuestion(surveyId: number, question: NewQuestion): Promise<number | null> {
+    const surveyQuestion = {
+      survey_id: surveyId,
+      question: question.title,
+      allow_multiple_answers: question.multiSelect,
+    };
+    const { data, error } = await this.supabase
+      .from('questions')
+      .insert(surveyQuestion)
+      .select('id')
+      .single();
+    if (error) {
+      console.error(error);
+      return null;
+    }
+    return data.id;
+  }
 }
