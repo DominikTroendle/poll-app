@@ -96,14 +96,15 @@ export class Supabase {
     return responseAnswers;
   }
 
-  async setNewSurvey(submittedSurvey: NewSurvey): Promise<void> {
+  async setNewSurvey(submittedSurvey: NewSurvey): Promise<number | null> {
     const surveyId = await this.insertSurvey(submittedSurvey);
-    if (surveyId === null) return;
+    if (surveyId === null) return null;
     for (const question of submittedSurvey.questions) {
       const questionId = await this.insertQuestion(surveyId, question);
-      if (questionId === null) return;
+      if (questionId === null) return null;
       await this.insertAnswers(questionId, question.answers);
     }
+    return surveyId;
   }
 
   async insertSurvey(survey: NewSurvey): Promise<number | null> {

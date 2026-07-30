@@ -115,7 +115,10 @@ export class CreateSurvey {
     }
     this.isPublished = true;
     const survey: NewSurvey = this.newSurvey.getRawValue();
-    await this.supabase.setNewSurvey(survey);
-    console.log(survey);
+    const surveyId = await this.supabase.setNewSurvey(survey);
+    if (surveyId === null) return;
+    setTimeout(() => {
+      this.router.navigate(['/survey', surveyId]);
+    }, 2000);
   }
 }
