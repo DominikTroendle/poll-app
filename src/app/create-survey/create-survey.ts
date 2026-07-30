@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonPrimary } from '../shared/button-primary/button-primary';
 import { SurveyStatus } from '../shared/survey-status/survey-status';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CreateSurveyField } from './create-survey-field/create-survey-field';
 import { CategoryDropdown } from '../shared/category-dropdown/category-dropdown';
 import { CreateSurveyQuestion } from './create-survey-question/create-survey-question';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Category, SurveyForm, SurveyFormQuestion } from '../shared/interfaces/interfaces';
+import {
+  Category,
+  NewSurvey,
+  SurveyForm,
+  SurveyFormQuestion,
+} from '../shared/interfaces/interfaces';
+import { Supabase } from '../shared/services/supabase';
 
 @Component({
   selector: 'app-create-survey',
@@ -23,6 +29,9 @@ import { Category, SurveyForm, SurveyFormQuestion } from '../shared/interfaces/i
   styleUrl: './create-survey.scss',
 })
 export class CreateSurvey {
+  private readonly router = inject(Router);
+  private readonly supabase = inject(Supabase);
+
   surveyNameField = {
     id: 'survey-name',
     name: 'survey-name',
@@ -99,13 +108,14 @@ export class CreateSurvey {
     categoryControl.markAsTouched();
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     if (this.newSurvey.invalid) {
       this.newSurvey.markAllAsTouched();
       return;
     }
     this.isPublished = true;
-    const survey = this.newSurvey.getRawValue();
+    const survey: NewSurvey = this.newSurvey.getRawValue();
+    await this.supabase.setNewSurvey(survey);
     console.log(survey);
   }
 }

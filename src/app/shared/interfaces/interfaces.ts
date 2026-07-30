@@ -82,3 +82,17 @@ export interface ResponseAnswer {
   response_id: number;
   answer_option_id: number;
 }
+
+export interface NewSurvey {
+  title: string;
+  endDate?: string;
+  category: string;
+  description?: string;
+  questions: NewQuestion[];
+}
+
+export interface NewQuestion {
+  title: string;
+  multiSelect: boolean;
+  answers: string[];
+}

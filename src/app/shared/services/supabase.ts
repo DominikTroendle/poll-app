@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import {
   AnsweredQuestion,
   CommittedResults,
+  NewSurvey,
   ResponseAnswer,
   SurveyMetaData,
   SurveyWithQuestions,
@@ -93,4 +94,10 @@ export class Supabase {
     }));
     return responseAnswers;
   }
+
+  async setNewSurvey(submittedSurvey: NewSurvey): Promise<void> {
+    const survey = this.insertSurvey();
+  }
+
+  async insertSurvey(): Promise<void> {}
 }
