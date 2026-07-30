@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { CreateSurveyField } from './create-survey-field/create-survey-field';
 import { CategoryDropdown } from '../shared/category-dropdown/category-dropdown';
 import { CreateSurveyQuestion } from './create-survey-question/create-survey-question';
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SurveyForm, SurveyFormQuestion } from '../shared/interfaces/interfaces';
 
 @Component({
@@ -51,8 +51,11 @@ export class CreateSurvey {
   isCategoryDropdownOpen = false;
 
   newSurvey = new FormGroup<SurveyForm>({
-    title: new FormControl('', { nonNullable: true }),
-    category: new FormControl('', { nonNullable: true }),
+    title: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.minLength(2)],
+    }),
+    category: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     endDate: new FormControl('', { nonNullable: true }),
     description: new FormControl('', { nonNullable: true }),
     questions: new FormArray([this.createQuestionForm()]),
@@ -72,11 +75,14 @@ export class CreateSurvey {
 
   createQuestionForm(): FormGroup<SurveyFormQuestion> {
     return new FormGroup<SurveyFormQuestion>({
-      title: new FormControl('', { nonNullable: true }),
+      title: new FormControl('', {
+        nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2)],
+      }),
       multiSelect: new FormControl(false, { nonNullable: true }),
       answers: new FormArray([
-        new FormControl('', { nonNullable: true }),
-        new FormControl('', { nonNullable: true }),
+        new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+        new FormControl('', { nonNullable: true, validators: [Validators.required] }),
       ]),
     });
   }
