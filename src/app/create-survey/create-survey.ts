@@ -6,7 +6,7 @@ import { CreateSurveyField } from './create-survey-field/create-survey-field';
 import { CategoryDropdown } from '../shared/category-dropdown/category-dropdown';
 import { CreateSurveyQuestion } from './create-survey-question/create-survey-question';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { SurveyForm, SurveyFormQuestion } from '../shared/interfaces/interfaces';
+import { Category, SurveyForm, SurveyFormQuestion } from '../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-create-survey',
@@ -85,6 +85,13 @@ export class CreateSurvey {
         new FormControl('', { nonNullable: true, validators: [Validators.required] }),
       ]),
     });
+  }
+
+  selectCategory(category: Category | null): void {
+    const categoryControl = this.newSurvey.controls.category;
+    categoryControl.setValue(category ?? '');
+    categoryControl.markAllAsDirty();
+    categoryControl.markAllAsTouched();
   }
 
   onSubmit(): void {

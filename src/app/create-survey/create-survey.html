@@ -31,6 +31,7 @@
               (toggleRequested)="toggleCategoryDropdown()"
               (click)="$event.stopPropagation()"
               [dropdownText]="dropdownChooseText"
+              (categorySelected)="selectCategory($event)"
             ></app-category-dropdown>
             <app-create-survey-field
               class="create-survey__field create-survey__field--date"
