@@ -100,7 +100,9 @@ export class Supabase {
     const surveyId = await this.insertSurvey(submittedSurvey);
     if (surveyId === null) return;
     for (const question of submittedSurvey.questions) {
-      const insertedQuestion = await this.insertQuestion(surveyId, question);
+      const questionId = await this.insertQuestion(surveyId, question);
+      if (questionId === null) return;
+      await this.insertAnswers(questionId, question.answers);
     }
   }
 
@@ -139,5 +141,14 @@ export class Supabase {
       return null;
     }
     return data.id;
+  }
+
+  async insertAnswers(questionId: number, submittedAnswers: string[]): Promise<void> {
+    const answers = submittedAnswers.map((answer) => ({ question_id: questionId, answer: answer }));
+    const { data, error } = await this.supabase.from('answer_options').insert(answers);
+    if (error) {
+      console.error(error);
+      return;
+    }
   }
 }
