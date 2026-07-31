@@ -4,7 +4,7 @@
       <label class="create-survey-question__title" for="question-title"
         >{{ questionNumber() }}. Question</label
       >
-      <button class="create-survey-question__action">
+      <button class="create-survey-question__action" type="button" (click)="handleQuestionAction()">
         <img src="svg/delete.svg" />
       </button>
     </div>

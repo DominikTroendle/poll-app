@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CreateSurveyFieldConfig } from '../../shared/interfaces/interfaces';
 import { CreateSurveyField } from '../create-survey-field/create-survey-field';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ export class CreateSurveyQuestion {
     { id: 'b', label: 'B.' },
   ];
   surveyQuestionControl = input.required<FormGroup<SurveyFormQuestion>>();
+  removeRequested = output<void>();
 
   getAnswerField(answer: { id: string; label: string }): CreateSurveyFieldConfig {
     const questionNumber = this.questionNumber();
@@ -37,5 +38,13 @@ export class CreateSurveyQuestion {
       { id: `${nextCharCode.toLowerCase()}`, label: `${nextCharCode}.` },
     ];
     this.surveyQuestionControl().controls.answers.push(new FormControl('', { nonNullable: true }));
+  }
+
+  handleQuestionAction(): void {
+    if (this.questionNumber() === 1) {
+      this.surveyQuestionControl().reset();
+      return;
+    }
+    this.removeRequested.emit();
   }
 }

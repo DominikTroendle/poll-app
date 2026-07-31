@@ -56,6 +56,7 @@
               class="create-survey__question"
               [questionNumber]="$index + 1"
               [surveyQuestionControl]="questionControl"
+              (removeRequested)="removeQuestion($index)"
             ></app-create-survey-question>
           }
         </div>

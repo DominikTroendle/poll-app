@@ -149,4 +149,9 @@ export class CreateSurvey {
       this.submitButtonShakes.set(false);
     }, 200);
   }
+
+  removeQuestion(index: number): void {
+    if (index === 0) return;
+    this.newSurvey.controls.questions.removeAt(index);
+  }
 }
