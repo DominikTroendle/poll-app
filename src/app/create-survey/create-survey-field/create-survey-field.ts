@@ -37,4 +37,8 @@ export class CreateSurveyField {
     }
     return '';
   }
+
+  clearInput(): void {
+    this.control().reset();
+  }
 }

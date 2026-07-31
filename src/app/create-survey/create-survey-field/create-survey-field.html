@@ -7,7 +7,7 @@
     >{{ field().title }}
     <span class="create-survey-field__highlight">{{ optionalText }}</span></label
   >
-  <button class="create-survey-field__action" type="button">
+  <button class="create-survey-field__action" type="button" (click)="clearInput()">
     <img src="svg/delete.svg" />
   </button>
   @if (type === 'text') {
