@@ -1,59 +1,156 @@
-# PollApp
+# Poll App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.1.
+A responsive survey application built with **Angular**, **TypeScript**, **SCSS**, and **Supabase**.
 
-## Development server
+The project allows users to create surveys, participate in active polls, and follow results as answers are selected. It focuses on reusable Angular components, typed reactive forms, and a clear separation between UI, application logic, and database access.
 
-To start a local development server, run:
+---
+
+## Live Demo
+
+[View PollApp](https://pollapp.dominik-troendle.de)
+
+---
+
+## About the Project
+
+Poll App provides a central overview of active and expired surveys. Users can filter surveys by category, open an active survey to vote, and create new surveys with multiple questions and answer options.
+
+Survey data, questions, answer options, responses, and submitted answers are stored in related Supabase tables. Draft selections are included in the live result display before they are committed to the database.
+
+---
+
+## Features
+
+- Overview of active and expired surveys
+- Highlighted surveys that are ending soon
+- Filtering by survey status and category
+- Single-choice and multiple-choice questions
+- Live result visualization while answering a survey
+- Persistent survey responses and answers with Supabase
+- Dynamic survey creation with questions and answer options
+- Typed reactive forms with validation
+- Responsive layouts for mobile and desktop
+- Route-based lazy loading of standalone Angular components
+
+---
+
+## Tech Stack
+
+- **Angular 21** - standalone components, signals, routing, and reactive forms
+- **TypeScript** - typed application logic and data models
+- **SCSS** - component styles, reusable variables, mixins, and breakpoints
+- **Supabase** - relational data storage and persistence
+- **Vitest** - unit test runner
+- **Prettier** - automated code formatting
+- **GitHub Actions** - formatting and production-build checks
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 24
+- npm
+- A Supabase project with the required database tables and policies
+
+### Installation
 
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Run the development server
 
 ```bash
-ng generate component component-name
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Open `http://localhost:4200/` in your browser. The application reloads automatically when source files change.
+
+### Create a production build
 
 ```bash
-ng generate --help
+npm run build
 ```
 
-## Building
-
-To build the project run:
+### Run unit tests
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Check formatting
 
 ```bash
-ng test
+npm run format:check
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### Format the project
 
 ```bash
-ng e2e
+npm run format
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Project Structure
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```text
+src/
+├── app/
+│   ├── create-survey/   # Survey creation and dynamic reactive form fields
+│   ├── home/            # Hero, ending-soon section, and survey overview
+│   ├── shared/          # Reusable UI, interfaces, services, and utilities
+│   └── survey/          # Survey form, questions, inputs, and live results
+├── styles/
+│   ├── abstract/        # Variables, mixins, and responsive breakpoints
+│   └── base/            # Global font definitions
+└── styles.scss          # Global stylesheet entry point
+
+public/
+├── fonts/               # Local font files
+├── png/                 # Assets
+└── svg/                 # Logos, icons, and visual elements
+```
+
+---
+
+## Data Model
+
+The application uses related Supabase tables for its survey data:
+
+- `surveys` stores survey metadata such as title, description, category, and end date
+- `questions` stores the questions belonging to a survey
+- `answer_options` stores the selectable answers for each question
+- `survey_responses` represents a completed participation in a survey
+- `response_answers` connects a response with its selected answer options
+
+---
+
+## Key Concepts
+
+- **Standalone Angular components** organized by feature
+- **Typed reactive forms** with nested `FormGroup` and `FormArray` structures
+- **Signals and computed state** for surveys, selections, and responsive UI state
+- **Parent-child communication** through signal inputs and outputs
+- **Relational data loading and persistence** through a dedicated Supabase service
+- **Draft result calculation** without writing unfinished responses to the database
+- **Lazy-loaded routes** for the home, survey, and create-survey views
+- **Continuous integration** for formatting and build verification on pushes and pull requests
+
+---
+
+## Author
+
+Dominik Tröndle,
+Frontend Developer based in Munich
+
+---
+
+## Preview
+
+![Poll App Preview](public/assets/app-preview-github.png)
+![Survey Preview](public/assets/survey-preview-github.png)
+![Form Preview](public/assets/form-preview-github.png)
