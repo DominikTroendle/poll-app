@@ -20,33 +20,6 @@ Survey data, questions, answer options, responses, and submitted answers are sto
 
 ---
 
-## Features
-
-- Overview of active and expired surveys
-- Highlighted surveys that are ending soon
-- Filtering by survey status and category
-- Single-choice and multiple-choice questions
-- Live result visualization while answering a survey
-- Persistent survey responses and answers with Supabase
-- Dynamic survey creation with questions and answer options
-- Typed reactive forms with validation
-- Responsive layouts for mobile and desktop
-- Route-based lazy loading of standalone Angular components
-
----
-
-## Tech Stack
-
-- **Angular 21** - standalone components, signals, routing, and reactive forms
-- **TypeScript** - typed application logic and data models
-- **SCSS** - component styles, reusable variables, mixins, and breakpoints
-- **Supabase** - relational data storage and persistence
-- **Vitest** - unit test runner
-- **Prettier** - automated code formatting
-- **GitHub Actions** - formatting and production-build checks
-
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -75,24 +48,6 @@ Open `http://localhost:4200/` in your browser. The application reloads automatic
 npm run build
 ```
 
-### Run unit tests
-
-```bash
-npm test
-```
-
-### Check formatting
-
-```bash
-npm run format:check
-```
-
-### Format the project
-
-```bash
-npm run format
-```
-
 ---
 
 ## Project Structure
@@ -117,6 +72,27 @@ public/
 
 ---
 
+## Features
+
+- Browse and filter active and expired surveys
+- Answer single-choice and multiple-choice questions
+- View live results while completing a survey
+- Create dynamic surveys with multiple questions and answers
+- Store surveys and responses with Supabase
+- Responsive design for mobile and desktop
+
+---
+
+## Tech Stack
+
+- **Angular 21**, **TypeScript**, **SCSS**
+- **Supabase**
+- **Vitest**
+- **Prettier**
+- **GitHub Actions**
+
+---
+
 ## Data Model
 
 The application uses related Supabase tables for its survey data:
@@ -131,14 +107,10 @@ The application uses related Supabase tables for its survey data:
 
 ## Key Concepts
 
-- **Standalone Angular components** organized by feature
-- **Typed reactive forms** with nested `FormGroup` and `FormArray` structures
-- **Signals and computed state** for surveys, selections, and responsive UI state
-- **Parent-child communication** through signal inputs and outputs
-- **Relational data loading and persistence** through a dedicated Supabase service
-- **Draft result calculation** without writing unfinished responses to the database
-- **Lazy-loaded routes** for the home, survey, and create-survey views
-- **Continuous integration** for formatting and build verification on pushes and pull requests
+- **Feature-based standalone components** for a modular architecture
+- **Typed reactive forms** for dynamic survey creation and validation
+- **Signals and computed state** for selections and live results
+- **Relational Supabase data** accessed through a dedicated service
 
 ---
 
