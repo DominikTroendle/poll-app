@@ -1,13 +1,26 @@
 <div class="category-dropdown">
-  <button
-    class="category-dropdown__button"
-    type="button"
-    [class.category-dropdown__button--selected]="isCategorySelected()"
-    (click)="requestToggle()"
-  >
-    <span>{{ dropdownText() }}</span>
-    <img [src]="getImgSrc" />
-  </button>
+  <div class="category-dropdown__trigger">
+    <button
+      class="category-dropdown__button"
+      type="button"
+      [class.category-dropdown__button--selected]="isCategorySelected()"
+      (click)="requestToggle()"
+    >
+      <span>{{ dropdownText() }}</span>
+      <img [src]="getImgSrc" />
+    </button>
+    <ul class="category-dropdown__content" [class.category-dropdown__content--visible]="isOpen()">
+      @for (category of categories; track category) {
+        <li
+          class="category-dropdown__category"
+          [class.category-dropdown__category--selected]="selectedCategory === category"
+          (click)="setCategory(category)"
+        >
+          {{ category }}
+        </li>
+      }
+    </ul>
+  </div>
   <p
     class="category-dropdown__selected"
     [class.category-dropdown__selected--visible]="isCategorySelected() || showRequiredError()"
@@ -18,15 +31,4 @@
       {{ selectedCategory }}
     }
   </p>
-  <ul class="category-dropdown__content" [class.category-dropdown__content--visible]="isOpen()">
-    @for (category of categories; track category) {
-      <li
-        class="category-dropdown__category"
-        [class.category-dropdown__category--selected]="selectedCategory === category"
-        (click)="setCategory(category)"
-      >
-        {{ category }}
-      </li>
-    }
-  </ul>
 </div>
