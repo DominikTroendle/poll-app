@@ -13,6 +13,7 @@ export class ResultChart {
 
   calculatePercent(): number {
     const percent = (this.selectionCount() / this.participants()) * 100;
+    if (this.selectionCount() === 0) return 0;
     return Math.round(percent);
   }
 
