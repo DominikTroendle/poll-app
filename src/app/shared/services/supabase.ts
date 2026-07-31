@@ -112,11 +112,11 @@ export class Supabase {
       title: survey.title,
       description: survey.description,
       category: survey.category,
-      ends_at: survey.endDate,
+      ...(survey.endDate ? { ends_at: survey.endDate } : {}),
     };
     const { data, error } = await this.supabase
       .from('surveys')
-      .insert(surveyMetaData)
+      .insert(surveyMetaData, { defaultToNull: false })
       .select('id')
       .single();
     if (error) {
