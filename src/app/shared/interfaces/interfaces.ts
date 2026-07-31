@@ -1,6 +1,6 @@
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
-export type CreateSurveyFieldType = 'text' | 'textarea';
+export type CreateSurveyFieldType = 'text' | 'textarea' | 'date';
 export type CreateSurveyFieldLayout = 'default' | 'answer';
 
 export interface CreateSurveyFieldConfig {

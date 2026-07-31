@@ -92,4 +92,12 @@
   &:focus {
     background: #fee9d4;
   }
+
+  &--past-date {
+    color: rgb(253, 89, 89);
+
+    &::-webkit-datetime-edit {
+      color: rgb(253, 89, 89);
+    }
+  }
 }

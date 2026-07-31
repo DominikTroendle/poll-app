@@ -41,6 +41,7 @@
               class="create-survey__field create-survey__field--date"
               [field]="endDateField"
               [control]="newSurvey.controls.endDate"
+              [showSubmitError]="submittAttempted"
             ></app-create-survey-field>
           </div>
           <app-create-survey-field

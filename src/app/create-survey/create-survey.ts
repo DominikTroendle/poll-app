@@ -5,7 +5,16 @@ import { Router, RouterLink } from '@angular/router';
 import { CreateSurveyField } from './create-survey-field/create-survey-field';
 import { CategoryDropdown } from '../shared/category-dropdown/category-dropdown';
 import { CreateSurveyQuestion } from './create-survey-question/create-survey-question';
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import {
   Category,
   NewSurvey,
@@ -13,6 +22,7 @@ import {
   SurveyFormQuestion,
 } from '../shared/interfaces/interfaces';
 import { Supabase } from '../shared/services/supabase';
+import { getRemainingDays } from '../shared/utils/survey-date';
 
 @Component({
   selector: 'app-create-survey',
@@ -44,7 +54,7 @@ export class CreateSurvey {
     name: 'end-date',
     title: 'Set end date',
     optional: true,
-    type: 'text',
+    type: 'date',
   } as const;
 
   descriptionField = {
@@ -59,6 +69,13 @@ export class CreateSurvey {
   dropdownChooseText = 'Choose category';
   isCategoryDropdownOpen = false;
   isPublished = false;
+  submittAttempted = false;
+
+  notPastDateValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const date = control.value as string;
+    if (!date) return null;
+    return getRemainingDays(date) < 0 ? { pastDate: true } : null;
+  };
 
   newSurvey = new FormGroup<SurveyForm>({
     title: new FormControl('', {
@@ -66,7 +83,7 @@ export class CreateSurvey {
       validators: [Validators.required],
     }),
     category: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    endDate: new FormControl('', { nonNullable: true }),
+    endDate: new FormControl('', { nonNullable: true, validators: [this.notPastDateValidator] }),
     description: new FormControl('', { nonNullable: true }),
     questions: new FormArray([this.createQuestionForm()]),
   });
@@ -109,6 +126,7 @@ export class CreateSurvey {
   }
 
   async onSubmit(): Promise<void> {
+    this.submittAttempted = true;
     if (this.newSurvey.invalid) {
       this.newSurvey.markAllAsTouched();
       return;

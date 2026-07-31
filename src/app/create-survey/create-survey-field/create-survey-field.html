@@ -11,14 +11,27 @@
     <img src="svg/delete.svg" />
   </button>
   @if (type === 'text') {
-    @let controlError = control().hasError('required') && (control().touched || control().dirty);
     <input
       class="create-survey-field__input"
+      type="text"
       [id]="field().id"
       [name]="field().name"
       [style.height]="'37px'"
       [formControl]="control()"
-      [placeholder]="controlError ? 'This field is required' : ''"
+      [placeholder]="showControlError"
+    />
+  } @else if (type === 'date') {
+    <input
+      class="create-survey-field__input"
+      type="date"
+      [class.create-survey-field__input--past-date]="
+        showSubmitError() && control().hasError('pastDate')
+      "
+      [id]="field().id"
+      [name]="field().name"
+      [style.height]="'37px'"
+      [formControl]="control()"
+      [min]="today"
     />
   } @else {
     <textarea

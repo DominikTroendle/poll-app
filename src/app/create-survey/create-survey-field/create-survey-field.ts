@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CreateSurveyFieldConfig } from '../../shared/interfaces/interfaces';
 
 @Component({
@@ -11,6 +11,9 @@ import { CreateSurveyFieldConfig } from '../../shared/interfaces/interfaces';
 export class CreateSurveyField {
   field = input.required<CreateSurveyFieldConfig>();
   control = input.required<FormControl>();
+  showSubmitError = input(false);
+
+  today = new Date().toISOString().split('T')[0];
 
   get optionalText(): string {
     return this.field().optional ? '(optional)' : '';
@@ -22,5 +25,16 @@ export class CreateSurveyField {
 
   get layout(): string {
     return this.field().layout ?? 'default';
+  }
+
+  get showControlError(): string {
+    const control = this.control();
+    const showError = control.touched || control.dirty;
+    if (!showError) {
+      return '';
+    } else if (control.hasError('required')) {
+      return 'This field is required';
+    }
+    return '';
   }
 }
