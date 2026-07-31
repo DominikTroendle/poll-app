@@ -16,7 +16,11 @@
           </button>
         </div>
         <div class="survey-view__meta">
-          <span>Ends on {{ formatDate(survey.ends_at) }}</span>
+          @if (surveyExpired()) {
+            <span>Ended on {{ formatDate(survey.ends_at) }}</span>
+          } @else {
+            <span>Ends on {{ formatDate(survey.ends_at) }}</span>
+          }
           <span>Category: {{ survey.category }}</span>
         </div>
         <h2 class="survey-view__title">{{ survey.title }}</h2>
