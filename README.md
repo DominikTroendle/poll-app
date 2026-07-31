@@ -151,6 +151,6 @@ Frontend Developer based in Munich
 
 ## Preview
 
-![Poll App Preview](public/assets/app-preview-github.png)
-![Survey Preview](public/assets/survey-preview-github.png)
-![Form Preview](public/assets/form-preview-github.png)
+![Poll App Preview](public/png/app-preview-github.png)
+![Survey Preview](public/png/survey-preview-github.png)
+![Form Preview](public/png/form-preview-github.png)
