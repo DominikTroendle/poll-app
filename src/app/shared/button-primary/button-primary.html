@@ -1,4 +1,9 @@
-<button class="button" [disabled]="disabled()" [type]="buttonType()">
+<button
+  class="button"
+  [class.button--error-shake]="errorShake()"
+  [disabled]="disabled()"
+  [type]="buttonType()"
+>
   <span class="button__text">{{ buttonText() }}</span>
   @if (hasIcon()) {
     <img class="button__icon" [src]="logoSrc" />

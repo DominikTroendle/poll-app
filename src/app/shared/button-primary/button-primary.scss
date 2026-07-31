@@ -14,6 +14,10 @@
     transition: all 0.3s ease;
   }
 
+  &--error-shake {
+    animation: 0.2s shake;
+  }
+
   &:disabled {
     background: lightgray;
     cursor: not-allowed;
@@ -28,6 +32,24 @@
         margin-left: 10px;
       }
     }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 

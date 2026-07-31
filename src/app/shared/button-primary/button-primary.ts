@@ -12,6 +12,7 @@ export class ButtonPrimary {
   hasIcon = input<boolean>(true);
   buttonType = input<'button' | 'submit'>('button');
   disabled = input<boolean>();
+  errorShake = input<boolean>(false);
   private readonly router = inject(Router);
 
   get isHomePage(): boolean {

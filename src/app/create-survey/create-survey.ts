@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ButtonPrimary } from '../shared/button-primary/button-primary';
 import { SurveyStatus } from '../shared/survey-status/survey-status';
 import { Router, RouterLink } from '@angular/router';
@@ -41,6 +41,8 @@ import { getRemainingDays } from '../shared/utils/survey-date';
 export class CreateSurvey {
   private readonly router = inject(Router);
   private readonly supabase = inject(Supabase);
+
+  readonly submitButtonShakes = signal(false);
 
   surveyNameField = {
     id: 'survey-name',
@@ -129,6 +131,7 @@ export class CreateSurvey {
     this.submittAttempted = true;
     if (this.newSurvey.invalid) {
       this.newSurvey.markAllAsTouched();
+      this.triggerSubmitButtonShake();
       return;
     }
     this.isPublished = true;
@@ -138,5 +141,12 @@ export class CreateSurvey {
     setTimeout(() => {
       this.router.navigate(['/survey', surveyId]);
     }, 2000);
+  }
+
+  triggerSubmitButtonShake(): void {
+    this.submitButtonShakes.set(true);
+    setTimeout(() => {
+      this.submitButtonShakes.set(false);
+    }, 200);
   }
 }
