@@ -1,3 +1,5 @@
+@use './styles/abstract/variables' as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -5,5 +7,23 @@
 }
 
 html {
-  scrollbar-width: none;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+html:has(app-home) {
+  background: $primary-purple;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: $secondary-orange;
+  border-radius: 10px;
 }

@@ -2,11 +2,23 @@
 
 :host {
   display: block;
-  width: 100vw;
+  width: calc(100% + 32px);
+  margin-inline: -16px;
+
+  @include respond(xs) {
+    width: calc(100% + 64px);
+    margin-inline: -32px;
+  }
+
+  @include respond(lg) {
+    width: calc(100% + 200px);
+    margin-inline: -100px;
+  }
 
   @include respond(xl) {
     width: 100%;
     max-width: 1042px;
+    margin-inline: 0;
   }
 }
 
@@ -46,12 +58,17 @@
     @include flex-start(row, 16px);
     justify-content: flex-start;
     width: 100%;
-    padding-left: 16px;
+    padding-inline: 16px;
     overflow-x: auto;
     overflow-y: hidden;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @include respond(xs) {
-      padding-left: 32px;
+      padding-inline: 32px;
     }
 
     @include respond(lg) {
@@ -78,17 +95,4 @@
       height: 310px;
     }
   }
-}
-
-::-webkit-scrollbar {
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #bababa;
-  border-radius: 10px;
 }
