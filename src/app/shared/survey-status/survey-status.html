@@ -5,6 +5,8 @@
     <span class="survey-status__text">Expired</span>
   } @else if (displayMode() === 'draft') {
     <span class="survey-status__text">Draft</span>
+  } @else if (displayMode() === 'completed') {
+    <span class="survey-status__text">Completed</span>
   } @else {
     @let remainingDays = daysRemaining();
     @if (remainingDays < 0) {
