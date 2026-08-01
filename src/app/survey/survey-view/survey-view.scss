@@ -18,6 +18,7 @@
 .survey-view {
   @include flex-start(column, 40px);
   padding: 40px 16px;
+  padding-bottom: 16px;
   background: #8e70991a;
   border-top-right-radius: 100px;
   width: 100%;
@@ -25,10 +26,12 @@
 
   @include respond(sm) {
     padding: 40px 32px;
+    padding-bottom: 16px;
   }
 
   @include respond(lg) {
     padding: 40px;
+    padding-bottom: 16px;
   }
 
   &__toast {

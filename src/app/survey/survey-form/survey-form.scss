@@ -35,14 +35,17 @@
   }
 
   &__error {
-    display: none;
+    height: 18px;
     align-self: flex-end;
     font-family: 'Mulish 500';
     color: red;
     margin-top: -18px;
+    visibility: hidden;
+    opacity: 0;
 
     &--visible {
-      display: flex;
+      visibility: visible;
+      opacity: 1;
     }
   }
 }
