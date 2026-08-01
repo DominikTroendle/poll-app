@@ -6,7 +6,9 @@
 :host {
   @include respond(4xl) {
     @include flex-center(column);
+    justify-content: flex-start;
     width: 100vw;
+    min-height: calc(100vh - 172px);
     background-color: $primary-purple;
   }
 }
