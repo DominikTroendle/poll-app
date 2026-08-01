@@ -64,7 +64,7 @@ export class Supabase {
     return committedResults ?? [];
   }
 
-  async setSurveyResult(surveyId: number, submittedResults: AnsweredQuestion[]): Promise<void> {
+  async setSurveyResult(surveyId: number, submittedResults: AnsweredQuestion[]): Promise<boolean> {
     const { data: response, error: responseError } = await this.supabase
       .from('survey_responses')
       .insert({ survey_id: surveyId })
@@ -72,7 +72,7 @@ export class Supabase {
       .single();
     if (responseError) {
       console.error(responseError);
-      return;
+      return false;
     }
     const responseAnswers = this.createResponseAnswerRows(submittedResults, response.id);
     const { error: answersError } = await this.supabase
@@ -80,8 +80,9 @@ export class Supabase {
       .insert(responseAnswers);
     if (answersError) {
       console.error(answersError);
-      return;
+      return false;
     }
+    return true;
   }
 
   createResponseAnswerRows(

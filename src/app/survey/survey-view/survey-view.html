@@ -30,14 +30,14 @@
     <app-survey-form
       class="survey-view__form"
       [questions]="survey.questions"
-      [disabled]="surveyExpired()"
+      [disabled]="surveyDisabled()"
       (answeredQuestionsChange)="onAnsweredQuestionsChange($event)"
       (surveySubmitted)="submitSurvey($event)"
     ></app-survey-form>
   </section>
   <app-survey-results
     class="survey-view__results"
-    [expired]="surveyExpired()"
+    [expired]="surveyDisabled()"
     [committedResults]="committedResults()"
     [draftResults]="draftResults()"
     [questions]="survey.questions"

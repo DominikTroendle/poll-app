@@ -10,6 +10,7 @@ import {
   SurveyWithQuestions,
 } from '../../shared/interfaces/interfaces';
 import { getRemainingDays } from '../../shared/utils/survey-date';
+import { SurveyParticipation } from '../../shared/services/survey-participation';
 
 @Component({
   selector: 'app-survey-view',
@@ -21,10 +22,12 @@ export class SurveyView {
   private readonly supabase = inject(Supabase);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  private readonly surveyParticipation = inject(SurveyParticipation);
   readonly surveyId = Number(this.route.snapshot.paramMap.get('id'));
 
   isSubmitted = false;
 
+  surveyComplete = signal(this.surveyParticipation.hasCompletedSurvey(this.surveyId));
   currentSurvey = signal<SurveyWithQuestions | null>(null);
   committedResults = signal<CommittedResults[]>([]);
   draftResults = signal<AnsweredQuestion[]>([]);
@@ -33,6 +36,9 @@ export class SurveyView {
     const survey = this.currentSurvey();
     if (!survey) return false;
     return getRemainingDays(survey.ends_at) < 0;
+  });
+  surveyDisabled = computed(() => {
+    return this.surveyExpired() || this.surveyComplete();
   });
 
   async ngOnInit(): Promise<void> {
@@ -57,8 +63,12 @@ export class SurveyView {
   }
 
   async submitSurvey(submittedResults: AnsweredQuestion[]): Promise<void> {
+    if (this.surveyDisabled()) return;
+    const wasSaved = await this.supabase.setSurveyResult(this.surveyId, submittedResults);
+    if (!wasSaved) return;
+    this.surveyParticipation.markSurveyAsCompleted(this.surveyId);
+    this.surveyComplete.set(true);
     this.isSubmitted = true;
-    await this.supabase.setSurveyResult(this.surveyId, submittedResults);
     setTimeout(() => {
       this.router.navigate(['/']);
     }, 2000);
