@@ -5,6 +5,7 @@
 :host {
   display: block;
   padding: 0 0 48px 0;
+  overflow: clip;
 
   @include respond(md) {
     padding: 0 32px 48px 32px;
@@ -36,37 +37,29 @@
     padding: 40px 54px;
   }
 
-  &__overlay {
-    @include flex-end();
-    display: none;
+  &__toast {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: rgba($color: #ffffff, $alpha: 0.12);
-    backdrop-filter: blur(4px);
-    border-radius: 4px 100px 4px 4px;
-    box-shadow: 0 0 5px rgb(131, 131, 131);
-    opacity: 0;
-    transition: opacity 1s;
-
-    &--visible {
-      display: flex;
-      opacity: 1;
-    }
-  }
-
-  &__published {
+    bottom: 30px;
+    right: calc(50% - 110px);
+    z-index: 10;
     width: 220px;
     font-family: 'Mulish 700';
     color: $primary-purple;
     background: $tertiary-orange;
     padding: 10px 20px;
     border-radius: 4px 50px 4px 4px;
-    margin-bottom: 100px;
-    box-shadow: 0 0 8px rgb(95, 95, 95);
+    box-shadow: 0 0 10px black;
+    transform: translateX(100vw);
+    transition: transform 0.5s;
+
+    @include respond(lg) {
+      bottom: 33px;
+      right: 10px;
+    }
+
+    &--visible {
+      transform: translateX(0);
+    }
   }
 
   &__wrapper {

@@ -1,7 +1,7 @@
 @if (currentSurvey(); as survey) {
   <section class="survey-view">
-    <div class="survey-view__overlay" [class.survey-view__overlay--visible]="isSubmitted">
-      <div class="survey-view__submitted">Survey<br />successfully submitted!</div>
+    <div class="survey-view__toast" [class.survey-view__toast--visible]="isSubmitted">
+      Survey<br />successfully submitted!
     </div>
     <div class="survey-view__header-wrapper">
       <div class="survey-view__header">

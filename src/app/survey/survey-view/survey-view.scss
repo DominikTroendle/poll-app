@@ -3,6 +3,8 @@
 @use '../../../styles/base/fonts' as *;
 
 :host {
+  overflow: clip;
+
   @include flex-center(column, 56px);
   width: 100%;
 
@@ -29,25 +31,23 @@
     padding: 40px;
   }
 
-  &__overlay {
-    @include flex-end();
-    display: none;
+  &__toast {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: rgba($color: #ffffff, $alpha: 0.12);
-    backdrop-filter: blur(4px);
-    border-radius: 4px 100px 4px 4px;
-    box-shadow: 0 0 5px rgb(131, 131, 131);
-    opacity: 0;
-    transition: opacity 1s;
+    bottom: 35px;
+    right: 8px;
+    z-index: 10;
+    width: 220px;
+    font-family: 'Mulish 700';
+    color: $primary-purple;
+    background: $tertiary-orange;
+    padding: 10px 20px;
+    border-radius: 4px 50px 4px 4px;
+    box-shadow: 0 0 10px black;
+    transform: translateX(100vw);
+    transition: transform 0.5s;
 
     &--visible {
-      display: flex;
-      opacity: 1;
+      transform: translateX(0);
     }
   }
 
